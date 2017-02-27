@@ -1,0 +1,390 @@
+strategy: SPECIFIC
+collections:
+  google_analytics:
+    columns:
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - 'ga:ad_clicks':
+          category: null
+          type: DOUBLE
+      - 'ga:bounces':
+          category: null
+          type: DOUBLE
+      - 'ga:ad_cost':
+          category: null
+          type: DOUBLE
+      - 'ga:organic_searches':
+          category: null
+          type: DOUBLE
+      - 'ga:impressions':
+          category: null
+          type: DOUBLE
+      - 'ga:sessions':
+          category: null
+          type: DOUBLE
+      - 'ga:pageviews':
+          category: null
+          type: DOUBLE
+      - _user:
+          category: null
+          type: LONG
+      - 'ga:new_users':
+          category: null
+          type: DOUBLE
+      - 'ga:users':
+          category: null
+          type: DOUBLE
+      - 'ga:cpm':
+          category: null
+          type: DOUBLE
+      - 'ga:hostname':
+          category: null
+          type: STRING
+      - 'ga:goal_completions_all':
+          category: null
+          type: DOUBLE
+      - 'ga:session_duration':
+          category: null
+          type: STRING
+      - 'ga:transaction_revenue':
+          category: null
+          type: DOUBLE
+      - 'ga:page_path':
+          category: null
+          type: STRING
+      - 'ga:transactions':
+          category: null
+          type: DOUBLE
+      - 'ga:goal_value_all':
+          category: null
+          type: DOUBLE
+      - 'ga:country':
+          category: null
+          type: STRING
+      - 'ga:city':
+          category: null
+          type: STRING
+reports:
+  - slug: user_metrics
+    category: Google Analytics
+    name: User metrics
+    query: >-
+      SELECT cast(date_trunc({segment}, "_time") as date) as "{{ segment[0]
+      }}",   
+
+      avg("ga:users") as "{{segment[0] == 'day' ? 'users' : 'average user
+      count'}}", 
+
+      sum("ga:sessions") as sessions, 
+
+      avg("ga:new_users") as "{{segment[0] == 'day' ? 'new users' : 'average new
+      users'}}", 
+
+      sum("ga:pageviews") as pageviews,
+
+      avg("ga:users") / avg("ga:bounces") as "{{segment[0] == 'day' ? 'bounce
+      rate' : 'average bounce rate'}}", 
+
+      sum("ga:pageviews") / sum("ga:sessions") as "page_per_session",
+
+      avg(cast("ga:session_duration" as float)) as "average_session_duration"
+
+      FROM collection."google_analytics"
+
+      WHERE _time between {date[0]} and {date[1]}
+
+      GROUP BY 1
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions:
+        singleColumn: true
+      variables:
+        - multiple: false
+          name: segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+                - - quarter
+                  - quarter
+                - - year
+                  - year
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_two_weeks
+          type: date-range
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: false
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              suffix: '%'
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: goals
+    category: Google Analytics
+    name: Goals
+    query: >-
+      SELECT cast(date_trunc({segment}, "_time") as date) as "{{ segment[0]
+      }}", 
+
+      avg("ga:users") as "{{segment[0] == 'day' ? 'users' : 'average user
+      count'}}", 
+
+      sum("ga:goal_completions_all") as goal_completions, 
+
+      avg("ga:goal_completions_all" / "ga:users") "goal conversion rate", 
+
+      sum("ga:goal_value_all") as "goal value"
+
+      FROM collection."google_analytics"
+
+      WHERE _time between {date[0]} and {date[1]}
+
+      GROUP BY 1
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+                - - year
+                  - year
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_two_weeks
+          type: date-range
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions:
+            type: line
+            shape: spline
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              suffix: '%'
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+    queryOptions: {}
+  - slug: analytics_city
+    category: Google Analytics
+    name: City
+    query: >-
+      SELECT "ga:city",   
+
+      avg("ga:users") as "{{segment[0] == 'day' ? 'users' : 'average user
+      count'}}", 
+
+      sum("ga:sessions") as sessions, 
+
+      avg("ga:new_users") as "{{segment[0] == 'day' ? 'new users' : 'average new
+      users'}}", 
+
+      sum("ga:pageviews") as pageviews,
+
+      avg("ga:users") / nullif(avg("ga:bounces"), 0) as "{{segment[0] == 'day' ?
+      'bounce rate' : 'average bounce rate'}}", 
+
+      sum("ga:pageviews") / nullif(sum("ga:sessions"), 0) as "page_per_session",
+
+      avg(cast("ga:session_duration" as float)) as "average_session_duration"
+
+      FROM collection."google_analytics"
+
+      WHERE _time between {date[0]} and {date[1]} and ["ga:country" =
+      {country}](true)
+
+      GROUP BY 1 order by 5 desc
+    shared: false
+    options:
+      chartType: scatter
+      limit: 25
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+        enableServerSide: false
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_two_weeks
+          type: date-range
+        - multiple: false
+          name: country
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: 'select distinct "ga:country" from google_analytics'
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            hide: false
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: false
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              suffix: '%'
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
