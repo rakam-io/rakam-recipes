@@ -1,3 +1,10 @@
+variables:
+  - collection:
+      type: STRING
+      placeholder: google_webmaster
+      description: The collection of the events, you should use the same collection in integration page
+
+
 strategy: SPECIFIC
 collections:
   {{collection}}:
