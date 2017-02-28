@@ -74,7 +74,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct query from "{{collection}}"
+              query: select distinct query from {{collection}}
           type: string
         - multiple: false
           name: country
@@ -82,7 +82,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct country from "{{collection}}"
+              query: select distinct country from {{collection}}
           type: string
         - multiple: false
           name: page
@@ -90,7 +90,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct page from "{{collection}}"
+              query: select distinct page from {{collection}}
           type: string
         - multiple: false
           name: device
@@ -98,7 +98,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct device from "{{collection}}"
+              query: select distinct device from {{collection}}
           type: string
       segments: []
       measures:
@@ -163,7 +163,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct query from "{{collection}}"
+              query: select distinct query from {{collection}}
           type: string
         - multiple: false
           name: country
@@ -171,7 +171,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct country from "{{collection}}"
+              query: select distinct country from {{collection}}
           type: string
         - multiple: false
           name: page
@@ -179,7 +179,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct page from "{{collection}}"
+              query: select distinct page from {{collection}}
           type: string
         - multiple: false
           name: device
@@ -187,7 +187,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct device from "{{collection}}"
+              query: select distinct device from {{collection}}
           type: string
       segments: []
       measures:
@@ -252,7 +252,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct country from "{{collection}}"
+              query: select distinct country from {{collection}}
           type: string
         - multiple: false
           name: page
@@ -260,7 +260,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct page from "{{collection}}"
+              query: select distinct page from {{collection}}
           type: string
         - multiple: false
           name: device
@@ -268,7 +268,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct device from "{{collection}}"
+              query: select distinct device from {{collection}}
           type: string
       segments: []
       measures:
