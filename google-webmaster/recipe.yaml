@@ -7,7 +7,7 @@ variables:
 
 strategy: SPECIFIC
 collections:
-  kk:
+  {{collection}}:
     columns:
       - query:
           category: null
