@@ -212,6 +212,209 @@ reports:
         - displayFormat: null
           tableOptions:
             cellOptions: {}
+strategy: SPECIFIC
+collections:
+  google_webmaster:
+    columns:
+      - query:
+          category: null
+          type: STRING
+      - impressions:
+          category: null
+          type: DOUBLE
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - country:
+          category: null
+          type: STRING
+      - ctr:
+          category: null
+          type: DOUBLE
+      - clicks:
+          category: null
+          type: DOUBLE
+      - page:
+          category: null
+          type: STRING
+      - _user:
+          category: null
+          type: LONG
+      - device:
+          category: null
+          type: STRING
+      - position:
+          category: null
+          type: DOUBLE
+reports:
+  - slug: country
+    category: Google Webmaster
+    name: Country
+    query: >-
+      SELECT "country", sum("impressions") as "sum of impressions",
+      avg("position") as "avg of position", avg("ctr") as "avg of ctr",
+      sum("clicks") as "sum of clicks" FROM collection."google_webmaster" 
+      where _time between {date[0]} and {date[1]} and [query = {query}](true)
+      and [query = {country}](true) and [page = {page}](true) and [device =
+      {device}](true) 
+      GROUP BY 1
+    shared: false
+    options:
+      chartType: null
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+        enableServerSide: false
+      chartOptions: true
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: query
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct query from google_webmaster
+          type: string
+        - multiple: false
+          name: country
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct country from google_webmaster
+          type: string
+        - multiple: false
+          name: page
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct page from google_webmaster
+          type: string
+        - multiple: false
+          name: device
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct device from google_webmaster
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+    queryOptions: {}
+  - slug: page
+    category: Google Webmaster
+    name: Page
+    query: >-
+      SELECT "page", sum("impressions") as "sum of impressions", avg("position")
+      as "avg of position", round(cast(avg("ctr") as numeric), 2) as "avg of
+      ctr", sum("clicks") as "sum of clicks" FROM collection."google_webmaster" 
+      where _time between {date[0]} and {date[1]} and [query = {query}](true)
+      and [query = {country}](true) and [page = {page}](true) and [device =
+      {device}](true) 
+      GROUP BY 1 order by 1 desc
+    shared: false
+    options:
+      chartType: null
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+        enableServerSide: false
+      chartOptions: true
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: query
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct query from google_webmaster
+          type: string
+        - multiple: false
+          name: country
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct country from google_webmaster
+          type: string
+        - multiple: false
+          name: page
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct page from google_webmaster
+          type: string
+        - multiple: false
+          name: device
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct device from google_webmaster
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: hyperlink
+          tableOptions:
+            cellOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
             formatNumbers: true
         - displayFormat: null
           tableOptions:
@@ -225,11 +428,9 @@ reports:
       SELECT "query", sum("impressions") as "sum of impressions",
       avg("position") as "avg of position", round(cast(avg("ctr") as numeric),
       2) as "avg of ctr", sum("clicks") as "sum of clicks" FROM
-      "{{collection}}" 
-
+      collection."google_webmaster" 
       where _time between {date[0]} and {date[1]} and [query = {country}](true)
       and [page = {page}](true) and [device = {device}](true) 
-
       GROUP BY 1 order by 2 desc
     shared: false
     options:
@@ -252,7 +453,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct country from {{collection}}
+              query: select distinct country from google_webmaster
           type: string
         - multiple: false
           name: page
@@ -260,7 +461,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct page from {{collection}}
+              query: select distinct page from google_webmaster
           type: string
         - multiple: false
           name: device
@@ -268,7 +469,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct device from {{collection}}
+              query: select distinct device from google_webmaster
           type: string
       segments: []
       measures:
