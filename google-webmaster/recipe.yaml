@@ -7,7 +7,7 @@ variables:
 
 strategy: SPECIFIC
 collections:
-  google_webmaster:
+  "{{collection}}":
     columns:
       - query:
           category: null
