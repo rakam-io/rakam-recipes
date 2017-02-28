@@ -46,7 +46,7 @@ reports:
     query: >-
       SELECT "country", sum("impressions") as "sum of impressions",
       avg("position") as "avg of position", avg("ctr") as "avg of ctr",
-      sum("clicks") as "sum of clicks" FROM collection."google_webmaster" 
+      sum("clicks") as "sum of clicks" FROM "{{collection}}"
       where _time between {date[0]} and {date[1]} and [query = {query}](true)
       and [query = {country}](true) and [page = {page}](true) and [device =
       {device}](true) 
@@ -72,7 +72,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct query from google_webmaster
+              query: select distinct query from "{{collection}}"
           type: string
         - multiple: false
           name: country
@@ -80,7 +80,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct country from google_webmaster
+              query: select distinct country from "{{collection}}"
           type: string
         - multiple: false
           name: page
@@ -88,7 +88,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct page from google_webmaster
+              query: select distinct page from "{{collection}}"
           type: string
         - multiple: false
           name: device
@@ -96,7 +96,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct device from google_webmaster
+              query: select distinct device from "{{collection}}"
           type: string
       segments: []
       measures:
