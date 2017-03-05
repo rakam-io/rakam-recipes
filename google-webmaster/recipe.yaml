@@ -1,3 +1,4 @@
+scheduled-task: google-webmaster
 variables:
   - collection:
       type: STRING
