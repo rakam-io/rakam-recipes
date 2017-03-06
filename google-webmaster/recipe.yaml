@@ -1,6 +1,8 @@
 scheduled-task:
   - google-webmaster:
       interval: 24H
+      parameters:
+        - collection: {{collection}}
 variables:
   - collection:
       type: STRING
