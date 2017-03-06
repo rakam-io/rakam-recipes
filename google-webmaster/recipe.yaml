@@ -1,4 +1,6 @@
-scheduled-task: google-webmaster
+scheduled-task:
+  - google-webmaster:
+      interval: 24H
 variables:
   - collection:
       type: STRING
