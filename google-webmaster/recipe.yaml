@@ -10,7 +10,8 @@ scheduled_tasks:
   - name: google-webmaster
     interval: 24H
     parameters:
-      - collection: {{collection}}
+      - name: collection
+        value: {{collection}}
 collections:
   "{{collection}}":
     columns:
