@@ -6,12 +6,6 @@ variables:
 
 
 strategy: SPECIFIC
-scheduled_tasks:
-  - name: google-webmaster
-    interval: 24H
-    parameters:
-      - name: collection
-        value: {{collection}}
 collections:
   "{{collection}}":
     columns:
