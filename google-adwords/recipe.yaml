@@ -1,0 +1,531 @@
+variables:
+  - collection:
+      type: STRING
+      placeholder: google_adwords
+      description: The collection of the events, you should use the same collection in integration page
+      
+      
+strategy: SPECIFIC
+collections:
+  "{{collection}}":
+    columns:
+      - company name:
+          category: null
+          type: STRING
+      - video played to 75%:
+          category: null
+          type: STRING
+      - video played to 25%:
+          category: null
+          type: STRING
+      - currency:
+          category: null
+          type: STRING
+      - view-through conv.:
+          category: null
+          type: STRING
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - value / all conv.:
+          category: null
+          type: STRING
+      - trademark disapproved:
+          category: null
+          type: STRING
+      - video played to 50%:
+          category: null
+          type: STRING
+      - ad state:
+          category: null
+          type: STRING
+      - views:
+          category: null
+          type: STRING
+      - value / conv.:
+          category: null
+          type: STRING
+      - account:
+          category: null
+          type: STRING
+      - ad group:
+          category: null
+          type: STRING
+      - _user:
+          category: null
+          type: STRING
+      - quarter:
+          category: null
+          type: DATE
+      - ad group id:
+          category: null
+          type: STRING
+      - view rate:
+          category: null
+          type: STRING
+      - time zone:
+          category: null
+          type: STRING
+      - video played to 100%:
+          category: null
+          type: STRING
+reports:
+  - slug: campaign_ad_group_ad
+    category: Google Adwords
+    name: Ad performance
+    query: >
+      SELECT 
+
+      '[' || {{campaign ? (ad_group ? 'ad' : '"ad group"') : 'campaign'}} ||
+      '](' || {{ad_group ? "'/reports/date_report?'" : "'?'"}} || {{campaign ?
+      (ad_group ? "'ad'" : "'ad_group'") : "'campaign'"}} ||'=' || {{campaign ?
+      (ad_group ? 'ad' : '"ad group"') : 'campaign'}} || ')' as {{campaign ?
+      (ad_group ? 'ad' : '"ad group"') : 'campaign'}},
+
+      sum(clicks) as clicks, 
+
+      sum(impressions) as impressions, 
+
+      sum(cost) || ' ' || min(currency) as cost, 
+
+      sum(clicks) / nullif(sum(impressions), 0) as ctr, 
+
+      sum(cost) / nullif(sum(clicks), 0) || ' ' || min(currency) as cpc, 
+
+      avg("avg. position") as "average position" FROM
+      collection."google_adwords_riot4"
+
+      where _time between {date[0]} and {date[1]} and [campaign =
+      {campaign}](true) and ["ad group" = {ad_group}](true)
+
+      group by {{campaign ? (ad_group ? 'ad' : '"ad group"') : 'campaign'}}
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions:
+        singleColumn: true
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign from google_adwords_riot
+          type: string
+        - multiple: false
+          name: ad_group
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct "ad group" from google_adwords_riot
+            parentParameter: campaign
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: hyperlink
+          tableOptions:
+            cellOptions: {}
+            urlMapping: null
+          chartOptions: {}
+          hint: 'Adwords campaign, ad group or ad'
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: sum
+              colorize: false
+              bar: true
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: sum
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: sum
+            formatNumbers: true
+          chartOptions:
+            disable: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: sum
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: sum
+              bar: false
+            formatNumbers: true
+          chartOptions:
+            disable: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: mean
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: date_report
+    category: Google Adwords
+    name: Daily ad performance
+    query: >-
+      SELECT 
+
+      cast(date_trunc({segment}, _time) as date) as {{ segment[0] }},
+
+      sum(cast(clicks as bigint)) as clicks,  
+
+      sum(cast(impressions as bigint)) as impressions, 
+
+      sum(cast(cost as float)) as cost, 
+
+      sum(cast(clicks as bigint)) / nullif(sum(cast(impressions as bigint)), 0)
+      as ctr, 
+
+      sum(cast(cost as float)) / nullif(sum(cast(clicks as bigint)), 0) as cpc, 
+
+      avg(cast("avg. position" as float)) as "average position" FROM
+      collection."google_adwords_riot"
+
+      where _time between {date[0]} and {date[1]} and [campaign =
+      {campaign}](true) and ["ad group" = {ad_group}](true) and [campaign =
+      {ad}](true)
+
+      group by 1
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions:
+        singleColumn: true
+      variables:
+        - multiple: false
+          name: segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+                - - quarter
+                  - quarter
+                - - year
+                  - year
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign from google_adwords_riot
+          type: string
+        - multiple: false
+          name: ad_group
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct "ad group" from google_adwords_riot
+            parentParameter: campaign
+          type: string
+        - multiple: false
+          name: ad
+          options:
+            displayType: dropdown
+            parentParameter: ad_group
+            type: custom-query
+            typeSettings:
+              query: select distinct ad from google_adwords_riot
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions: {}
+            urlMapping: null
+          chartOptions: {}
+          hint: 'Adwords campaign, ad group or ad'
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+              colorize: false
+              bar: true
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+              bar: false
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: conversion_performance
+    category: Google Adwords
+    name: Conversion performance
+    query: >-
+      SELECT 
+
+      '[' || {{campaign ? (ad_group ? 'ad' : '"ad group"') : 'campaign'}} ||
+      '](/reports/' || {{ad_group ? "'date_report'" : "'campaign_ad_group_ad'"}}
+      ||'?'|| {{campaign ? (ad_group ? "'ad'" : "'ad_group'") : "'campaign'"}}
+      ||'=' || {{campaign ? (ad_group ? 'ad' : '"ad group"') : 'campaign'}} ||
+      ')' as {{campaign ? (ad_group ? 'ad' : '"ad group"') : 'campaign'}},
+
+      sum(cast(cost as float)) as cost, 
+
+      sum(cast(conversions as float)) as conversions, 
+
+      sum(cast(cost as float)) / nullif(sum(cast(conversions as float)), 0) as
+      "cost / conversion"
+
+      FROM collection."google_adwords_riot"
+
+      where _time between {date[0]} and {date[1]} and [campaign =
+      {campaign}](true) and ["ad group" = {ad_group}](true)
+
+      group by {{campaign ? (ad_group ? 'ad' : '"ad group"') : 'campaign'}}
+    shared: false
+    options:
+      chartType: bar
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign from google_adwords_riot
+          type: string
+        - multiple: false
+          name: ad_group
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct "ad group" from google_adwords_riot
+            parentParameter: campaign
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: hyperlink
+          tableOptions:
+            cellOptions: {}
+            urlMapping: null
+          chartOptions:
+            disable: true
+          hint: 'Adwords campaign, ad group or ad'
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: sum
+              colorize: false
+              bar: true
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: sum
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: sum
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: content_performance
+    category: Google Adwords
+    name: Content performance
+    query: >
+      SELECT 
+
+      '[' || {{campaign ? (ad_group ? 'ad' : '"ad group"') : 'campaign'}} ||
+      '](/reports/' || {{ad_group ? "'date_report'" : "'campaign_ad_group_ad'"}}
+      ||'?'|| {{campaign ? (ad_group ? "'ad'" : "'ad_group'") : "'campaign'"}}
+      ||'=' || {{campaign ? (ad_group ? 'ad' : '"ad group"') : 'campaign'}} ||
+      ')' as {{campaign ? (ad_group ? 'ad' : '"ad group"') : 'campaign'}},
+
+      avg("search impr. share") as "search impr. share", 
+
+      avg("content impr. share") as "content impr. share",
+
+      avg("search lost is (rank)") as "search lost is (rank)",
+
+      avg("content lost is (rank)") as "content lost is (rank)"
+
+      FROM collection."google_adwords_riot4"
+
+      where _time between {date[0]} and {date[1]} and [campaign =
+      {campaign}](true) and ["ad group" = {ad_group}](true)
+
+      group by {{campaign ? (ad_group ? 'ad' : '"ad group"') : 'campaign'}}
+    shared: false
+    options:
+      chartType: bar
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign from google_adwords_riot
+          type: string
+        - multiple: false
+          name: ad_group
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct "ad group" from google_adwords_riot
+            parentParameter: campaign
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: hyperlink
+          tableOptions:
+            cellOptions: {}
+            urlMapping: null
+          chartOptions: {}
+          hint: 'Adwords campaign, ad group or ad'
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: mean
+              colorize: false
+              bar: true
+              suffix: '%'
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: mean
+              suffix: '%'
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: mean
+              suffix: '%'
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: mean
+              suffix: '%'
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
