@@ -1,1 +1,2419 @@
-.
+variables:
+  - collection:
+      type: STRING
+      placeholder: facebook_ads
+      description: The collection of the events, you should use the same collection in integration page
+      
+      
+strategy: SPECIFIC
+collections:
+  "{{collection}}":
+      - cost_per_unique_inline_link_click:
+          category: null
+          type: STRING
+      - canvas_avg_view_time:
+          category: null
+          type: STRING
+      - cpp:
+          category: null
+          type: STRING
+      - unique_clicks:
+          category: null
+          type: STRING
+      - website_ctr:
+          category: null
+          type: MAP_STRING
+      - reach:
+          category: null
+          type: STRING
+      - unique_ctr:
+          category: null
+          type: STRING
+      - unique_impressions:
+          category: null
+          type: STRING
+      - clicks:
+          category: null
+          type: STRING
+      - frequency:
+          category: null
+          type: STRING
+      - total_unique_actions:
+          category: null
+          type: STRING
+      - newsfeed_impressions:
+          category: null
+          type: STRING
+      - cost_per_total_action:
+          category: null
+          type: STRING
+      - unique_link_clicks_ctr:
+          category: null
+          type: STRING
+      - date_start:
+          category: null
+          type: DATE
+      - unique_inline_link_click_ctr:
+          category: null
+          type: STRING
+      - cpm:
+          category: null
+          type: STRING
+      - total_action_value:
+          category: null
+          type: STRING
+      - unique_social_clicks:
+          category: null
+          type: STRING
+      - app_store_clicks:
+          category: null
+          type: STRING
+      - objective:
+          category: null
+          type: STRING
+      - social_reach:
+          category: null
+          type: STRING
+      - social_clicks:
+          category: null
+          type: STRING
+      - adset_id:
+          category: null
+          type: STRING
+      - estimated_ad_recall_rate:
+          category: null
+          type: STRING
+      - actions:
+          category: null
+          type: MAP_STRING
+      - cost_per_action_type:
+          category: null
+          type: MAP_STRING
+      - inline_post_engagement:
+          category: null
+          type: STRING
+      - cost_per_unique_click:
+          category: null
+          type: STRING
+      - account_name:
+          category: null
+          type: STRING
+      - cost_per_unique_action_type:
+          category: null
+          type: MAP_STRING
+      - call_to_action_clicks:
+          category: null
+          type: STRING
+      - cost_per_inline_link_click:
+          category: null
+          type: STRING
+      - relevance_score:
+          category: null
+          type: MAP_STRING
+      - inline_link_clicks:
+          category: null
+          type: STRING
+      - ctr:
+          category: null
+          type: STRING
+      - impressions:
+          category: null
+          type: STRING
+      - newsfeed_clicks:
+          category: null
+          type: STRING
+      - adset_name:
+          category: null
+          type: STRING
+      - inline_link_click_ctr:
+          category: null
+          type: STRING
+      - cost_per_estimated_ad_recallers:
+          category: null
+          type: STRING
+      - unique_inline_link_clicks:
+          category: null
+          type: STRING
+      - cost_per_inline_post_engagement:
+          category: null
+          type: STRING
+      - social_impressions:
+          category: null
+          type: STRING
+      - unique_social_impressions:
+          category: null
+          type: STRING
+      - website_clicks:
+          category: null
+          type: STRING
+      - canvas_avg_view_percent:
+          category: null
+          type: STRING
+      - spend:
+          category: null
+          type: STRING
+      - deeplink_clicks:
+          category: null
+          type: STRING
+      - ad_id:
+          category: null
+          type: STRING
+      - date_stop:
+          category: null
+          type: DATE
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - campaign_name:
+          category: null
+          type: STRING
+      - campaign_id:
+          category: null
+          type: STRING
+      - newsfeed_avg_position:
+          category: null
+          type: STRING
+      - unique_actions:
+          category: null
+          type: MAP_STRING
+      - ad_name:
+          category: null
+          type: STRING
+      - total_actions:
+          category: null
+          type: STRING
+      - action_values:
+          category: null
+          type: MAP_STRING
+      - social_spend:
+          category: null
+          type: STRING
+      - _user:
+          category: null
+          type: STRING
+      - account_id:
+          category: null
+          type: STRING
+      - cpc:
+          category: null
+          type: STRING
+      - video_avg_time_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_avg_pct_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_avg_percent_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_avg_sec_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_p25_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_15_sec_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_30_sec_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_p100_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_p75_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_p95_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_complete_watched_actions:
+          category: null
+          type: MAP_STRING
+      - cost_per_10_sec_video_view:
+          category: null
+          type: MAP_STRING
+      - video_p50_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_10_sec_watched_actions:
+          category: null
+          type: MAP_STRING
+      - estimated_ad_recallers:
+          category: null
+          type: STRING
+reports:
+  - slug: action
+    category: Facebook Ads
+    name: Action
+    query: "SELECT cast(date_trunc({segment}, _time) as date) as {{ segment[0] }}, key(action), cast(value(action) as float) FROM (\n\tSELECT _time, jsonb_each_text(actions) action FROM \"facebook_ads\"\n    where _time between {date[0]} and {date[1]} and \n    [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true) and \n    [objective = {objective}](true)\n) d"
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+        enableServerSide: false
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_two_weeks
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct adset_name from facebook_ads
+            parentParameter: campaign
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: adset_name
+          type: string
+        - multiple: false
+          name: objective
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct objective from facebook_ads
+          type: string
+      segments:
+        - 1
+      measures:
+        - 2
+      dimensions:
+        - 0
+      columnOptions:
+        - null
+        - null
+        - tableOptions:
+            cellOptions: {}
+    queryOptions: {}
+  - slug: user_metrics
+    category: Google Analytics
+    name: User metrics
+    query: >-
+      SELECT cast(date_trunc({segment}, "_time") as date) as "{{ segment[0]
+      }}",   
+
+      avg("ga:users") as "{{segment[0] == 'day' ? 'users' : 'average user
+      count'}}", 
+
+      sum("ga:sessions") as sessions, 
+
+      avg("ga:new_users") as "{{segment[0] == 'day' ? 'new users' : 'average new
+      users'}}", 
+
+      sum("ga:pageviews") as pageviews,
+
+      avg("ga:users") / avg("ga:bounces") as "{{segment[0] == 'day' ? 'bounce
+      rate' : 'average bounce rate'}}", 
+
+      sum("ga:pageviews") / sum("ga:sessions") as "page_per_session",
+
+      avg(cast("ga:session_duration" as float)) as "average_session_duration"
+
+      FROM collection."google_analytics"
+
+      WHERE _time between {date[0]} and {date[1]}
+
+      GROUP BY 1
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions:
+        singleColumn: true
+      variables:
+        - multiple: false
+          name: segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+                - - quarter
+                  - quarter
+                - - year
+                  - year
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_two_weeks
+          type: date-range
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: false
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              suffix: '%'
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: goals
+    category: Google Analytics
+    name: Goals
+    query: >-
+      SELECT cast(date_trunc({segment}, "_time") as date) as "{{ segment[0]
+      }}", 
+
+      avg("ga:users") as "{{segment[0] == 'day' ? 'users' : 'average user
+      count'}}", 
+
+      sum("ga:goal_completions_all") as goal_completions, 
+
+      avg("ga:goal_completions_all" / "ga:users") "goal conversion rate", 
+
+      sum("ga:goal_value_all") as "goal value"
+
+      FROM collection."google_analytics"
+
+      WHERE _time between {date[0]} and {date[1]}
+
+      GROUP BY 1
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+                - - year
+                  - year
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_two_weeks
+          type: date-range
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions:
+            type: line
+            shape: spline
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              suffix: '%'
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+    queryOptions: {}
+  - slug: overall_performance_facebook
+    category: Facebook Ads
+    name: Overall Performance by Date
+    query: >-
+      select 
+
+      cast(date_trunc({segment}, _time) as date) as "{{ segment[0] }}", 
+
+      sum(spend) as spend,
+
+      sum(impressions) as impressions,
+
+      sum(reach) as reach,
+
+      sum(social_reach) as social_reach, sum(unique_clicks) as
+      approx_unique_clicks,
+
+      sum(website_clicks) as website_clicks
+
+      from facebook_ads2
+
+      where _time between {date[0]} and {date[1]} and [campaign_name =
+      {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name =
+      {ad_name}](true)
+
+      group by 1
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions:
+        singleColumn: true
+      variables:
+        - multiple: false
+          name: segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+                - - year
+                  - year
+          defaultValue: week
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: dropdown
+            parentParameter: campaign
+            type: custom-query
+            typeSettings:
+              query: select distinct adset_name from facebook_ads
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: ad_name
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+      dimensions:
+        - 0
+      columnOptions:
+        - tableOptions:
+            cellOptions: {}
+        - tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - null
+        - null
+        - null
+        - null
+        - null
+    queryOptions: {}
+  - slug: overall_performance_facebook_campaign
+    category: Facebook Ads
+    name: Overall Performance
+    query: >-
+      select 
+
+      '[' || {{campaign ? (adset_name ? 'ad_name' : '"adset_name"') :
+      'campaign_name'}} || '](' || {{adset_name ? "'/reports/date_report?'" :
+      "'?'"}} || {{campaign ? (adset_name ? "'ad_name'" : "'adset_name'") :
+      "'campaign'"}} ||'=' || {{campaign ? (adset_name ? 'ad_name' :
+      '"adset_name"') : 'campaign_name'}} || ')' as "{{campaign ? (adset_name ?
+      'Ad name' : 'Adset name') : 'Campaign name'}}",
+
+      sum(spend) as spend,
+
+      sum(impressions) as impressions,
+
+      sum(reach) as reach,
+
+      sum(clicks) as total_clicks,
+
+      sum("spend")/sum(cast(jsonb_extract_path_text(actions,
+      'mobile_app_install') as bigint)),
+
+      sum("clicks")/sum(cast(jsonb_extract_path_text(actions,
+      'mobile_app_install') as bigint)) as "Click to Install Conv"
+
+      from facebook_ads2
+
+      where _time between {date[0]} and {date[1]} and [campaign_name =
+      {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name =
+      {ad_name}](true)
+
+      group by 1 order by 2 desc
+    shared: false
+    options:
+      chartType: bar
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: dropdown
+            parentParameter: campaign
+            type: custom-query
+            typeSettings:
+              query: select distinct adset_name from facebook_ads
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: ad_name
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: hyperlink
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - null
+        - null
+        - null
+        - null
+        - null
+        - null
+        - null
+    queryOptions: {}
+  - slug: cost_facebook
+    category: Facebook Ads
+    name: Spend
+    query: >-
+      select 
+
+      cast(date_trunc({segment}, _time) as date) as date,
+
+      sum(spend) as spend
+
+      from facebook_ads2
+
+      where _time between {date[0]} and {date[1]} and 
+
+      [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true)
+      and [ad_name = {ad_name}](true) and 
+
+      [objective = {objective}](true)
+
+      group by 1
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_year
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: dropdown
+            parentParameter: campaign
+            type: custom-query
+            typeSettings:
+              query: select distinct adset_name from facebook_ads
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: ad_name
+          type: string
+        - multiple: false
+          name: objective
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct objective from facebook_ads
+          type: string
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions:
+              statistics: null
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - null
+    queryOptions: {}
+  - slug: reach_facebook
+    category: Facebook Ads
+    name: Reach
+    query: >-
+      select 
+
+      cast(date_trunc({segment}, _time) as date) as date,
+
+      sum(reach) as reach,
+
+      sum(social_reach) as social_reach
+
+      from facebook_ads2
+
+      where _time between {date[0]} and {date[1]} and 
+
+      [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true)
+      and [ad_name = {ad_name}](true) and 
+
+      [objective = {objective}](true)
+
+      group by 1
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: dropdown
+            parentParameter: campaign
+            type: custom-query
+            typeSettings:
+              query: select distinct adset_name from facebook_ads
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: ad_name
+          type: string
+        - multiple: false
+          name: objective
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct objective from facebook_ads
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions:
+              statistics: null
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: ctr_for_impression
+    category: Facebook Ads
+    name: CTR (Impression)
+    query: >-
+      select *, (clicks * 100)/impressions as ctr from (
+
+      select 
+
+      cast(date_trunc({segment}, _time) as date) as date,
+
+      sum(impressions) as impressions,
+
+      sum(clicks) as clicks
+
+      from facebook_ads2
+
+      where _time between {date[0]} and {date[1]} and 
+
+      [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true)
+      and [ad_name = {ad_name}](true) and 
+
+      [objective = {objective}](true)
+
+      group by 1) data
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: dropdown
+            parentParameter: campaign
+            type: custom-query
+            typeSettings:
+              query: select distinct adset_name from facebook_ads
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: ad_name
+          type: string
+        - multiple: false
+          name: objective
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct objective from facebook_ads
+          type: string
+      segments: []
+      measures:
+        - 0
+        - 1
+        - 2
+        - 3
+      dimensions: []
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions:
+              statistics: null
+          chartOptions:
+            disable: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            cellOptions:
+              suffix: '%'
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: ctr_for_reach
+    category: Facebook Ads
+    name: CTR (Reach)
+    query: >-
+      select *, reach/clicks as ctr from (
+
+      select 
+
+      cast(date_trunc({segment}, _time) as date) as date,
+
+      sum(reach) as reach,
+
+      sum(clicks) as clicks
+
+      from facebook_ads2
+
+      where _time between {date[0]} and {date[1]} and 
+
+      [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true)
+      and [ad_name = {ad_name}](true) and 
+
+      [objective = {objective}](true)
+
+      group by 1) data
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: dropdown
+            parentParameter: campaign
+            type: custom-query
+            typeSettings:
+              query: select distinct adset_name from facebook_ads
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: ad_name
+          type: string
+        - multiple: false
+          name: objective
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct objective from facebook_ads
+          type: string
+      segments: []
+      measures:
+        - 0
+        - 1
+        - 2
+        - 3
+      dimensions: []
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions:
+              statistics: null
+          chartOptions:
+            disable: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: ctr_for_reach_ads
+    category: Facebook Ads
+    name: CTR By ads (Impression)
+    query: >-
+      select *, impressions/clicks as ctr from (
+
+      select 
+
+      {dimension},
+
+      sum(impressions) as impressions,
+
+      sum(clicks) as clicks
+
+      from facebook_ads2
+
+      where _time between {date[0]} and {date[1]} and 
+
+      [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true)
+      and [ad_name = {ad_name}](true) and 
+
+      [objective = {objective}](true)
+
+      group by 1) data
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: dimension
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - adset_name
+                  - adset name
+                - - ad_name
+                  - ad name
+                - - campaign_name
+                  - campaign name
+            disableQuotes: true
+          defaultValue: campaign_name
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: dropdown
+            parentParameter: campaign
+            type: custom-query
+            typeSettings:
+              query: select distinct adset_name from facebook_ads
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: ad_name
+          type: string
+        - multiple: false
+          name: objective
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct objective from facebook_ads
+          type: string
+      segments: []
+      measures:
+        - 0
+        - 1
+        - 2
+        - 3
+      dimensions: []
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions:
+              statistics: null
+          chartOptions:
+            disable: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: ctr_for_reach2_ads
+    category: Facebook Ads
+    name: CTR By ads (Reach)
+    query: >-
+      select *, reach/clicks as ctr from (
+
+      select 
+
+      {dimension},
+
+      sum(reach) as reach,
+
+      sum(clicks) as clicks
+
+      from facebook_ads2
+
+      where _time between {date[0]} and {date[1]} and 
+
+      [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true)
+      and [ad_name = {ad_name}](true) and 
+
+      [objective = {objective}](true)
+
+      group by 1) data
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: dimension
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - adset_name
+                  - adset name
+                - - ad_name
+                  - ad name
+                - - campaign_name
+                  - campaign name
+            disableQuotes: true
+          defaultValue: campaign_name
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: dropdown
+            parentParameter: campaign
+            type: custom-query
+            typeSettings:
+              query: select distinct adset_name from facebook_ads
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: ad_name
+          type: string
+        - multiple: false
+          name: objective
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct objective from facebook_ads
+          type: string
+      segments: []
+      measures:
+        - 0
+        - 1
+        - 2
+        - 3
+      dimensions: []
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions:
+              statistics: null
+          chartOptions:
+            disable: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: delivery_status
+    category: Facebook Ads
+    name: Delivery status
+    query: >-
+      select 
+
+      {dimension},
+
+      sum(reach) as reach,
+
+      sum(frequency) as frequency,
+
+      sum(cpm) as cpm
+
+      from facebook_ads2
+
+      where _time between {date[0]} and {date[1]} and 
+
+      [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true)
+      and [ad_name = {ad_name}](true) and 
+
+      [objective = {objective}](true)
+
+      group by 1
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: dimension
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - adset_name
+                  - adset name
+                - - ad_name
+                  - ad name
+                - - campaign_name
+                  - campaign name
+            disableQuotes: true
+          defaultValue: campaign_name
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: dropdown
+            parentParameter: campaign
+            type: custom-query
+            typeSettings:
+              query: select distinct adset_name from facebook_ads
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: ad_name
+          type: string
+        - multiple: false
+          name: objective
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct objective from facebook_ads
+          type: string
+      segments: []
+      measures:
+        - 0
+        - 1
+        - 2
+        - 3
+      dimensions: []
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions:
+              statistics: null
+          chartOptions:
+            disable: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: engagement
+    category: Facebook Ads
+    name: Engagement
+    query: >-
+      select 
+
+      {dimension},
+
+      sum(reach) as reach,
+
+      sum(cast(inline_post_engagement as bigint)) as inline_post_engagement,
+
+      sum(clicks) as clicks,
+
+      sum(cost_per_inline_post_engagement) as cost_per_inline_post_engagement
+
+      from facebook_ads2
+
+      where _time between {date[0]} and {date[1]} and 
+
+      [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true)
+      and [ad_name = {ad_name}](true) and 
+
+      [objective = {objective}](true)
+
+      group by 1
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: dimension
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - adset_name
+                  - adset name
+                - - ad_name
+                  - ad name
+                - - campaign_name
+                  - campaign name
+            disableQuotes: true
+          defaultValue: campaign_name
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: dropdown
+            parentParameter: campaign
+            type: custom-query
+            typeSettings:
+              query: select distinct adset_name from facebook_ads
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: ad_name
+          type: string
+        - multiple: false
+          name: objective
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct objective from facebook_ads
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions:
+              statistics: null
+          chartOptions:
+            disable: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: video
+    category: Facebook Ads
+    name: Video
+    query: >-
+      select 
+
+      {dimension},
+
+      sum(cast(jsonb_extract_path_text(cost_per_10_sec_video_view, 'video_view')
+      as float)) as "cost_per_10_sec",
+
+      avg(cast(jsonb_extract_path_text(video_avg_percent_watched_actions,
+      'video_view') as float)) as "avg all watched",
+
+      avg(cast(jsonb_extract_path_text(video_avg_pct_watched_actions,
+      'video_view') as float)) as "avg pct watched",
+
+      sum(cast(jsonb_extract_path_text(video_avg_time_watched_actions,
+      'video_view') as float)) as "avg time watched",
+
+      sum(cast(jsonb_extract_path_text(video_avg_sec_watched_actions,
+      'video_view') as float)) as "sec watched",
+
+      sum(cast(jsonb_extract_path_text(video_complete_watched_actions,
+      'video_view') as bigint)) as "all watched",
+
+      sum(cast(jsonb_extract_path_text(video_10_sec_watched_actions,
+      'video_view') as bigint)) as "10 sec watched",
+
+      sum(cast(jsonb_extract_path_text(video_15_sec_watched_actions,
+      'video_view') as bigint)) as "15 sec watched",
+
+      sum(cast(jsonb_extract_path_text(video_30_sec_watched_actions,
+      'video_view') as bigint)) as "30 sec watched",
+
+      sum(cast(jsonb_extract_path_text(video_p25_watched_actions, 'video_view')
+      as bigint)) as "p25 watched",
+
+      sum(cast(jsonb_extract_path_text(video_p50_watched_actions, 'video_view')
+      as bigint)) as "p50 watched",
+
+      sum(cast(jsonb_extract_path_text(video_p75_watched_actions, 'video_view')
+      as bigint)) as "p75 watched",
+
+      sum(cast(jsonb_extract_path_text(video_p95_watched_actions, 'video_view')
+      as bigint)) as "p95 watched",
+
+      sum(cast(jsonb_extract_path_text(video_p100_watched_actions, 'video_view')
+      as bigint)) as "p100 watched"
+
+      from facebook_ads2
+
+      where _time between {date[0]} and {date[1]} and 
+
+      [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true)
+      and [ad_name = {ad_name}](true) and 
+
+      [objective = {objective}](true)
+
+      group by 1
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions:
+        singleColumn: true
+      variables:
+        - multiple: false
+          name: dimension
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - adset_name
+                  - adset name
+                - - ad_name
+                  - ad name
+                - - campaign_name
+                  - campaign name
+            disableQuotes: true
+          defaultValue: campaign_name
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: dropdown
+            parentParameter: campaign
+            type: custom-query
+            typeSettings:
+              query: select distinct adset_name from facebook_ads
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: ad_name
+          type: string
+        - multiple: false
+          name: objective
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct objective from facebook_ads
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+        - 11
+        - 12
+        - 13
+        - 14
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions:
+              statistics: null
+          chartOptions:
+            disable: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions:
+            type: line
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: link_clicks
+    category: Facebook Ads
+    name: Link clicks
+    query: >-
+      select 
+
+      {dimension},
+
+      sum(reach) as reach,
+
+      sum(impressions) as impressions,
+
+      avg(cast(inline_link_clicks as bigint)) as inline_link_clicks,
+
+      avg(deeplink_clicks) as deeplink_clicks,
+
+      avg(unique_inline_link_clicks) as unique_inline_link_clicks,
+
+      avg(cpm) as cpm,
+
+      avg(cost_per_inline_link_click) as cost_per_inline_link_click,
+
+      avg(unique_inline_link_click_ctr) as unique_inline_link_click_ctr,
+
+      avg(cost_per_unique_inline_link_click) as
+      cost_per_unique_inline_link_click,
+
+      avg(unique_link_clicks_ctr) as cost_per_unique_inline_link_click
+
+      from facebook_ads2
+
+      where _time between {date[0]} and {date[1]} and 
+
+      [campaign_name = {campaign}](true) and 
+
+      [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true) and 
+
+      [objective = {objective}](true)
+
+      group by 1
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions:
+        singleColumn: true
+      variables:
+        - multiple: false
+          name: dimension
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - adset_name
+                  - adset name
+                - - ad_name
+                  - ad name
+                - - campaign_name
+                  - campaign name
+            disableQuotes: true
+          defaultValue: campaign_name
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: dropdown
+            parentParameter: campaign
+            type: custom-query
+            typeSettings:
+              query: select distinct adset_name from facebook_ads
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: ad_name
+          type: string
+        - multiple: false
+          name: objective
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct objective from facebook_ads
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+        - 9
+        - 10
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions:
+              statistics: null
+          chartOptions:
+            disable: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions:
+            type: line
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: frequency
+    category: Facebook Ads
+    name: Frequency
+    query: >-
+      select 
+
+      {dimension},
+
+      sum(reach) as reach,
+
+      sum(impressions) as impressions,
+
+      avg(cast(inline_link_clicks as bigint)) as inline_link_clicks,
+
+      avg(frequency) as frequency
+
+      from facebook_ads2
+
+      where _time between {date[0]} and {date[1]} and 
+
+      [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true)
+      and [ad_name = {ad_name}](true) and 
+
+      [objective = {objective}](true)
+
+      group by 1
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions:
+        singleColumn: true
+      variables:
+        - multiple: false
+          name: dimension
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - adset_name
+                  - adset name
+                - - ad_name
+                  - ad name
+                - - campaign_name
+                  - campaign name
+            disableQuotes: true
+          defaultValue: campaign_name
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: dropdown
+            parentParameter: campaign
+            type: custom-query
+            typeSettings:
+              query: select distinct adset_name from facebook_ads
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: ad_name
+          type: string
+        - multiple: false
+          name: objective
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct objective from facebook_ads
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions:
+              statistics: null
+          chartOptions:
+            disable: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions:
+            type: line
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - null
+        - null
+        - null
+        - null
+        - null
+        - null
+    queryOptions: {}
+  - slug: action_costs
+    category: Facebook Ads
+    name: Action costs
+    query: "SELECT cast(date_trunc({segment}, _time) as date), cast(value(action) as float) FROM (\n\tSELECT _time, jsonb_each_text(cost_per_action_type) action FROM \"facebook_ads\"\n    where _time between {date[0]} and {date[1]} and \n    [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true) and \n    [objective = {objective}](true)\n) d"
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+        enableServerSide: false
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_two_weeks
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct adset_name from facebook_ads
+            parentParameter: campaign
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: adset_name
+          type: string
+        - multiple: false
+          name: objective
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct objective from facebook_ads
+          type: string
+      segments: []
+      measures:
+        - 0
+        - 1
+      dimensions: []
+      columnOptions:
+        - null
+        - null
+        - null
+    queryOptions: {}
+  - slug: user_feedback
+    category: Facebook Ads
+    name: User feedback
+    query: "select \nad_name as \"Ad name\",\navg(score) as score, \navg(CASE WHEN positive_feedback = 'HIGH' THEN 3\n\tWHEN positive_feedback = 'MEDIUM' THEN 2 \n\tWHEN positive_feedback = 'LOW' THEN 1 \n\tELSE 0 END) as \"positive feedback\", \navg(CASE WHEN negative_feedback = 'HIGH' THEN 3 \n\tWHEN negative_feedback = 'MEDIUM' THEN 2 \n\tWHEN negative_feedback = 'LOW' THEN 1 \n\tELSE 0 \nEND) as \"negative feedback\" from (\nselect \n_time, campaign_name, adset_name, ad_name, coalesce(cast(jsonb_extract_path_text(relevance_score, 'score') as int), 0) as score,\njsonb_extract_path_text(relevance_score, 'positive_feedback') as positive_feedback,\njsonb_extract_path_text(relevance_score, 'negative_feedback') as negative_feedback\nfrom facebook_ads\n) d\nwhere _time between {date[0]} and {date[1]} and [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true)\ngroup by 1"
+    shared: false
+    options:
+      chartType: null
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: true
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: advanced
+            parentParameter: null
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct adset_name from facebook_ads where
+                [campaign_name = {campaign}](true)
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: ad_name
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: hyperlink
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: mean
+              bar: false
+              colorize: false
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: mean
+              bar: false
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: mean
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: custom_action
+    category: Facebook Ads
+    name: Custom Action
+    query: "SELECT cast(date_trunc({segment}, _time) as date) as {{ segment[0] }}, key(action), cast(value(action) as float) FROM (\n\tSELECT _time, jsonb_each_text(action_values) action FROM facebook_ads2\n    where _time between {date[0]} and {date[1]} and \n    [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true) and \n    [objective = {objective}](true)\n) d"
+    shared: false
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+        enableServerSide: false
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_two_weeks
+          type: date-range
+        - multiple: false
+          name: campaign
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct campaign_name from facebook_ads
+          type: string
+        - multiple: false
+          name: adset_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct adset_name from facebook_ads
+            parentParameter: campaign
+          type: string
+        - multiple: false
+          name: ad_name
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct ad_name from facebook_ads
+            parentParameter: adset_name
+          type: string
+        - multiple: false
+          name: objective
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct objective from facebook_ads
+          type: string
+      segments:
+        - 1
+      measures:
+        - 2
+      dimensions:
+        - 0
+      columnOptions:
+        - null
+        - null
+        - tableOptions:
+            cellOptions: {}
+    queryOptions: {}
