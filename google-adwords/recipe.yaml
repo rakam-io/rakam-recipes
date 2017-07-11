@@ -93,7 +93,7 @@ reports:
       sum(cost) / nullif(sum(clicks), 0) || ' ' || min(currency) as cpc, 
 
       avg("avg. position") as "average position" FROM
-      collection."google_adwords_riot4"
+      collection."{{collection}}"
 
       where _time between {date[0]} and {date[1]} and [campaign =
       {campaign}](true) and ["ad group" = {ad_group}](true)
@@ -120,7 +120,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct campaign from google_adwords_riot
+              query: select distinct campaign from collection."{{collection}}"
           type: string
         - multiple: false
           name: ad_group
@@ -128,7 +128,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct "ad group" from google_adwords_riot
+              query: select distinct "ad group" from collection."{{collection}}"
             parentParameter: campaign
           type: string
       segments: []
@@ -210,7 +210,7 @@ reports:
       sum(cast(cost as float)) / nullif(sum(cast(clicks as bigint)), 0) as cpc, 
 
       avg(cast("avg. position" as float)) as "average position" FROM
-      collection."google_adwords_riot"
+      collection."{{collection}}"
 
       where _time between {date[0]} and {date[1]} and [campaign =
       {campaign}](true) and ["ad group" = {ad_group}](true) and [campaign =
@@ -257,7 +257,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct campaign from google_adwords_riot
+              query: select distinct campaign from collection."{{collection}}"
           type: string
         - multiple: false
           name: ad_group
@@ -265,7 +265,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct "ad group" from google_adwords_riot
+              query: select distinct "ad group" from collection."{{collection}}"
             parentParameter: campaign
           type: string
         - multiple: false
@@ -275,7 +275,7 @@ reports:
             parentParameter: ad_group
             type: custom-query
             typeSettings:
-              query: select distinct ad from google_adwords_riot
+              query: select distinct ad from collection."{{collection}}"
           type: string
       segments: []
       measures:
@@ -353,7 +353,7 @@ reports:
       sum(cast(cost as float)) / nullif(sum(cast(conversions as float)), 0) as
       "cost / conversion"
 
-      FROM collection."google_adwords_riot"
+      FROM collection."{{collection}}"
 
       where _time between {date[0]} and {date[1]} and [campaign =
       {campaign}](true) and ["ad group" = {ad_group}](true)
@@ -379,7 +379,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct campaign from google_adwords_riot
+              query: select distinct campaign from collection."{{collection}}"
           type: string
         - multiple: false
           name: ad_group
@@ -387,7 +387,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct "ad group" from google_adwords_riot
+              query: select distinct "ad group" from collection."{{collection}}"
             parentParameter: campaign
           type: string
       segments: []
@@ -446,7 +446,7 @@ reports:
 
       avg("content lost is (rank)") as "content lost is (rank)"
 
-      FROM collection."google_adwords_riot4"
+      FROM collection."{{collection}}"
 
       where _time between {date[0]} and {date[1]} and [campaign =
       {campaign}](true) and ["ad group" = {ad_group}](true)
@@ -472,7 +472,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct campaign from google_adwords_riot
+              query: select distinct campaign from collection."{{collection}}"
           type: string
         - multiple: false
           name: ad_group
@@ -480,7 +480,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct "ad group" from google_adwords_riot
+              query: select distinct "ad group" from collection."{{collection}}"
             parentParameter: campaign
           type: string
       segments: []
