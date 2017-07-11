@@ -1,0 +1,4142 @@
+strategy: SPECIFIC
+collections:
+  facebook_ads:
+    columns:
+      - social_clicks:
+          category: null
+          type: DOUBLE
+      - unique_clicks:
+          category: null
+          type: DOUBLE
+      - unique_ctr:
+          category: null
+          type: DOUBLE
+      - _user:
+          category: null
+          type: LONG
+      - unique_social_impressions:
+          category: null
+          type: STRING
+      - reach:
+          category: null
+          type: DOUBLE
+      - cpm:
+          category: null
+          type: DOUBLE
+      - inline_post_engagement:
+          category: null
+          type: STRING
+      - cost_per_action_type:
+          category: null
+          type: MAP_STRING
+      - cost_per_unique_inline_link_click:
+          category: null
+          type: DOUBLE
+      - canvas_avg_view_time:
+          category: null
+          type: DOUBLE
+      - total_unique_actions:
+          category: null
+          type: DOUBLE
+      - unique_impressions:
+          category: null
+          type: DOUBLE
+      - objective:
+          category: null
+          type: STRING
+      - age:
+          category: null
+          type: STRING
+      - frequency:
+          category: null
+          type: DOUBLE
+      - total_action_value:
+          category: null
+          type: STRING
+      - clicks:
+          category: null
+          type: DOUBLE
+      - inline_link_clicks:
+          category: null
+          type: STRING
+      - estimated_ad_recall_rate:
+          category: null
+          type: DOUBLE
+      - ad_name:
+          category: null
+          type: STRING
+      - unique_inline_link_click_ctr:
+          category: null
+          type: DOUBLE
+      - ctr:
+          category: null
+          type: DOUBLE
+      - campaign_id:
+          category: null
+          type: STRING
+      - cost_per_unique_click:
+          category: null
+          type: DOUBLE
+      - unique_social_clicks:
+          category: null
+          type: DOUBLE
+      - date_stop:
+          category: null
+          type: DATE
+      - actions:
+          category: null
+          type: MAP_STRING
+      - impressions:
+          category: null
+          type: DOUBLE
+      - inline_link_click_ctr:
+          category: null
+          type: DOUBLE
+      - ad_id:
+          category: null
+          type: STRING
+      - cost_per_estimated_ad_recallers:
+          category: null
+          type: DOUBLE
+      - social_reach:
+          category: null
+          type: DOUBLE
+      - website_clicks:
+          category: null
+          type: DOUBLE
+      - account_name:
+          category: null
+          type: STRING
+      - unique_actions:
+          category: null
+          type: MAP_STRING
+      - spend:
+          category: null
+          type: DOUBLE
+      - app_store_clicks:
+          category: null
+          type: DOUBLE
+      - deeplink_clicks:
+          category: null
+          type: DOUBLE
+      - unique_inline_link_clicks:
+          category: null
+          type: DOUBLE
+      - cost_per_inline_post_engagement:
+          category: null
+          type: DOUBLE
+      - cost_per_inline_link_click:
+          category: null
+          type: DOUBLE
+      - social_impressions:
+          category: null
+          type: DOUBLE
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - cost_per_unique_action_type:
+          category: null
+          type: MAP_STRING
+      - unique_link_clicks_ctr:
+          category: null
+          type: DOUBLE
+      - cost_per_total_action:
+          category: null
+          type: DOUBLE
+      - canvas_avg_view_percent:
+          category: null
+          type: DOUBLE
+      - gender:
+          category: null
+          type: STRING
+      - cpp:
+          category: null
+          type: DOUBLE
+      - adset_id:
+          category: null
+          type: STRING
+      - cpc:
+          category: null
+          type: DOUBLE
+      - total_actions:
+          category: null
+          type: DOUBLE
+      - date_start:
+          category: null
+          type: DATE
+      - website_ctr:
+          category: null
+          type: MAP_STRING
+      - adset_name:
+          category: null
+          type: STRING
+      - action_values:
+          category: null
+          type: MAP_STRING
+      - campaign_name:
+          category: null
+          type: STRING
+      - call_to_action_clicks:
+          category: null
+          type: DOUBLE
+      - video_avg_time_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_avg_sec_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_avg_pct_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_avg_percent_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_p25_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_15_sec_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_30_sec_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_p50_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_10_sec_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_p75_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_p95_watched_actions:
+          category: null
+          type: MAP_STRING
+      - video_p100_watched_actions:
+          category: null
+          type: MAP_STRING
+      - cost_per_10_sec_video_view:
+          category: null
+          type: MAP_STRING
+      - video_complete_watched_actions:
+          category: null
+          type: MAP_STRING
+      - estimated_ad_recallers:
+          category: null
+          type: STRING
+  add_to_basket:
+    columns:
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - _country_code:
+          category: null
+          type: STRING
+      - name:
+          category: null
+          type: STRING
+      - _longitude:
+          category: null
+          type: DOUBLE
+      - _user:
+          category: null
+          type: STRING
+      - _referrer_domain:
+          category: null
+          type: STRING
+      - manufacturer_id:
+          category: null
+          type: STRING
+      - _url:
+          category: null
+          type: STRING
+      - _referrer_path:
+          category: null
+          type: STRING
+      - _user_agent_family:
+          category: null
+          type: STRING
+      - _session_id:
+          category: null
+          type: LONG
+      - count:
+          category: null
+          type: DOUBLE
+      - _connection_type:
+          category: null
+          type: STRING
+      - _isp:
+          category: null
+          type: STRING
+      - _latitude:
+          category: null
+          type: DOUBLE
+      - returning_session:
+          category: null
+          type: BOOLEAN
+      - _user_agent_version:
+          category: null
+          type: LONG
+      - _referrer_source:
+          category: null
+          type: STRING
+      - _referrer_medium:
+          category: null
+          type: STRING
+      - _user_gender:
+          category: null
+          type: STRING
+      - _os:
+          category: null
+          type: STRING
+      - resolution:
+          category: null
+          type: ARRAY_STRING
+      - _device_family:
+          category: null
+          type: STRING
+      - price:
+          category: null
+          type: DOUBLE
+      - _timezone:
+          category: null
+          type: STRING
+      - _city:
+          category: null
+          type: STRING
+      - partner_code:
+          category: null
+          type: STRING
+      - __ip:
+          category: null
+          type: STRING
+      - _region:
+          category: null
+          type: STRING
+      - platform:
+          category: null
+          type: STRING
+      - _platform:
+          category: null
+          type: STRING
+      - language:
+          category: null
+          type: STRING
+      - _os_version:
+          category: null
+          type: LONG
+      - _referrer_term:
+          category: null
+          type: STRING
+      - _device_id:
+          category: null
+          type: STRING
+  intercom_demo_conversation:
+    columns:
+      - topic:
+          category: null
+          type: STRING
+      - assignee_type:
+          category: null
+          type: STRING
+      - assignee_id:
+          category: null
+          type: STRING
+      - user_id:
+          category: null
+          type: STRING
+      - _user:
+          category: null
+          type: LONG
+      - user_intercom_id:
+          category: null
+          type: STRING
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - author_id:
+          category: null
+          type: STRING
+      - user_email:
+          category: null
+          type: STRING
+      - author_type:
+          category: null
+          type: STRING
+      - subject:
+          category: null
+          type: STRING
+      - user_name:
+          category: null
+          type: STRING
+  intercom_demo_contact:
+    columns:
+      - _os:
+          category: null
+          type: STRING
+      - topic:
+          category: null
+          type: STRING
+      - user_id:
+          category: null
+          type: STRING
+      - _user:
+          category: null
+          type: LONG
+      - _isp:
+          category: null
+          type: STRING
+      - user_intercom_id:
+          category: null
+          type: STRING
+      - _city:
+          category: null
+          type: STRING
+      - _connection_type:
+          category: null
+          type: STRING
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - user_anonymous:
+          category: null
+          type: BOOLEAN
+      - user_email:
+          category: null
+          type: STRING
+      - _country_code:
+          category: null
+          type: STRING
+      - _user_agent_family:
+          category: null
+          type: STRING
+      - __ip:
+          category: null
+          type: STRING
+      - _region:
+          category: null
+          type: STRING
+      - _latitude:
+          category: null
+          type: DOUBLE
+      - _user_agent_version:
+          category: null
+          type: LONG
+      - _os_version:
+          category: null
+          type: LONG
+      - _device_family:
+          category: null
+          type: STRING
+      - user_session_count:
+          category: null
+          type: DOUBLE
+      - _longitude:
+          category: null
+          type: DOUBLE
+      - _timezone:
+          category: null
+          type: STRING
+  view_page:
+    columns:
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - _country_code:
+          category: null
+          type: STRING
+      - _longitude:
+          category: null
+          type: DOUBLE
+      - _referrer_domain:
+          category: null
+          type: STRING
+      - _user:
+          category: null
+          type: STRING
+      - product_quantities:
+          category: null
+          type: DOUBLE
+      - _country:
+          category: null
+          type: STRING
+      - _url:
+          category: null
+          type: STRING
+      - _referrer_path:
+          category: null
+          type: STRING
+      - _user_agent_family:
+          category: null
+          type: STRING
+      - _session_id:
+          category: null
+          type: LONG
+      - category_names:
+          category: null
+          type: DOUBLE
+      - _connection_type:
+          category: null
+          type: STRING
+      - _isp:
+          category: null
+          type: STRING
+      - returning_session:
+          category: null
+          type: BOOLEAN
+      - _latitude:
+          category: null
+          type: DOUBLE
+      - viewport:
+          category: null
+          type: STRING
+      - _user_agent_version:
+          category: null
+          type: LONG
+      - _referrer_source:
+          category: null
+          type: STRING
+      - _referrer_medium:
+          category: null
+          type: STRING
+      - color_depth:
+          category: null
+          type: DOUBLE
+      - _user_gender:
+          category: null
+          type: STRING
+      - _os:
+          category: null
+          type: STRING
+      - url:
+          category: null
+          type: STRING
+      - _device_family:
+          category: null
+          type: STRING
+      - _timezone:
+          category: null
+          type: STRING
+      - title:
+          category: null
+          type: STRING
+      - _city:
+          category: null
+          type: STRING
+      - __ip:
+          category: null
+          type: STRING
+      - _region:
+          category: null
+          type: STRING
+      - resolution:
+          category: null
+          type: STRING
+      - platform:
+          category: null
+          type: STRING
+      - _platform:
+          category: null
+          type: STRING
+      - _language:
+          category: null
+          type: STRING
+      - language:
+          category: null
+          type: STRING
+      - lang:
+          category: null
+          type: STRING
+      - _os_version:
+          category: null
+          type: LONG
+      - _referrer_term:
+          category: null
+          type: STRING
+      - time_on_page:
+          category: null
+          type: INTEGER
+      - _device_id:
+          category: null
+          type: STRING
+  view_product:
+    columns:
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - _country_code:
+          category: null
+          type: STRING
+      - _longitude:
+          category: null
+          type: DOUBLE
+      - _user:
+          category: null
+          type: STRING
+      - _referrer_domain:
+          category: null
+          type: STRING
+      - _url:
+          category: null
+          type: STRING
+      - _referrer_path:
+          category: null
+          type: STRING
+      - _user_agent_family:
+          category: null
+          type: STRING
+      - brand:
+          category: null
+          type: STRING
+      - _session_id:
+          category: null
+          type: LONG
+      - product_code:
+          category: null
+          type: STRING
+      - product_stock:
+          category: null
+          type: STRING
+      - _connection_type:
+          category: null
+          type: STRING
+      - _isp:
+          category: null
+          type: STRING
+      - _latitude:
+          category: null
+          type: DOUBLE
+      - returning_session:
+          category: null
+          type: BOOLEAN
+      - _user_agent_version:
+          category: null
+          type: LONG
+      - _referrer_source:
+          category: null
+          type: STRING
+      - _referrer_medium:
+          category: null
+          type: STRING
+      - _user_gender:
+          category: null
+          type: STRING
+      - _os:
+          category: null
+          type: STRING
+      - path:
+          category: null
+          type: STRING
+      - _device_family:
+          category: null
+          type: STRING
+      - product_name:
+          category: null
+          type: STRING
+      - price:
+          category: null
+          type: DOUBLE
+      - _timezone:
+          category: null
+          type: STRING
+      - _city:
+          category: null
+          type: STRING
+      - __ip:
+          category: null
+          type: STRING
+      - partner_code:
+          category: null
+          type: STRING
+      - _region:
+          category: null
+          type: STRING
+      - attrs:
+          category: null
+          type: MAP_STRING
+      - resolution:
+          category: null
+          type: STRING
+      - platform:
+          category: null
+          type: STRING
+      - category_name:
+          category: null
+          type: STRING
+      - _platform:
+          category: null
+          type: STRING
+      - manufacturer:
+          category: null
+          type: STRING
+      - _language:
+          category: null
+          type: STRING
+      - language:
+          category: null
+          type: STRING
+      - lang:
+          category: null
+          type: STRING
+      - _os_version:
+          category: null
+          type: LONG
+      - _referrer_term:
+          category: null
+          type: STRING
+      - _device_id:
+          category: null
+          type: STRING
+  intercom_demo_user:
+    columns:
+      - topic:
+          category: null
+          type: STRING
+      - user_id:
+          category: null
+          type: STRING
+      - _user:
+          category: null
+          type: LONG
+      - user_intercom_id:
+          category: null
+          type: STRING
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - _os:
+          category: null
+          type: STRING
+      - _isp:
+          category: null
+          type: STRING
+      - _city:
+          category: null
+          type: STRING
+      - _connection_type:
+          category: null
+          type: STRING
+      - user_anonymous:
+          category: null
+          type: BOOLEAN
+      - user_email:
+          category: null
+          type: STRING
+      - _country_code:
+          category: null
+          type: STRING
+      - _user_agent_family:
+          category: null
+          type: STRING
+      - __ip:
+          category: null
+          type: STRING
+      - _region:
+          category: null
+          type: STRING
+      - user_name:
+          category: null
+          type: STRING
+      - _latitude:
+          category: null
+          type: DOUBLE
+      - _user_agent_version:
+          category: null
+          type: LONG
+      - _os_version:
+          category: null
+          type: LONG
+      - _device_family:
+          category: null
+          type: STRING
+      - user_signed_up_at:
+          category: null
+          type: TIMESTAMP
+      - user_session_count:
+          category: null
+          type: DOUBLE
+      - _longitude:
+          category: null
+          type: DOUBLE
+      - _timezone:
+          category: null
+          type: STRING
+  intercom_demo_visitor:
+    columns:
+      - _os:
+          category: null
+          type: STRING
+      - topic:
+          category: null
+          type: STRING
+      - user_id:
+          category: null
+          type: STRING
+      - _user:
+          category: null
+          type: LONG
+      - _isp:
+          category: null
+          type: STRING
+      - user_intercom_id:
+          category: null
+          type: STRING
+      - _city:
+          category: null
+          type: STRING
+      - _connection_type:
+          category: null
+          type: STRING
+      - user_anonymous:
+          category: null
+          type: BOOLEAN
+      - __ip:
+          category: null
+          type: STRING
+      - user_name:
+          category: null
+          type: STRING
+      - _user_agent_version:
+          category: null
+          type: LONG
+      - _device_family:
+          category: null
+          type: STRING
+      - user_session_count:
+          category: null
+          type: DOUBLE
+      - _longitude:
+          category: null
+          type: DOUBLE
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - user_email:
+          category: null
+          type: STRING
+      - _country_code:
+          category: null
+          type: STRING
+      - _user_agent_family:
+          category: null
+          type: STRING
+      - _region:
+          category: null
+          type: STRING
+      - _latitude:
+          category: null
+          type: DOUBLE
+      - _os_version:
+          category: null
+          type: LONG
+      - user_signed_up_at:
+          category: null
+          type: TIMESTAMP
+      - user_segments:
+          category: null
+          type: ARRAY_STRING
+      - _timezone:
+          category: null
+          type: STRING
+  google_analytics:
+    columns:
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - 'ga:hostname':
+          category: null
+          type: STRING
+      - 'ga:goal_value_all':
+          category: null
+          type: DOUBLE
+      - 'ga:bounces':
+          category: null
+          type: DOUBLE
+      - 'ga:city':
+          category: null
+          type: STRING
+      - 'ga:transactions':
+          category: null
+          type: DOUBLE
+      - 'ga:avg_time_on_page':
+          category: null
+          type: STRING
+      - _user:
+          category: null
+          type: LONG
+      - 'ga:goal_completions_all':
+          category: null
+          type: DOUBLE
+      - 'ga:page_path':
+          category: null
+          type: STRING
+      - 'ga:sessions':
+          category: null
+          type: DOUBLE
+      - 'ga:pageviews':
+          category: null
+          type: DOUBLE
+      - 'ga:country':
+          category: null
+          type: STRING
+      - 'ga:new_users':
+          category: null
+          type: DOUBLE
+      - 'ga:transaction_revenue':
+          category: null
+          type: DOUBLE
+      - 'ga:users':
+          category: null
+          type: DOUBLE
+  product_list:
+    columns:
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - _country_code:
+          category: null
+          type: STRING
+      - _longitude:
+          category: null
+          type: DOUBLE
+      - _user:
+          category: null
+          type: STRING
+      - _referrer_domain:
+          category: null
+          type: STRING
+      - _url:
+          category: null
+          type: STRING
+      - _referrer_path:
+          category: null
+          type: STRING
+      - search_term:
+          category: null
+          type: STRING
+      - _user_agent_family:
+          category: null
+          type: STRING
+      - _session_id:
+          category: null
+          type: LONG
+      - brand:
+          category: null
+          type: STRING
+      - _connection_type:
+          category: null
+          type: STRING
+      - _isp:
+          category: null
+          type: STRING
+      - _latitude:
+          category: null
+          type: DOUBLE
+      - returning_session:
+          category: null
+          type: BOOLEAN
+      - _user_agent_version:
+          category: null
+          type: LONG
+      - main_category:
+          category: null
+          type: STRING
+      - _referrer_source:
+          category: null
+          type: STRING
+      - _referrer_medium:
+          category: null
+          type: STRING
+      - _user_gender:
+          category: null
+          type: STRING
+      - _os:
+          category: null
+          type: STRING
+      - sorting:
+          category: null
+          type: STRING
+      - _device_family:
+          category: null
+          type: STRING
+      - _timezone:
+          category: null
+          type: STRING
+      - _city:
+          category: null
+          type: STRING
+      - __ip:
+          category: null
+          type: STRING
+      - _region:
+          category: null
+          type: STRING
+      - resolution:
+          category: null
+          type: STRING
+      - page:
+          category: null
+          type: DOUBLE
+      - platform:
+          category: null
+          type: STRING
+      - _platform:
+          category: null
+          type: STRING
+      - brand_model:
+          category: null
+          type: STRING
+      - _language:
+          category: null
+          type: STRING
+      - category_names:
+          category: null
+          type: STRING
+      - language:
+          category: null
+          type: STRING
+      - lang:
+          category: null
+          type: STRING
+      - _os_version:
+          category: null
+          type: LONG
+      - _referrer_term:
+          category: null
+          type: STRING
+      - _device_id:
+          category: null
+          type: STRING
+  login:
+    columns:
+      - _country_code:
+          category: null
+          type: STRING
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - _longitude:
+          category: null
+          type: DOUBLE
+      - _referrer_domain:
+          category: null
+          type: STRING
+      - _user:
+          category: null
+          type: STRING
+      - _referrer_path:
+          category: null
+          type: STRING
+      - _user_agent_family:
+          category: null
+          type: STRING
+      - returning_session:
+          category: null
+          type: BOOLEAN
+      - _isp:
+          category: null
+          type: STRING
+      - _latitude:
+          category: null
+          type: DOUBLE
+      - _user_agent_version:
+          category: null
+          type: LONG
+      - _referrer_medium:
+          category: null
+          type: STRING
+      - _referrer_source:
+          category: null
+          type: STRING
+      - _user_gender:
+          category: null
+          type: STRING
+      - _os:
+          category: null
+          type: STRING
+      - resolution:
+          category: null
+          type: ARRAY_STRING
+      - _device_family:
+          category: null
+          type: STRING
+      - _timezone:
+          category: null
+          type: STRING
+      - _city:
+          category: null
+          type: STRING
+      - __ip:
+          category: null
+          type: STRING
+      - _region:
+          category: null
+          type: STRING
+      - platform:
+          category: null
+          type: STRING
+      - language:
+          category: null
+          type: STRING
+      - _os_version:
+          category: null
+          type: LONG
+      - _referrer_term:
+          category: null
+          type: STRING
+      - _session_id:
+          category: null
+          type: DOUBLE
+      - _device_id:
+          category: null
+          type: STRING
+      - _connection_type:
+          category: null
+          type: STRING
+  transaction:
+    columns:
+      - product_sku:
+          category: null
+          type: STRING
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - _country_code:
+          category: null
+          type: STRING
+      - _longitude:
+          category: null
+          type: DOUBLE
+      - _user:
+          category: null
+          type: STRING
+      - _referrer_domain:
+          category: null
+          type: STRING
+      - manufacturer_id:
+          category: null
+          type: STRING
+      - _url:
+          category: null
+          type: STRING
+      - _referrer_path:
+          category: null
+          type: STRING
+      - product_prices:
+          category: null
+          type: ARRAY_DOUBLE
+      - _user_agent_family:
+          category: null
+          type: STRING
+      - _session_id:
+          category: null
+          type: LONG
+      - count:
+          category: null
+          type: DOUBLE
+      - _connection_type:
+          category: null
+          type: STRING
+      - _isp:
+          category: null
+          type: STRING
+      - _latitude:
+          category: null
+          type: DOUBLE
+      - returning_session:
+          category: null
+          type: BOOLEAN
+      - _user_agent_version:
+          category: null
+          type: LONG
+      - _referrer_source:
+          category: null
+          type: STRING
+      - _referrer_medium:
+          category: null
+          type: STRING
+      - product_quantities:
+          category: null
+          type: ARRAY_LONG
+      - _user_gender:
+          category: null
+          type: STRING
+      - _os:
+          category: null
+          type: STRING
+      - category_names:
+          category: null
+          type: ARRAY_STRING
+      - resolution:
+          category: null
+          type: ARRAY_STRING
+      - product_codes:
+          category: null
+          type: ARRAY_STRING
+      - _device_family:
+          category: null
+          type: STRING
+      - product_name:
+          category: null
+          type: STRING
+      - _timezone:
+          category: null
+          type: STRING
+      - _city:
+          category: null
+          type: STRING
+      - __ip:
+          category: null
+          type: STRING
+      - _region:
+          category: null
+          type: STRING
+      - platform:
+          category: null
+          type: STRING
+      - _platform:
+          category: null
+          type: STRING
+      - order_price:
+          category: null
+          type: DOUBLE
+      - language:
+          category: null
+          type: STRING
+      - _os_version:
+          category: null
+          type: LONG
+      - _referrer_term:
+          category: null
+          type: STRING
+      - _device_id:
+          category: null
+          type: STRING
+  register:
+    columns:
+      - name:
+          category: null
+          type: STRING
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - ip:
+          category: null
+          type: STRING
+      - email:
+          category: null
+          type: STRING
+      - address:
+          category: null
+          type: STRING
+      - _user:
+          category: null
+          type: STRING
+      - age:
+          category: null
+          type: DOUBLE
+      - company:
+          category: null
+          type: STRING
+      - country_code:
+          category: null
+          type: STRING
+      - timezone:
+          category: null
+          type: STRING
+      - company_type:
+          category: null
+          type: STRING
+reports:
+  - slug: average_per_user
+    category: Session
+    name: Average per user
+    query: "select date, (case \nwhen avg_duration between 0 and 60 then cast(cast(avg_duration as bigint) as varchar) || ' seconds'\nwhen avg_duration between 60 and 300 then cast(cast(avg_duration/60 as bigint) as varchar) || ' minutes'\nwhen avg_duration between 300 and 3600 then cast(cast(((avg_duration/60)/5)*5 as bigint) as varchar) || ' minutes'\nwhen avg_duration between 3600 and 86400 then cast(cast(avg_duration/3600 as bigint) as varchar) || ' hours'\nelse '> 1 day' end) average_duration_per_user\nfrom (\nselect date, avg(duration) as avg_duration from (\n  select * from (\n    select \n    coalesce(mapping._user, _all._user, _all._device_id) as _user, _session_id, cast(min(_all._time) as date) date, (DATE_PART('second', \tmax(_all._time) - min(_all._time))/15)*15 as duration, count(*) actions,\n    bool_or(\"$collection\" = 'transaction') as transaction, bool_or(\"$collection\" = 'basket') as added_to_basket\n    from (\n    \tselect 'transaction' as \"$collection\", _time, _device_id, _user, _session_id from transaction union all\n    \tselect 'basket' as \"$collection\", _time, _device_id, _user, _session_id from add_to_basket union all\n    \tselect 'view_page' as \"$collection\", _time, _device_id, _user, _session_id from view_page\n    ) _all\n    left join \"$anonymous_id_mapping\" mapping on (mapping.id = _all._user)\n    group by 1, 2\n    )  data where date between {date[0]} and {date[1]}\n) data\ngroup by 1) data order by 1 desc"
+    shared: false
+    options:
+      chartType: null
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+        enableServerSide: false
+      chartOptions: true
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - chartOptions: {}
+          tableOptions:
+            statistics: {}
+          displayFormat: yyyy-MM-dd
+        - chartOptions:
+            disable: true
+          tableOptions:
+            statistics: {}
+    queryOptions: {}
+  - slug: basket
+    category: Order
+    name: Basket
+    query: >-
+      select [{dimension}]('All') as dimension, sessions, conversion, 
+
+      (case when sessions = 0 then 0 else (conversion * 100) / sessions end) as
+      "card abandonment rate" from (
+        select [basket.{dimension}]('All'), count(distinct transaction._session_id) as conversion, count(distinct basket._session_id) as sessions
+        from add_to_basket basket
+        left join transaction on (transaction._session_id = basket._session_id)
+        where basket._time between {date[0]} and {date[1]} group by 1
+      ) data
+    shared: false
+    options:
+      chartType: bar
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: dimension
+          options:
+            display_type: dropdown
+            disable_quotes: true
+            type: column-name
+            type_settings:
+              source: single
+              table: null
+              type: common
+              tables:
+                - tableType: collection
+                  tableName: add_to_basket
+                - tableType: collection
+                  tableName: transaction
+            typeSettings:
+              type: single
+              tables: null
+              table:
+                tableType: collection
+                tableName: basket
+            disableQuotes: true
+            displayType: dropdown
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_two_weeks
+          type: date-range
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+      dimensions:
+        - 0
+      columnOptions:
+        - tableOptions:
+            cellOptions: {}
+          chartOptions:
+            disable: true
+        - tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            cellOptions:
+              suffix: '%'
+          chartOptions:
+            disable: true
+    queryOptions: {}
+  - slug: top_keywords
+    category: Technology
+    name: Top keywords
+    query: >
+      select _referrer_source, _referrer_term, count(*) as total_visits from
+      view_page
+        WHERE _referrer_term is not null and
+        _time between {date[0]} and {date[1]} and
+        [_os = {os}](true) and 
+        [_device_family = {device_family}](true) and 
+        [_referrer_source = {referrer_source}](true) and 
+        [_language = {language}](true) and
+        [_user_agent_family = {user_agent}](true) and
+        [_country = {country}](true) and
+        [_user in (select id from materialized.{user-segment})](true) 
+      group by 1,2 order by 3 desc
+    shared: false
+    options:
+      chartType: null
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+        enableServerSide: false
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+        - multiple: false
+          classes: left
+          name: os
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct _os from view_page where _os is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: device_family
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _device_family from view_page where
+                _device_family is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: referrer_source
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _referrer_source from view_page where
+                _referrer_source is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: language
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct language from view_page where language is not
+                null
+          type: string
+        - multiple: false
+          classes: left
+          name: user_agent
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _user_agent_family from view_page where
+                _user_agent_family is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: country
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _country_code from view_page where _country_code
+                is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: user-segment
+          options:
+            displayType: advanced
+            type: custom-report
+            typeSettings:
+              reportType: user-segment
+              valueField: table_name
+            disableQuotes: true
+          type: string
+      segments: []
+      measures:
+        - 0
+        - 1
+        - 2
+      dimensions: []
+      columnOptions:
+        - chartOptions:
+            disable: true
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+          displayFormat: null
+        - chartOptions:
+            disable: true
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+          displayFormat: null
+        - tableOptions:
+            cellOptions: {}
+          displayFormat: null
+    queryOptions: {}
+  - slug: referrer_url
+    category: Source
+    name: Referrer Url
+    query: >
+      select _referrer_domain as referrer_url, count(*) as total_visits from
+      view_page
+        where 
+        _time between {date[0]} and {date[1]} and
+        [_os = {os}](true) and 
+        [_device_family = {device_family}](true) and 
+        [_referrer_source = {referrer_source}](true) and 
+        [_language = {language}](true) and
+        [_user_agent_family = {user_agent}](true) and
+        [_country = {country}](true) and
+        [_user in (select id from materialized.{user-segment})](true) 
+       group by 1
+    shared: false
+    options:
+      chartType: pie
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+        enableServerSide: false
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+        - multiple: false
+          classes: left
+          name: os
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct _os from view_page
+            displayType: dropdown
+          type: string
+        - multiple: false
+          classes: left
+          name: device_family
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _device_family from view_page where
+                _device_family is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: referrer_source
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _referrer_source from view_page where
+                _referrer_source is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: language
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct language from view_page where language is not
+                null
+          type: string
+        - multiple: false
+          classes: left
+          name: user_agent
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _user_agent_family from view_page where
+                _user_agent_family is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: country
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _country_code from view_page where _country_code
+                is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: user-segment
+          options:
+            displayType: advanced
+            type: custom-report
+            typeSettings:
+              reportType: user-segment
+              valueField: table_name
+            disableQuotes: true
+          type: string
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - chartOptions: {}
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+          displayFormat: null
+        - chartOptions: {}
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+            formatNumbers: true
+          displayFormat: null
+    queryOptions: {}
+  - slug: user_agent
+    category: Technology
+    name: User agent
+    query: >-
+      SELECT _user_agent_family, count(distinct _session_id) sessions FROM
+      collection.view_page GROUP BY 1 ORDER BY 2 DESC
+    shared: false
+    options:
+      chartType: bar
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables: []
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - chartOptions:
+            disable: true
+          tableOptions:
+            cellOptions: {}
+          displayFormat: null
+        - chartOptions: {}
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          displayFormat: null
+    queryOptions: {}
+  - slug: discover
+    category: E-commerce
+    name: Discover
+    query: "select \n\tdimension,\n\tusers, \n\tsessions, \n\tpageviews, \n\t(returning_users * 100) / nullif(users, 0) as \"new user rate\", \n\t(bounced_sessions * 100) / nullif(sessions, 0) as \"bounce rate\", \n\tsessions / nullif(users, 0) as \"average sessions\", \n    average_pageview as \"average pageview\",\n\taverage_time_on_page as \"average time on page\"\nfrom (\n\tselect  dimension,\n\t\t    count(distinct _user) as users,\n\t\t\tcount(distinct (case when returning_user then _user else null end)) as returning_users,\n\t\t\tcount(*) sessions,\n\t\t\tcount(is_bounce) bounced_sessions,\n\t\t\tsum(pageviews) pageviews,\n  \t\t\tcast(avg(pageviews) as bigint) average_pageview, \n\t\t\tsum(time_on_page_sum) / count(time_on_page_valid_count) as average_time_on_page\n\tfrom (\n\t\tselect [{dimension}]('All') as dimension,\n\t\t_user,\n\t\tcount(*) pageviews,\n\t\tcount(*) = 1 is_bounce,\n\t\tbool_or(returning_session) as returning_user,\n\t\tsum(case when time_on_page > 0 then time_on_page else 0 end) time_on_page_sum,\n        count(time_on_page > 0) as time_on_page_valid_count\n\t\tfrom view_page\n        where _time between {date[0]} and {date[1]} group by 1, _user, _session_id\n\t) data [where _user in (select id from materialized.{user_segment})]() group by 1\n) data"
+    shared: false
+    options:
+      chartType: line
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions:
+        singleColumn: true
+      variables:
+        - multiple: false
+          name: dimension
+          options:
+            display_type: dropdown
+            type: column-name
+            typeSettings:
+              source: single
+              table:
+                tableType: collection
+                tableName: basket
+              type: single
+              tables: null
+            disable_quotes: true
+            disableQuotes: true
+            displayType: dropdown
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+        - multiple: false
+          classes: left
+          name: user_segment
+          options:
+            display_type: advanced
+            disable_quotes: true
+            type: custom-report
+            typeSettings:
+              reportType: user-segment
+              valueField: table_name
+            displayType: advanced
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+      dimensions:
+        - 0
+      columnOptions:
+        - tableOptions:
+            statistics: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+          chartOptions: {}
+          hint: the number of users who visited the website
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+            cellOptions:
+              suffix: '%'
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+            cellOptions:
+              suffix: '%'
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+          chartOptions:
+            disable: true
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+            cellOptions:
+              suffix: ' seconds'
+          chartOptions:
+            disable: true
+    queryOptions: {}
+  - slug: products
+    category: E-commerce
+    name: Products
+    query: "with product_views as (\n\tselect product_code, count(*) as total_pageview, count(distinct _user) total_users from view_product\nwhere [_user in (select id from materialized.{segment})](true) and [_time between {date[0]} and {date[1]}](true)\ngroup by 1\n),\ntransactions as (\n\tselect product_transaction.product_code, sum(product_quantity) total_items_sold, sum(product_price) revenue from transaction\n\tCROSS JOIN UNNEST(product_codes, product_quantities, product_prices) AS product_transaction(product_code, product_quantity, product_price)\nwhere _time between {date[0]} and {date[1]}\n   group by 1\n)\nselect product_views.product_code as \"product code\", coalesce(total_items_sold, 0) as \"total sold items\", coalesce(revenue, 0) \"revenue\", total_pageview as \"total pageview\", total_users as \"total users\" from transactions\nright JOIN product_views ON (transactions.product_code = product_views.product_code)"
+    shared: false
+    options:
+      chartType: null
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+        enableServerSide: true
+        enableFilter: true
+      chartOptions: true
+      variables:
+        - multiple: false
+          classes: left
+          name: segment
+          options:
+            display_type: dropdown
+            type: custom-report
+            typeSettings:
+              reportType: user-segment
+              valueField: table_name
+            disable_quotes: true
+            displayType: advanced
+            disableQuotes: true
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: null
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+        - displayFormat: null
+          tableOptions:
+            statistics: {}
+            formatNumbers: true
+            cellOptions: {}
+        - displayFormat: null
+          tableOptions:
+            statistics: {}
+            formatNumbers: true
+            cellOptions:
+              prefix: '₺ '
+            sorting: desc
+        - displayFormat: null
+          tableOptions:
+            statistics: {}
+            formatNumbers: true
+            cellOptions: {}
+        - displayFormat: null
+          tableOptions:
+            statistics: {}
+            formatNumbers: true
+            cellOptions: {}
+    queryOptions: {}
+  - slug: order
+    category: Order
+    name: Order
+    query: >-
+      select *, revenue/"total order" "average order total", "total
+      product"/"total order" as "average items per order"
+
+      from (
+        select [{dimension}]('All') as dimension, sum(order_price) revenue, 
+        sum((SELECT SUM(s) FROM UNNEST(transaction.product_quantities) s)) as "total product",   
+        count(*) "total order" 
+        from transaction where _time between {date[0]} and {date[1]} group by 1
+      ) data
+    shared: false
+    options:
+      chartType: area
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions:
+        singleColumn: true
+      variables:
+        - multiple: false
+          classes: left
+          name: dimension
+          options:
+            displayType: dropdown
+            type: column-name
+            typeSettings:
+              source: single
+              table:
+                tableType: collection
+                tableName: transaction
+              type: single
+              tables: null
+            disableQuotes: true
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+      dimensions:
+        - 0
+      enableOptionalColumns: false
+      columnOptions:
+        - tableOptions:
+            statistics: {}
+        - displayFormat: currency
+          tableOptions:
+            statistics: {}
+            formatNumbers: true
+            cellOptions:
+              prefix: '₺ '
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: location
+    category: Visitor
+    name: Location
+    query: >-
+      SELECT _country_code as "country", count(*) as count FROM
+      collection.view_page
+
+      WHERE _time between {date[0]} and {date[1]}
+
+      GROUP BY 1
+    shared: false
+    options:
+      chartType: bar
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+      segments: []
+      measures:
+        - 0
+        - 1
+      dimensions: []
+      columnOptions:
+        - chartOptions:
+            disable: true
+          tableOptions:
+            cellOptions: {}
+          displayFormat: null
+        - chartOptions: {}
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          displayFormat: null
+    queryOptions: {}
+  - slug: device_family
+    category: Technology
+    name: Device family
+    query: |
+      select _device_family, count(distinct _device_id) count from view_page
+        WHERE 
+        _time between {date[0]} and {date[1]} and
+        [_os = {os}](true) and 
+        [_device_family = {device_family}](true) and 
+        [_referrer_source = {referrer_source}](true) and 
+        [_language = {language}](true) and
+        [_user_agent_family = {user_agent}](true) and
+        [_country = {country}](true) and
+        [_user in (select id from materialized.{user-segment})](true) 
+      group by 1 order by 2 desc limit 30
+    shared: false
+    options:
+      chartType: pie
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+        enableServerSide: false
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+        - multiple: false
+          classes: left
+          name: os
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct _os from view_page where _os is not null
+            displayType: advanced
+          type: string
+        - multiple: false
+          classes: left
+          name: device_family
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _device_family from view_page where
+                _device_family is not null
+            displayType: advanced
+          type: string
+        - multiple: false
+          classes: left
+          name: referrer_source
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _referrer_source from view_page where
+                _referrer_source is not null
+            displayType: advanced
+          type: string
+        - multiple: false
+          classes: left
+          name: language
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct language from view_page where language is not
+                null
+            displayType: advanced
+          type: string
+        - multiple: false
+          classes: left
+          name: user_agent
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _user_agent_family from view_page where
+                _user_agent_family is not null
+            displayType: advanced
+          type: string
+        - multiple: false
+          classes: left
+          name: country
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _country_code from view_page where _country_code
+                is not null
+            displayType: advanced
+          type: string
+        - multiple: false
+          classes: left
+          name: user-segment
+          options:
+            displayType: advanced
+            type: custom-report
+            typeSettings:
+              reportType: user-segment
+              valueField: table_name
+            disableQuotes: true
+          type: string
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - chartOptions: {}
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+          displayFormat: null
+        - chartOptions: {}
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+          displayFormat: null
+    queryOptions: {}
+  - slug: search_engines
+    category: Source
+    name: Search Engines
+    query: |
+      select _referrer_source, count(*) as total from view_page
+        WHERE 
+        _referrer_medium = 'search' and
+        _time between {date[0]} and {date[1]} and
+        [ _os = {os} ](true) and 
+        [ _device_family = {device_family} ](true) and 
+        [ _referrer_source = {referrer_source} ](true) and 
+        [ _language = {language} ](true) and
+        [ _user_agent_family = {user_agent} ](true) and
+        [ _country = {country} ](true) and
+        [ _user in (select id from materialized.{user-segment}) ](true) 
+       group by 1
+    shared: false
+    options:
+      chartType: pie
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+        enableServerSide: false
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+        - multiple: false
+          classes: left
+          name: os
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct _os from view_page where _os is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: device_family
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _device_family from view_page where
+                _device_family is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: referrer_source
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _referrer_source from view_page where
+                _referrer_source is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: language
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct language from view_page where language is not
+                null
+          type: string
+        - multiple: false
+          classes: left
+          name: user_agent
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _user_agent_family from view_page where
+                _user_agent_family is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: country
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _country_code from view_page where _country_code
+                is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: user-segment
+          options:
+            displayType: advanced
+            type: custom-report
+            typeSettings:
+              reportType: user-segment
+              valueField: table_name
+            disableQuotes: true
+          type: string
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - chartOptions:
+            disable: true
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+          displayFormat: null
+        - chartOptions: {}
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+            formatNumbers: true
+          displayFormat: null
+    queryOptions: {}
+  - slug: order_daily
+    category: Order
+    name: Orders by date
+    query: >-
+      select *, revenue/"total order" "average order total", "total
+      product"/"total order" as "average items per order"
+
+      from (
+        select cast(date_trunc({interval}, _time) as date) as date, sum(order_price) revenue, sum((SELECT SUM(s) FROM UNNEST(product_quantities) s)) as "total product", count(*) "total order" 
+        from transaction where _time between {date[0]} and {date[1]} group by 1
+      ) data
+    shared: false
+    options:
+      chartType: area
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions:
+        singleColumn: true
+      variables:
+        - multiple: false
+          name: interval
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_two_weeks
+          type: date-range
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+      dimensions:
+        - 0
+      enableOptionalColumns: false
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            statistics: {}
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+            cellOptions:
+              prefix: '₺ '
+              statistics: relative
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+            cellOptions:
+              statistics: relative
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+            cellOptions:
+              statistics: relative
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+            cellOptions:
+              statistics: relative
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+            cellOptions:
+              statistics: relative
+          chartOptions: {}
+    queryOptions: {}
+  - slug: landing_pages
+    category: Website
+    name: Landing pages
+    query: |
+      select url, count(*) as count from (
+        SELECT first_value(url) OVER (PARTITION BY _session_id ORDER BY _time ASC) AS url FROM view_page
+        WHERE 
+        _time between {date[0]} and {date[1]} and
+        [_os = {os}](true) and 
+        [_device_family = {device_family}](true) and 
+        [_referrer_source = {referrer_source}](true) and 
+        [_language = {language}](true) and
+        [_user_agent_family = {user_agent}](true) and
+        [_country = {country}](true) and
+        [_user in (select id from materialized.{user-segment})](true) 
+      ) as data GROUP BY 1 ORDER BY 2 DESC limit 50
+    shared: false
+    options:
+      chartType: null
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: true
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+        - multiple: false
+          classes: left
+          name: os
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct _os from view_page where _os is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: device_family
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _device_family from view_page where
+                _device_family is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: referrer_source
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _referrer_source from view_page where
+                _referrer_source is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: language
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _language from view_page where _language is not
+                null
+          type: string
+        - multiple: false
+          classes: left
+          name: user_agent
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _user_agent_family from view_page where
+                _user_agent_family is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: country
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _country_code from view_page where _country_code
+                is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: user-segment
+          options:
+            displayType: advanced
+            type: custom-report
+            typeSettings:
+              reportType: user-segment
+              valueField: table_name
+            disableQuotes: true
+          type: string
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: null
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+        - displayFormat: null
+          tableOptions:
+            statistics: {}
+            cellOptions:
+              statistics: sum
+              colorize: true
+              bar: true
+    queryOptions: {}
+  - slug: exit_pages
+    category: Website
+    name: Exit pages
+    query: |-
+      select url, count(*) as count from (
+        SELECT first_value(url) OVER (PARTITION BY _session_id ORDER BY _time DESC) AS url FROM view_page
+        WHERE _time between {time[0]} and {time[1]} and 
+        [_os = {os}](true) and 
+        [_device_family = {device_family}](true) and 
+        [_referrer_source = {referrer_source}](true) and 
+        [_language = {language}](true) and
+        [_user_agent_family = {user_agent}](true) and
+        [_country = {country}](true)
+      ) as data GROUP BY 1 ORDER BY 2 DESC
+    shared: false
+    options:
+      chartType: null
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: true
+          classes: left
+          name: time
+          options: {}
+          defaultValue: this_month
+          type: date-range
+        - multiple: false
+          classes: left clear margin-top-5
+          name: os
+          options:
+            display_type: advanced
+            type: custom-query
+            type_settings:
+              query: select distinct os from view_page where os is not null
+            typeSettings:
+              query: select distinct _os from view_page
+          type: string
+        - multiple: false
+          classes: left margin-top-5
+          name: device_family
+          options:
+            display_type: advanced
+            type: custom-query
+            type_settings:
+              query: >-
+                select distinct device_family from view_page where device_family
+                is not null
+            typeSettings:
+              query: select distinct  _device_family from view_page
+          type: string
+        - multiple: false
+          classes: left margin-top-5
+          name: referrer_source
+          options:
+            display_type: advanced
+            type: custom-query
+            type_settings:
+              query: >-
+                select distinct referrer_source from view_page where
+                referrer_source is not null
+            typeSettings:
+              query: select distinct  _referrer_source from view_page
+          type: string
+        - multiple: false
+          classes: left margin-top-5
+          name: language
+          options:
+            display_type: advanced
+            type: custom-query
+            type_settings:
+              query: >-
+                select distinct language from view_page where language is not
+                null
+            typeSettings:
+              query: select distinct  _language from view_page
+          type: string
+        - multiple: false
+          classes: left margin-top-5
+          name: user_agent
+          options:
+            display_type: advanced
+            type: custom-query
+            type_settings:
+              query: >-
+                select distinct user_agent_family from view_page where
+                user_agent_family is not null
+            typeSettings:
+              query: select distinct  _user_agent_family from view_page
+          type: string
+        - multiple: false
+          classes: left margin-top-5
+          name: country
+          options:
+            display_type: advanced
+            type: custom-query
+            type_settings:
+              query: >-
+                select distinct country_code from view_page where country_code
+                is not null
+            typeSettings:
+              query: select distinct  _country from view_page
+          type: string
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - tableOptions:
+            cellOptions: {}
+        - tableOptions:
+            cellOptions: {}
+    queryOptions: {}
+  - slug: insights
+    category: E-commerce
+    name: Insights by date
+    query: "select \n\tdimension,\n\tusers, \n\tsessions, \n\tpageviews, \n\tcase when users > 0 then (returning_users * 100) / users else 0 end \"new user rate\", \n\tcase when sessions > 0 then (bounced_sessions * 100) / sessions else 0 end as \"bounce rate\", \n\tcase when users > 0 then sessions / users else 0 end as \"average sessions\", average_pageview \"average pageview\",\n\taverage_time_on_page as \"avg time on page\"\nfrom (\n\tselect  dimension,\n\t\t    count(distinct _user) as users,\n\t\t\tcount(distinct (case when returning_user then _user else null end)) as returning_users,\n\t\t\tcount(*) sessions,\n\t\t\tcount(is_bounce) bounced_sessions,\n\t\t\tsum(pageviews) pageviews,\n  \t\t\tavg(pageviews) average_pageview, \n\t\t\tsum(case when time_on_page < 0 then 0 else time_on_page end) / nullif(count(time_on_page > 0), 0)  average_time_on_page\n\tfrom (\n\t\tselect [cast(date_trunc({interval}, _time) as date)]('All') as dimension,\n\t\tcase when _user is null then _device_id else _user end as _user,\n\t\tcount(*) pageviews,\n\t\tcount(*) = 1 is_bounce,\n\t\tbool_or(returning_session) as returning_user,\n\t\tsum(time_on_page) time_on_page\n\t\tfrom view_page\n        where _time between {date[0]} and {date[1]} group by 1, 2, _session_id\n\t) data [where _user in (select id from materialized.{user_segment})]() group by 1\n) data"
+    shared: false
+    options:
+      chartType: line
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+        enableServerSide: false
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: interval
+          options:
+            display_type: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+            displayType: dropdown
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+        - multiple: false
+          classes: left
+          name: user_segment
+          options:
+            display_type: advanced
+            disable_quotes: true
+            type: custom-report
+            typeSettings:
+              reportType: user-segment
+              valueField: table_name
+            displayType: advanced
+            disableQuotes: true
+          type: string
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+        - 6
+        - 7
+        - 8
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: YYYY-MM-DD
+          tableOptions:
+            cellOptions: {}
+          chartOptions:
+            disable: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions:
+            disable: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions:
+            disable: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions:
+            disable: true
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+          chartOptions:
+            disable: true
+    queryOptions: {}
+  - slug: categories
+    category: E-commerce
+    name: Categories
+    query: "with category_views as (\n\tselect category_name, count(*) as total_pageview, count(distinct _session_id) as total_sessions, count(distinct _user) total_users \n    from view_product\n  where [_user in (select id from materialized.\"{segment}\")](true) and _time between {date[0]} and {date[1]}\n  group by 1\n),\ntransactions as (\n\tselect product_transaction.category_name, sum(product_quantity) total_items_sold, sum(product_price) revenue from transaction\n\tCROSS JOIN UNNEST(category_names, product_quantities, product_prices) AS product_transaction(category_name, product_quantity, product_price)\n  where _time between {date[0]} and {date[1]}\n   group by 1\n)\nselect transactions.category_name as \"category\", total_items_sold as \"total sold items\", revenue as \"revenue\", total_pageview as \"total pageview\", total_sessions as \"total sessions\", total_users as \"total users\" from transactions\nJOIN category_views ON (transactions.category_name = category_views.category_name)"
+    shared: false
+    options:
+      chartType: null
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+        enableFilter: true
+        enableServerSide: true
+      chartOptions: true
+      variables:
+        - multiple: false
+          classes: left
+          name: segment
+          options:
+            display_type: dropdown
+            disable_quotes: true
+            type: custom-report
+            typeSettings:
+              reportType: user-segment
+              valueField: table_name
+            disableQuotes: true
+            displayType: advanced
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+      dimensions:
+        - 0
+      columnOptions:
+        - tableOptions:
+            statistics: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+          chartOptions: {}
+        - tableOptions:
+            statistics: {}
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+  - slug: path_analysis
+    category: Website
+    name: Path Analysis
+    query: >-
+      select path0 as first_path,
+
+      CASE WHEN path0 IS NULL THEN NULL WHEN path1 IS NULL THEN 'Others' ELSE
+      path1 END as second_path,
+
+      CASE WHEN path0 IS NULL OR path1 IS NULL THEN NULL WHEN path2 IS NULL THEN
+      'Others' ELSE path2 END as third_path,
+
+      CASE WHEN path0 IS NULL OR path1 IS NULL OR path2 IS NULL THEN NULL WHEN
+      path3 IS NULL THEN 'Others' ELSE path3 END as fourth_path,
+
+      CASE WHEN path0 IS NULL OR path1 IS NULL OR path2 IS NULL OR path3 IS NULL
+      THEN NULL WHEN path4 IS NULL THEN 'Others' ELSE path4 END as fifth_path,
+
+      sum(count) as count
+
+      FROM (select
+
+      CASE WHEN rank() OVER (ORDER BY sum(count) DESC) < 10 THEN path0 ELSE NULL
+      END as path0,
+
+      CASE WHEN rank() OVER (PARTITION BY path0 ORDER BY sum(count) DESC) < 10
+      THEN path1 ELSE NULL END as path1,
+
+      CASE WHEN rank() OVER (PARTITION BY path1 ORDER BY sum(count) DESC) < 10
+      THEN path2 ELSE NULL END as path2,
+
+      CASE WHEN rank() OVER (PARTITION BY path2 ORDER BY sum(count) DESC) < 10
+      THEN path3 ELSE NULL END as path3,
+
+      CASE WHEN rank() OVER (PARTITION BY path3 ORDER BY sum(count) DESC) < 10
+      THEN path3 ELSE NULL END as path4,
+
+      count
+
+      from (
+
+      select path0, path1, path2, path3, path4, count(*) as count from (select 
+
+      first_value (url) OVER (PARTITION BY _user ORDER BY _time ASC) as path0, 
+
+      nth_value(url, 2) OVER (PARTITION BY _user ORDER BY _time ASC) as path1,
+
+      nth_value(url, 3) OVER (PARTITION BY _user ORDER BY _time ASC) as path2,
+
+      nth_value(url, 4) OVER (PARTITION BY _user ORDER BY _time ASC) as path3,
+
+      nth_value(url, 5) OVER (PARTITION BY _user ORDER BY _time ASC) as path4
+
+      from view_page where url is not null and _time between {date[0]} and
+      {date[1]}) as data
+
+      where path0 is not null and path1 is not null and path2 is not null and
+      path3 is not null and path4 is not null
+
+      group by path0, path1, path2, path3, path4 order by 6 desc) as data 
+
+      GROUP BY data.path0, data.path1, data.path2, data.path3, data.path4,
+      data.count) as data
+
+      group by 1,2,3,4,5 order by 6 desc
+    shared: false
+    options:
+      chartType: flow-chart
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+      segments: []
+      measures:
+        - 5
+      dimensions:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+      columnOptions:
+        - tableOptions:
+            cellOptions: {}
+        - tableOptions:
+            cellOptions: {}
+        - tableOptions:
+            cellOptions: {}
+        - tableOptions:
+            cellOptions: {}
+        - tableOptions:
+            cellOptions: {}
+        - tableOptions:
+            cellOptions: {}
+    queryOptions: {}
+  - slug: session_duration
+    category: Session
+    name: Session duration
+    query: >-
+      select * from (
+
+      select case 
+
+      when duration between 0 and 60 then cast(duration as varchar) || '
+      seconds'
+
+      when duration between 60 and 300 then cast(duration/60 as varchar) || '
+      minutes'
+
+      when duration between 300 and 3600 then cast(((duration/60)/5)*5 as
+      varchar) || ' minutes'
+
+      when duration between 3600 and 86400 then cast(duration/3600 as varchar)
+      || ' hours'
+
+      else '> 1 day' end as duration,
+
+      count(*) sessions from (
+        select 
+        coalesce(mapping._user, _all._user, _all._device_id) as _user, _session_id, cast(min(_all._time) as date) date, (date_part('second', max(_all._time) - min(_all._time))/15)*15 as duration, count(*) actions,
+        bool_or("$collection" = 'transaction') as transaction, bool_or("$collection" = 'basket') as added_to_basket
+        from (
+          select 'transaction' as "$collection", _time, _device_id, _user, _session_id from transaction union all
+          select 'basket' as "$collection", _time, _device_id, _user, _session_id from add_to_basket union all
+          select 'view_page' as "$collection", _time, _device_id, _user, _session_id from view_page
+        ) _all
+        left join "$anonymous_id_mapping" mapping on (mapping.id = _all._user)
+        group by 1, 2
+      ) data
+
+      where date between {date[0]} and {date[1]}
+
+      group by 1) data
+
+      where duration != '0 seconds'
+    shared: false
+    options:
+      chartType: bar
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - tableOptions:
+            statistics: {}
+        - chartOptions: {}
+          tableOptions:
+            statistics: {}
+    queryOptions: {}
+  - slug: referrer_source
+    category: Source
+    name: Referrer source
+    query: >
+      select coalesce(_referrer_medium, 'direct') as source, count(*) as
+      total_visits from view_page
+        WHERE 
+        _time between {date[0]} and {date[1]} and
+        [os = {os}](true) and 
+        [device_family = {device_family}](true) and 
+        [referrer_source = {referrer_source}](true) and 
+        [language = {language}](true) and
+        [user_agent_family = {user_agent}](true) and
+        [country = {country}](true) and
+        [_user in (select id from materialized.{user-segment})](true) 
+      group by 1
+    shared: false
+    options:
+      chartType: pie
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+        enableServerSide: false
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+        - multiple: false
+          classes: left
+          name: os
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: select distinct _os from view_page where _os is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: device_family
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _device_family from view_page where
+                _device_family is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: referrer_source
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _referrer_source from view_page where
+                _referrer_source is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: language
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _language from view_page where _language is not
+                null
+          type: string
+        - multiple: false
+          classes: left
+          name: user_agent
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _user_agent_family from view_page where
+                _user_agent_family is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: country
+          options:
+            display_type: advanced
+            type: custom-query
+            typeSettings:
+              query: >-
+                select distinct _country_code from view_page where _country_code
+                is not null
+          type: string
+        - multiple: false
+          classes: left
+          name: user-segment
+          options:
+            displayType: advanced
+            type: custom-report
+            typeSettings:
+              reportType: user-segment
+              valueField: table_name
+            disableQuotes: true
+          type: string
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - chartOptions: {}
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+          displayFormat: null
+        - chartOptions: {}
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+            formatNumbers: true
+          displayFormat: null
+    queryOptions: {}
+  - slug: searches
+    category: E-commerce
+    name: Searches
+    query: >-
+      with 
+
+      transactions as (
+        select search_term, sum(order_price) as revenue, count(*) as count from product_list search left join transaction on (transaction._session_id = search._session_id)
+        where search._time between {date[0]} and {date[1]} and transaction._time > search._time
+        group by 1
+      ),
+
+      session_last_action as (
+        select _session_id, max(_time) as time from view_page where _time between {date[0]} and {date[1]} group by 1
+      ),
+
+      exit_after_search as (
+        select search_term, count(session_last_action.time) as count from product_list search
+        left join session_last_action on (session_last_action._session_id = search._session_id)
+        where session_last_action.time <= search._time group by 1
+      ),
+
+      unique_session as (
+        select search.search_term, count(distinct _session_id) as sessions, count(distinct _user) as users from product_list search
+        where _time between {date[0]} and {date[1]}
+        group by 1
+      )
+
+      select
+
+      unique_session.search_term as "search term", 
+
+      sessions, users,
+
+      coalesce(transactions.count, 0) as "transactions after search",
+
+      coalesce(transactions.revenue, 0) as "revenue after search",
+
+      coalesce(exit_after_search.count, 0) as "exit after search"
+
+      from unique_session
+
+      left join transactions on (transactions.search_term =
+      unique_session.search_term)
+
+      left join exit_after_search on (exit_after_search.search_term =
+      unique_session.search_term)
+
+      where unique_session.search_term is not null
+    shared: false
+    options:
+      chartType: null
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+      segments: []
+      measures:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+      dimensions:
+        - 0
+      columnOptions:
+        - chartOptions:
+            disable: true
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+          displayFormat: null
+        - chartOptions: {}
+          tableOptions:
+            statistics: {}
+            cellOptions:
+              statistics: mean
+              colorize: true
+              bar: true
+            formatNumbers: true
+          displayFormat: null
+        - chartOptions: {}
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+            formatNumbers: true
+          displayFormat: null
+        - chartOptions: {}
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+            formatNumbers: true
+          displayFormat: null
+        - chartOptions: {}
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+            formatNumbers: true
+          displayFormat: null
+        - chartOptions: {}
+          tableOptions:
+            statistics: {}
+            cellOptions: {}
+            formatNumbers: true
+          displayFormat: null
+    queryOptions: {}
+  - slug: bounce_report
+    category: Visitor
+    name: Bounce Report
+    query: >-
+      select
+
+      (CASE WHEN is_bounce THEN 'Bounced Visitor' ELSE 'Returning Visitor' END)
+      as visitor_type,
+
+      count(*) count
+
+      from (select bool_and(time_on_page IS NULL) is_bounce from view_page where
+      _time between {time[0]} and {time[1]} + interval '1' day group by
+      _device_id) data 
+
+      [where _user in (select id from materialized.{user_segment})]()
+
+      group by 1
+    shared: false
+    options:
+      chartType: pie
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: time
+          options: {}
+          defaultValue: this_month
+          type: date-range
+        - multiple: false
+          classes: left
+          name: user_segment
+          options:
+            display_type: advanced
+            disable_quotes: true
+            type: custom-report
+            type_settings:
+              reportType: user-segment
+              value_field: table_name
+          type: string
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - tableOptions:
+            cellOptions: {}
+        - tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+    queryOptions: {}
+  - slug: popular_pages
+    category: Visitor
+    name: Popular pages
+    query: >-
+      select url, count(*) count from view_page where _time between {date[0]}
+      and {date[1]} group by 1 order by 2 desc
+    shared: false
+    options:
+      chartType: null
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+        cellOptions:
+          bar: false
+        enableServerSide: false
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - chartOptions: {}
+          tableOptions:
+            cellOptions: {}
+          displayFormat: hyperlink
+        - chartOptions: {}
+          tableOptions:
+            cellOptions:
+              statistics: sum
+              colorize: true
+              bar: true
+          displayFormat: null
+    queryOptions: {}
+  - slug: visitor_type
+    category: Visitor
+    name: Visitor type
+    query: >-
+      select _time, case when returning_session then 'Returning session' else
+      'New session' end as type, count(*) count from 
+
+      (select date_trunc({interval}, cast(_time as date)) as _time,
+      returning_session from view_page group by 1, _session_id, 2) data where
+      _time between {date[0]} and {date[1]} + interval '1' day group by 1, 2
+    shared: false
+    options:
+      chartType: line
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: interval
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_month
+          type: date-range
+      segments:
+        - 1
+      measures:
+        - 2
+      dimensions:
+        - 0
+    queryOptions: {}
+  - slug: total_sold_items
+    category: Order
+    name: Total sold items
+    query: >-
+      select cast(date_trunc({interval}, _time) as date) as time, sum((SELECT
+      SUM(s) FROM UNNEST(product_quantities) s)) count 
+
+      from transaction
+
+      where _time between {time[0]} and {time[1]} group by 1
+    shared: false
+    options:
+      chartType: bar
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: false
+        cellOptions:
+          colorize: false
+          bar: false
+      chartOptions:
+        showLabels: true
+      variables:
+        - multiple: false
+          name: interval
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: time
+          options: {}
+          defaultValue: this_month
+          type: date-range
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - chartOptions: {}
+          tableOptions:
+            cellOptions: {}
+        - chartOptions: {}
+          tableOptions:
+            cellOptions: {}
+            formatNumbers: true
+    queryOptions: {}
+  - slug: duration
+    category: Visitor
+    name: Duration
+    query: >-
+      SELECT date_trunc({interval}, _time) as date, avg(count) average_duration
+      FROM (select cast(_time as date) as _time, count(*) as count from
+      view_page  where _time between {date[0]} and {date[1]} + interval '1' day
+      group by _user, 1) data group by 1
+    shared: false
+    options:
+      chartType: line
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - classes: left
+          name: interval
+          options:
+            choices:
+              - day
+              - week
+              - month
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+            displayType: dropdown
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: this_week
+          type: date-range
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - tableOptions:
+            statistics: {}
+          displayFormat: yyyy-MM-dd
+        - chartOptions:
+            disable: false
+          tableOptions:
+            statistics:
+              type: sum
+              bar: true
+              colorize: true
+            formatNumbers: true
+          displayFormat: null
+    queryOptions: {}
+  - slug: reverse_path_analysis
+    category: Website
+    name: Reverse Path Analysis
+    query: >-
+      select path0 as last_path,
+
+      CASE WHEN path0 IS NULL THEN NULL WHEN path1 IS NULL THEN 'Others' ELSE
+      path1 END as previous_path,
+
+      CASE WHEN path0 IS NULL OR path1 IS NULL THEN NULL WHEN path2 IS NULL THEN
+      'Others' ELSE path2 END as previous_path,
+
+      CASE WHEN path0 IS NULL OR path1 IS NULL OR path2 IS NULL THEN NULL WHEN
+      path3 IS NULL THEN 'Others' ELSE path3 END as previous_path,
+
+      CASE WHEN path0 IS NULL OR path1 IS NULL OR path2 IS NULL OR path3 IS NULL
+      THEN NULL WHEN path4 IS NULL THEN 'Others' ELSE path4 END as
+      previous_path,
+
+      sum(count) as count
+
+      FROM (select
+
+      CASE WHEN rank() OVER (ORDER BY sum(count) DESC) < 10 THEN path0 ELSE NULL
+      END as path0,
+
+      CASE WHEN rank() OVER (PARTITION BY path0 ORDER BY sum(count) DESC) < 10
+      THEN path1 ELSE NULL END as path1,
+
+      CASE WHEN rank() OVER (PARTITION BY path1 ORDER BY sum(count) DESC) < 10
+      THEN path2 ELSE NULL END as path2,
+
+      CASE WHEN rank() OVER (PARTITION BY path2 ORDER BY sum(count) DESC) < 10
+      THEN path3 ELSE NULL END as path3,
+
+      CASE WHEN rank() OVER (PARTITION BY path3 ORDER BY sum(count) DESC) < 10
+      THEN path3 ELSE NULL END as path4,
+
+      count
+
+      from (
+
+      select path0, path1, path2, path3, path4, count(*) as count from (select 
+
+      first_value (url) OVER (PARTITION BY _user ORDER BY _time DESC) as path0, 
+
+      nth_value(url, 2) OVER (PARTITION BY _user ORDER BY _time DESC) as path1,
+
+      nth_value(url, 3) OVER (PARTITION BY _user ORDER BY _time DESC) as path2,
+
+      nth_value(url, 4) OVER (PARTITION BY _user ORDER BY _time DESC) as path3,
+
+      nth_value(url, 5) OVER (PARTITION BY _user ORDER BY _time DESC) as path4
+
+      from view_page where url is not null and _time between {time[0]} and
+      {time[1]}) as data
+
+      where path0 is not null and path1 is not null and path2 is not null and
+      path3 is not null and path4 is not null
+
+      group by path0, path1, path2, path3, path4 order by 6 desc) as data 
+
+      GROUP BY data.path0, data.path1, data.path2, data.path3, data.path4,
+      data.count) as data
+
+      group by 1,2,3,4,5 order by 6 desc
+    shared: false
+    options:
+      chartType: flow-chart
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: time
+          options: {}
+          defaultValue: this_week
+          type: date-range
+      segments: []
+      measures:
+        - 5
+      dimensions:
+        - 0
+        - 1
+        - 2
+        - 3
+        - 4
+      columnOptions:
+        - tableOptions:
+            cellOptions: {}
+        - tableOptions:
+            cellOptions: {}
+        - tableOptions:
+            cellOptions: {}
+        - tableOptions:
+            cellOptions: {}
+        - tableOptions:
+            cellOptions: {}
+        - tableOptions:
+            cellOptions: {}
+    queryOptions: {}
+  - slug: revenue
+    category: Order
+    name: Revenue
+    query: >-
+      select cast(date_trunc({interval}, _time) as date) as time,
+      sum(order_price) revenue from transaction
+
+      where [_time between {time[0]} and {time[1]}](true) and [_user in (select
+      id from materialized.{user_segment})](true) group by 1
+    shared: false
+    options:
+      chartType: line
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: interval
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: time
+          options: {}
+          defaultValue: this_week
+          type: date-range
+        - multiple: false
+          classes: left
+          name: user_segment
+          options:
+            display_type: dropdown
+            type: custom-report
+            type_settings:
+              reportType: user-segment
+              value_field: table_name
+            disable_quotes: true
+          type: string
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - tableOptions:
+            cellOptions: {}
+        - tableOptions:
+            cellOptions:
+              prefix: '₺ '
+              statistics: relative
+            formatNumbers: true
+          chartOptions:
+            type: bar
+            shape: linear
+            dash: solid
+    queryOptions: {}
+  - slug: orders
+    category: Order
+    name: Orders
+    query: >-
+      select cast(date_trunc({interval}, _time) as date) as time, count(*) count
+      from transaction where _time between {time[0]} and {time[1]} group by 1
+    shared: false
+    options:
+      chartType: line
+      limit: 100
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: interval
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+          defaultValue: day
+          type: string
+        - multiple: true
+          name: time
+          options: {}
+          defaultValue: this_week
+          type: date-range
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - tableOptions:
+            cellOptions: {}
+        - chartOptions:
+            type: bar
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+    queryOptions: {}
+materialized_views:
+  - table_name: _event_explorer_metrics
+    name: Event explorer metrics
+    query: >-
+      select date_trunc('hour', "_time") as _time, _collection, count(*) as
+      total from _all group by 1, 2
+    update_interval: 3600
+    incremental: true
+    real_time: true
+    options: {}
+    last_update: null
+continuous_queries:
+  - table_name: real_time_revenue
+    name: Real Time Revenue
+    query: >-
+      select (cast(to_unixtime("_time") as bigint) / 5) as time,
+      sum("total_price") as "total_price_sum"  FROM (SELECT "_time",
+      "total_price" FROM "order" ) data  group by 1 
+    partition_keys: []
+    options:
+      realtime: true
+      aggregation:
+        - column: total_price
+          aggregation: SUM
+    windowDuration: null
+custom_pages: []
+custom_reports:
+  - userEmail: null
+    report_type: real-time
+    name: real time price
+    data:
+      table_name: real_time_revenue
+      chart: bar
+      measure:
+        column: total_price
+        aggregation: SUM
+      dimensions: []
+  - userEmail: null
+    report_type: real-time
+    name: Real Time Revenue
+    data:
+      table_name: real_time_revenue
+      chart: line
+      measure:
+        column: total_price
+        aggregation: SUM
+      dimensions: []
+  - userEmail: null
+    report_type: real-time
+    name: Real Time Users
+    data:
+      table_name: real_time_revenue
+      chart: number-value
+      measure:
+        column: total_price
+        aggregation: SUM
+      dimensions: []
+  - userEmail: null
+    report_type: funnel
+    name: Order - Page View
+    data:
+      dimension: null
+      window:
+        type: day
+        value: 30
+      steps:
+        - collection: order
+          filter:
+            rules: []
+        - collection: pageview
+          filter:
+            rules: []
+  - userEmail: null
+    report_type: funnel
+    name: Register - Page View
+    data:
+      dimension: null
+      window:
+        type: day
+        value: 30
+      steps:
+        - collection: register
+          filter:
+            rules: []
+        - collection: pageview
+          filter:
+            rules: []
+  - userEmail: null
+    report_type: funnel
+    name: Add Basket - Order
+    data:
+      dimension: null
+      window:
+        type: day
+        value: 30
+      steps:
+        - collection: add_basket
+          filter:
+            rules: []
+        - collection: view_product
+          filter:
+            rules: []
+        - collection: order
+          filter:
+            rules: []
+  - userEmail: null
+    report_type: funnel
+    name: Search and Order
+    data:
+      dimension: null
+      window:
+        type: day
+        value: 30
+      steps:
+        - collection: search
+          filter:
+            rules: []
+        - collection: view_product
+          filter:
+            rules: []
+        - collection: add_basket
+          filter:
+            rules: []
+        - collection: order
+          filter:
+            rules: []
+  - userEmail: null
+    report_type: funnel
+    name: View Product to Order
+    data:
+      dimension: null
+      window:
+        type: day
+        value: 30
+      steps:
+        - collection: view_product
+          filter:
+            rules: []
+        - collection: add_basket
+          filter:
+            rules: []
+        - collection: order
+          filter:
+            rules: []
+  - userEmail: null
+    report_type: funnel
+    name: test
+    data:
+      dimension: null
+      window:
+        type: day
+        value: 30
+      connectors: []
+      steps:
+        - collection: add_basket
+          filter:
+            rules: []
+  - userEmail: null
+    report_type: funnel
+    name: Session to Registiration
+    data:
+      dimension: null
+      window:
+        type: day
+        value: 30
+      connectors: []
+      steps:
+        - collection: pageview
+          filter:
+            rules: []
+        - collection: register
+          filter:
+            rules: []
+        - collection: add_basket
+          filter:
+            rules: []
+  - userEmail: null
+    report_type: stream
+    name: Live Searches
+    data:
+      - collection: search
+        filter:
+          rules: []
+  - userEmail: null
+    report_type: retention
+    name: Page View - Order
+    data:
+      dateUnit: day
+      preCondition:
+        collection: pageview
+        filter: null
+        $open: false
+      condition:
+        collection: order
+        filter: null
+      dimension: null
+      period: 30
+  - userEmail: null
+    report_type: retention
+    name: View Product - Order
+    data:
+      dateUnit: day
+      preCondition:
+        collection: view_product
+        filter: null
+        $open: false
+      condition:
+        collection: order
+        filter: null
+      dimension: null
+      period: 30
+  - userEmail: null
+    report_type: retention
+    name: Search - Order
+    data:
+      dateUnit: day
+      preCondition:
+        collection: search
+        filter: null
+        $open: false
+      condition:
+        collection: order
+        filter: null
+      dimension: null
+      period: 30
+  - userEmail: null
+    report_type: retention
+    name: Add Basket - Order
+    data:
+      dateUnit: day
+      preCondition:
+        collection: add_basket
+        filter: null
+        $open: false
+      condition:
+        collection: order
+        filter: null
+      dimension: null
+      period: 30
+  - userEmail: null
+    report_type: retention
+    name: Register - Order
+    data:
+      dateUnit: day
+      preCondition:
+        collection: register
+        filter: null
+        $open: false
+      condition:
+        collection: order
+        filter: null
+      dimension: null
+      period: 30
+  - userEmail: null
+    report_type: retention
+    name: Page View - Register
+    data:
+      dateUnit: day
+      preCondition:
+        collection: pageview
+        filter: null
+        $open: false
+      condition:
+        collection: register
+        filter: null
+      dimension: null
+      period: 30
+  - userEmail: null
+    report_type: retention
+    name: Page View - View Product
+    data:
+      dateUnit: day
+      preCondition:
+        collection: pageview
+        filter: null
+        $open: false
+      condition:
+        collection: view_product
+        filter: null
+      dimension: null
+      period: 30
+dashboards:
+  - name: My dashboard
+    items:
+      - id: 1374
+        name: Popular pages
+        directive: report
+        options:
+          reportSlug: popular_pages
+          sizeX: 2
+          sizeY: 2
+          aggregation: null
+          values: {}
+          row: 3
+          col: 0
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+      - id: 1375
+        name: Search Engines
+        directive: report
+        options:
+          reportSlug: search_engines
+          sizeX: 2
+          sizeY: 1
+          aggregation: null
+          values:
+            os: null
+            device_family: null
+            referrer_source: null
+            language: null
+            user_agent: null
+            country: null
+            user-segment: null
+          row: 3
+          col: 2
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+      - id: 1376
+        name: Count of events by Day
+        directive: event-explorer
+        options:
+          report:
+            grouping: Day
+            filter:
+              rules: []
+            segment:
+              type: null
+            collections: null
+            measure: null
+            measureType: null
+          chartType: line
+          sizeX: 5
+          sizeY: 1
+          time:
+            strategy: dynamic
+            exported_name: date
+            defaultValue: this_month
+          row: 0
+          col: 1
+        refreshInterval: null
+        data: null
+        lastUpdated: null
+      - id: 1378
+        name: Discover
+        directive: grouped-data
+        options:
+          reportSlug: discover
+          sizeX: 1
+          sizeY: 2
+          aggregation: null
+          values:
+            dimension: null
+            user_segment: null
+          columns:
+            - dimension
+            - users
+            - sessions
+            - pageviews
+            - new user rate
+            - bounce rate
+            - null
+            - null
+            - null
+          row: 0
+          col: 0
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+      - id: 1377
+        name: Insights
+        directive: report
+        options:
+          reportSlug: insights
+          sizeX: 5
+          sizeY: 1
+          aggregation: null
+          values:
+            interval: day
+            user_segment: null
+          row: 1
+          col: 1
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+      - id: 1373
+        name: Referrer Url
+        directive: report
+        options:
+          reportSlug: referrer_url
+          sizeX: 2
+          sizeY: 1
+          aggregation: null
+          values:
+            os: null
+            device_family: null
+            referrer_source: null
+            language: null
+            user_agent: null
+            country: null
+            user-segment: null
+          row: 2
+          col: 4
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+      - id: 1372
+        name: Landing pages
+        directive: report
+        options:
+          reportSlug: landing_pages
+          sizeX: 2
+          sizeY: 2
+          aggregation: null
+          values:
+            os: null
+            device_family: null
+            referrer_source: null
+            language: null
+            user_agent: null
+            country: null
+            user-segment: null
+          row: 3
+          col: 4
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+      - id: 1370
+        name: Referrer source
+        directive: report
+        options:
+          reportSlug: referrer_source
+          sizeX: 2
+          sizeY: 1
+          aggregation: null
+          values:
+            os: null
+            device_family: null
+            referrer_source: null
+            language: null
+            user_agent: null
+            country: null
+            user-segment: null
+          row: 2
+          col: 0
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+      - id: 1371
+        name: Device family
+        directive: report
+        options:
+          reportSlug: device_family
+          sizeX: 2
+          sizeY: 1
+          aggregation: null
+          values:
+            os: null
+            device_family: null
+            referrer_source: null
+            language: null
+            user_agent: null
+            country: null
+            user-segment: null
+          row: 2
+          col: 2
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+  - name: E-commerce
+    items:
+      - id: 1379
+        name: Categories
+        directive: report
+        options:
+          reportSlug: categories
+          sizeX: 3
+          sizeY: 2
+          aggregation: null
+          values:
+            segment: null
+          columns:
+            - category
+            - total sold items
+            - revenue
+            - null
+            - null
+            - null
+          row: 1
+          col: 1
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+      - id: 1380
+        name: Basket
+        directive: grouped-data
+        options:
+          reportSlug: basket
+          sizeX: 1
+          sizeY: 1
+          aggregation: null
+          values:
+            dimension: null
+          row: 0
+          col: 1
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+      - id: 1381
+        name: Order
+        directive: grouped-data
+        options:
+          reportSlug: order
+          sizeX: 1
+          sizeY: 3
+          aggregation: null
+          values:
+            dimension: null
+          columns:
+            - dimension
+            - revenue
+            - total product
+            - total order
+            - average order total
+            - average items per order
+          row: 0
+          col: 0
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+      - id: 1382
+        name: Orders by date
+        directive: report
+        options:
+          reportSlug: order_daily
+          sizeX: 4
+          sizeY: 1
+          aggregation: null
+          values:
+            interval: day
+          row: 0
+          col: 2
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+      - id: 1383
+        name: Products
+        directive: report
+        options:
+          reportSlug: products
+          sizeX: 2
+          sizeY: 2
+          aggregation: null
+          values:
+            segment: null
+          columns:
+            - product code
+            - total sold items
+            - revenue
+            - null
+            - null
+          row: 1
+          col: 4
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
