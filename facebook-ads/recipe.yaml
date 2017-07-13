@@ -654,7 +654,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct objective from facebook_ads
+              query: select distinct objective from "{{collection}}"
           type: string
       segments: []
       measures:
@@ -861,7 +861,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: ad_name
           type: string
         - multiple: false
@@ -1151,7 +1151,7 @@ reports:
 
       sum(clicks) as clicks
 
-      from facebook_ads2
+      from "{{collection}}"
 
       where _time between {date[0]} and {date[1]} and 
 
@@ -1206,7 +1206,7 @@ reports:
             parentParameter: campaign
             type: custom-query
             typeSettings:
-              query: select distinct adset_name from facebook_ads
+              query: select distinct adset_name from "{{collection}}"
           type: string
         - multiple: false
           name: ad_name
