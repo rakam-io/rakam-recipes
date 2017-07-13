@@ -53,7 +53,7 @@ collections:
           type: DOUBLE
       - 'ga:session_duration':
           category: null
-          type: STRING
+          type: DOUBLE
       - 'ga:transaction_revenue':
           category: null
           type: DOUBLE
