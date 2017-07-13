@@ -1,6 +1,13 @@
+variables:
+  - collection:
+      type: STRING
+      placeholder: google_analytics
+      description: The collection of the events, you should use the same collection in integration page
+      
+
 strategy: SPECIFIC
 collections:
-  google_analytics:
+  "{{collection}}":
     columns:
       - _time:
           category: null
@@ -90,7 +97,7 @@ reports:
 
       avg(cast("ga:session_duration" as float)) as "average_session_duration"
 
-      FROM collection."google_analytics"
+      FROM collection."{{collection}}"
 
       WHERE _time between {date[0]} and {date[1]}
 
@@ -205,7 +212,7 @@ reports:
 
       sum("ga:goal_value_all") as "goal value"
 
-      FROM collection."google_analytics"
+      FROM collection."{{collection}}"
 
       WHERE _time between {date[0]} and {date[1]}
 
@@ -298,7 +305,7 @@ reports:
 
       avg(cast("ga:session_duration" as float)) as "average_session_duration"
 
-      FROM collection."google_analytics"
+      FROM collection."{{collection}}"
 
       WHERE _time between {date[0]} and {date[1]} and ["ga:country" =
       {country}](true)
@@ -325,7 +332,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: 'select distinct "ga:country" from google_analytics'
+              query: 'select distinct "ga:country" from "{{collection}}"'
           type: string
       segments: []
       measures:
