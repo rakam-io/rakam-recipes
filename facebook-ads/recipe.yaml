@@ -1973,7 +1973,7 @@ reports:
   - slug: action_costs
     category: Facebook Ads
     name: Action costs
-    query: "SELECT cast(date_trunc({segment}, _time) as date), cast(value(action) as float) FROM (\n\tSELECT _time, jsonb_each_text(cost_per_action_type) action FROM \""{{collection}}"\"\n    where _time between {date[0]} and {date[1]} and \n    [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true) and \n    [objective = {objective}](true)\n) d"
+    query: "SELECT cast(date_trunc({segment}, _time) as date), cast(value(action) as float) FROM (\n\tSELECT _time, jsonb_each_text(cost_per_action_type) action FROM \"{{collection}}\"\n    where _time between {date[0]} and {date[1]} and \n    [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true) and \n    [objective = {objective}](true)\n) d"
     shared: false
     options:
       chartType: line
@@ -2051,7 +2051,7 @@ reports:
   - slug: user_feedback
     category: Facebook Ads
     name: User feedback
-    query: "select \nad_name as \"Ad name\",\navg(score) as score, \navg(CASE WHEN positive_feedback = 'HIGH' THEN 3\n\tWHEN positive_feedback = 'MEDIUM' THEN 2 \n\tWHEN positive_feedback = 'LOW' THEN 1 \n\tELSE 0 END) as \"positive feedback\", \navg(CASE WHEN negative_feedback = 'HIGH' THEN 3 \n\tWHEN negative_feedback = 'MEDIUM' THEN 2 \n\tWHEN negative_feedback = 'LOW' THEN 1 \n\tELSE 0 \nEND) as \"negative feedback\" from (\nselect \n_time, campaign_name, adset_name, ad_name, coalesce(cast(jsonb_extract_path_text(relevance_score, 'score') as int), 0) as score,\njsonb_extract_path_text(relevance_score, 'positive_feedback') as positive_feedback,\njsonb_extract_path_text(relevance_score, 'negative_feedback') as negative_feedback\nfrom "{{collection}}"\n) d\nwhere _time between {date[0]} and {date[1]} and [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true)\ngroup by 1"
+    query: "select \nad_name as \"Ad name\",\navg(score) as score, \navg(CASE WHEN positive_feedback = 'HIGH' THEN 3\n\tWHEN positive_feedback = 'MEDIUM' THEN 2 \n\tWHEN positive_feedback = 'LOW' THEN 1 \n\tELSE 0 END) as \"positive feedback\", \navg(CASE WHEN negative_feedback = 'HIGH' THEN 3 \n\tWHEN negative_feedback = 'MEDIUM' THEN 2 \n\tWHEN negative_feedback = 'LOW' THEN 1 \n\tELSE 0 \nEND) as \"negative feedback\" from (\nselect \n_time, campaign_name, adset_name, ad_name, coalesce(cast(jsonb_extract_path_text(relevance_score, 'score') as int), 0) as score,\njsonb_extract_path_text(relevance_score, 'positive_feedback') as positive_feedback,\njsonb_extract_path_text(relevance_score, 'negative_feedback') as negative_feedback\nfrom \"{{collection}}\"\n) d\nwhere _time between {date[0]} and {date[1]} and [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true)\ngroup by 1"
     shared: false
     options:
       chartType: null
@@ -2131,7 +2131,7 @@ reports:
   - slug: custom_action
     category: Facebook Ads
     name: Custom Action
-    query: "SELECT cast(date_trunc({segment}, _time) as date) as {{ segment[0] }}, key(action), cast(value(action) as float) FROM (\n\tSELECT _time, jsonb_each_text(action_values) action FROM "{{collection}}"\n    where _time between {date[0]} and {date[1]} and \n    [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true) and \n    [objective = {objective}](true)\n) d"
+    query: "SELECT cast(date_trunc({segment}, _time) as date) as {{ segment[0] }}, key(action), cast(value(action) as float) FROM (\n\tSELECT _time, jsonb_each_text(action_values) action FROM \"{{collection}}\"\n    where _time between {date[0]} and {date[1]} and \n    [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true) and \n    [objective = {objective}](true)\n) d"
     shared: false
     options:
       chartType: line
