@@ -246,7 +246,7 @@ reports:
   - slug: action
     category: Facebook Ads
     name: Action
-    query: "SELECT cast(date_trunc({segment}, _time) as date) as {{ segment[0] }}, key(action), cast(value(action) as float) FROM (\n\tSELECT _time, jsonb_each_text(actions) action FROM \"facebook_ads\"\n    where _time between {date[0]} and {date[1]} and \n    [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true) and \n    [objective = {objective}](true)\n) d"
+    query: "SELECT cast(date_trunc({segment}, _time) as date) as {{ segment[0] }}, key(action), cast(value(action) as float) FROM (\n\tSELECT _time, jsonb_each_text(actions) action FROM \"{{collection}}\"\n    where _time between {date[0]} and {date[1]} and \n    [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true) and \n    [objective = {objective}](true)\n) d"
     shared: false
     options:
       chartType: line
@@ -283,7 +283,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -291,7 +291,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct adset_name from facebook_ads
+              query: select distinct adset_name from "{{collection}}"
             parentParameter: campaign
           type: string
         - multiple: false
@@ -300,7 +300,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: adset_name
           type: string
         - multiple: false
@@ -309,7 +309,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct objective from facebook_ads
+              query: select distinct objective from "{{collection}}"
           type: string
       segments:
         - 1
@@ -322,215 +322,6 @@ reports:
         - null
         - tableOptions:
             cellOptions: {}
-    queryOptions: {}
-  - slug: user_metrics
-    category: Google Analytics
-    name: User metrics
-    query: >-
-      SELECT cast(date_trunc({segment}, "_time") as date) as "{{ segment[0]
-      }}",   
-
-      avg("ga:users") as "{{segment[0] == 'day' ? 'users' : 'average user
-      count'}}", 
-
-      sum("ga:sessions") as sessions, 
-
-      avg("ga:new_users") as "{{segment[0] == 'day' ? 'new users' : 'average new
-      users'}}", 
-
-      sum("ga:pageviews") as pageviews,
-
-      avg("ga:users") / avg("ga:bounces") as "{{segment[0] == 'day' ? 'bounce
-      rate' : 'average bounce rate'}}", 
-
-      sum("ga:pageviews") / sum("ga:sessions") as "page_per_session",
-
-      avg(cast("ga:session_duration" as float)) as "average_session_duration"
-
-      FROM collection."google_analytics"
-
-      WHERE _time between {date[0]} and {date[1]}
-
-      GROUP BY 1
-    shared: false
-    options:
-      chartType: line
-      limit: 1000
-      enableStatistics: true
-      tableOptions:
-        enabled: true
-      chartOptions:
-        singleColumn: true
-      variables:
-        - multiple: false
-          name: segment
-          options:
-            displayType: dropdown
-            type: static
-            typeSettings:
-              choices:
-                - - day
-                  - day
-                - - week
-                  - week
-                - - month
-                  - month
-                - - quarter
-                  - quarter
-                - - year
-                  - year
-          defaultValue: day
-          type: string
-        - multiple: true
-          name: date
-          options: {}
-          defaultValue: last_two_weeks
-          type: date-range
-      segments: []
-      measures:
-        - 1
-        - 2
-        - 3
-        - 4
-        - 5
-        - 6
-        - 7
-      dimensions:
-        - 0
-      columnOptions:
-        - displayFormat: yyyy-MM-dd
-          tableOptions:
-            cellOptions: {}
-          chartOptions: {}
-        - displayFormat: null
-          tableOptions:
-            cellOptions:
-              statistics: relative
-            formatNumbers: true
-          chartOptions: {}
-        - displayFormat: null
-          tableOptions:
-            cellOptions:
-              statistics: relative
-            formatNumbers: false
-          chartOptions: {}
-        - displayFormat: null
-          tableOptions:
-            cellOptions:
-              statistics: relative
-            formatNumbers: true
-          chartOptions: {}
-        - displayFormat: null
-          tableOptions:
-            cellOptions:
-              statistics: relative
-            formatNumbers: true
-          chartOptions: {}
-        - displayFormat: null
-          tableOptions:
-            cellOptions:
-              suffix: '%'
-              statistics: relative
-            formatNumbers: true
-          chartOptions: {}
-        - displayFormat: null
-          tableOptions:
-            cellOptions:
-              statistics: relative
-            formatNumbers: true
-          chartOptions: {}
-        - displayFormat: null
-          tableOptions:
-            cellOptions:
-              statistics: relative
-            formatNumbers: true
-          chartOptions: {}
-    queryOptions: {}
-  - slug: goals
-    category: Google Analytics
-    name: Goals
-    query: >-
-      SELECT cast(date_trunc({segment}, "_time") as date) as "{{ segment[0]
-      }}", 
-
-      avg("ga:users") as "{{segment[0] == 'day' ? 'users' : 'average user
-      count'}}", 
-
-      sum("ga:goal_completions_all") as goal_completions, 
-
-      avg("ga:goal_completions_all" / "ga:users") "goal conversion rate", 
-
-      sum("ga:goal_value_all") as "goal value"
-
-      FROM collection."google_analytics"
-
-      WHERE _time between {date[0]} and {date[1]}
-
-      GROUP BY 1
-    shared: false
-    options:
-      chartType: line
-      limit: 1000
-      enableStatistics: true
-      tableOptions:
-        enabled: true
-      chartOptions: {}
-      variables:
-        - multiple: false
-          name: segment
-          options:
-            displayType: dropdown
-            type: static
-            typeSettings:
-              choices:
-                - - day
-                  - day
-                - - week
-                  - week
-                - - month
-                  - month
-                - - year
-                  - year
-          defaultValue: day
-          type: string
-        - multiple: true
-          name: date
-          options: {}
-          defaultValue: last_two_weeks
-          type: date-range
-      segments: []
-      measures:
-        - 1
-        - 2
-        - 3
-        - 4
-      dimensions:
-        - 0
-      columnOptions:
-        - displayFormat: yyyy-MM-dd
-          tableOptions:
-            cellOptions: {}
-          chartOptions: {}
-        - displayFormat: null
-          tableOptions:
-            cellOptions: {}
-            formatNumbers: true
-          chartOptions:
-            type: line
-            shape: spline
-        - displayFormat: null
-          tableOptions:
-            cellOptions: {}
-          chartOptions: {}
-        - displayFormat: null
-          tableOptions:
-            cellOptions:
-              suffix: '%'
-          chartOptions: {}
-        - displayFormat: null
-          tableOptions:
-            cellOptions: {}
-          chartOptions: {}
     queryOptions: {}
   - slug: overall_performance_facebook
     category: Facebook Ads
@@ -551,7 +342,7 @@ reports:
 
       sum(website_clicks) as website_clicks
 
-      from facebook_ads2
+      from "{{collection}}"
 
       where _time between {date[0]} and {date[1]} and [campaign_name =
       {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name =
@@ -596,7 +387,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -605,7 +396,7 @@ reports:
             parentParameter: campaign
             type: custom-query
             typeSettings:
-              query: select distinct adset_name from facebook_ads
+              query: select distinct adset_name from "{{collection}}"
           type: string
         - multiple: false
           name: ad_name
@@ -613,7 +404,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: ad_name
           type: string
       segments: []
@@ -686,7 +477,7 @@ reports:
       sum("clicks")/sum(cast(jsonb_extract_path_text(actions,
       'mobile_app_install') as bigint)) as "Click to Install Conv"
 
-      from facebook_ads2
+      from "{{collection}}"
 
       where _time between {date[0]} and {date[1]} and [campaign_name =
       {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name =
@@ -713,7 +504,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -722,7 +513,7 @@ reports:
             parentParameter: campaign
             type: custom-query
             typeSettings:
-              query: select distinct adset_name from facebook_ads
+              query: select distinct adset_name from "{{collection}}"
           type: string
         - multiple: false
           name: ad_name
@@ -730,7 +521,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: ad_name
           type: string
       segments: []
@@ -792,7 +583,7 @@ reports:
 
       sum(spend) as spend
 
-      from facebook_ads2
+      from "{{collection}}"
 
       where _time between {date[0]} and {date[1]} and 
 
@@ -837,7 +628,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -846,7 +637,7 @@ reports:
             parentParameter: campaign
             type: custom-query
             typeSettings:
-              query: select distinct adset_name from facebook_ads
+              query: select distinct adset_name from "{{collection}}"
           type: string
         - multiple: false
           name: ad_name
@@ -854,7 +645,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: ad_name
           type: string
         - multiple: false
@@ -896,7 +687,7 @@ reports:
 
       sum(social_reach) as social_reach
 
-      from facebook_ads2
+      from "{{collection}}"
 
       where _time between {date[0]} and {date[1]} and 
 
@@ -941,7 +732,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -950,7 +741,7 @@ reports:
             parentParameter: campaign
             type: custom-query
             typeSettings:
-              query: select distinct adset_name from facebook_ads
+              query: select distinct adset_name from "{{collection}}"
           type: string
         - multiple: false
           name: ad_name
@@ -958,7 +749,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: ad_name
           type: string
         - multiple: false
@@ -967,7 +758,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct objective from facebook_ads
+              query: select distinct objective from "{{collection}}"
           type: string
       segments: []
       measures:
@@ -1008,7 +799,7 @@ reports:
 
       sum(clicks) as clicks
 
-      from facebook_ads2
+      from "{{collection}}"
 
       where _time between {date[0]} and {date[1]} and 
 
@@ -1053,7 +844,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -1062,7 +853,7 @@ reports:
             parentParameter: campaign
             type: custom-query
             typeSettings:
-              query: select distinct adset_name from facebook_ads
+              query: select distinct adset_name from "{{collection}}"
           type: string
         - multiple: false
           name: ad_name
@@ -1079,7 +870,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct objective from facebook_ads
+              query: select distinct objective from "{{collection}}"
           type: string
       segments: []
       measures:
@@ -1127,7 +918,7 @@ reports:
 
       sum(clicks) as clicks
 
-      from facebook_ads2
+      from "{{collection}}"
 
       where _time between {date[0]} and {date[1]} and 
 
@@ -1172,7 +963,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -1181,7 +972,7 @@ reports:
             parentParameter: campaign
             type: custom-query
             typeSettings:
-              query: select distinct adset_name from facebook_ads
+              query: select distinct adset_name from "{{collection}}"
           type: string
         - multiple: false
           name: ad_name
@@ -1189,7 +980,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: ad_name
           type: string
         - multiple: false
@@ -1198,7 +989,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct objective from facebook_ads
+              query: select distinct objective from "{{collection}}"
           type: string
       segments: []
       measures:
@@ -1241,7 +1032,7 @@ reports:
 
       sum(clicks) as clicks
 
-      from facebook_ads2
+      from "{{collection}}"
 
       where _time between {date[0]} and {date[1]} and 
 
@@ -1287,7 +1078,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -1296,7 +1087,7 @@ reports:
             parentParameter: campaign
             type: custom-query
             typeSettings:
-              query: select distinct adset_name from facebook_ads
+              query: select distinct adset_name from "{{collection}}"
           type: string
         - multiple: false
           name: ad_name
@@ -1304,7 +1095,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: ad_name
           type: string
         - multiple: false
@@ -1313,7 +1104,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct objective from facebook_ads
+              query: select distinct objective from "{{collection}}"
           type: string
       segments: []
       measures:
@@ -1406,7 +1197,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -1423,7 +1214,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: ad_name
           type: string
         - multiple: false
@@ -1432,7 +1223,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct objective from facebook_ads
+              query: select distinct objective from "{{collection}}"
           type: string
       segments: []
       measures:
@@ -1480,7 +1271,7 @@ reports:
 
       sum(cpm) as cpm
 
-      from facebook_ads2
+      from "{{collection}}"
 
       where _time between {date[0]} and {date[1]} and 
 
@@ -1526,7 +1317,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -1535,7 +1326,7 @@ reports:
             parentParameter: campaign
             type: custom-query
             typeSettings:
-              query: select distinct adset_name from facebook_ads
+              query: select distinct adset_name from "{{collection}}"
           type: string
         - multiple: false
           name: ad_name
@@ -1543,7 +1334,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: ad_name
           type: string
         - multiple: false
@@ -1552,7 +1343,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct objective from facebook_ads
+              query: select distinct objective from "{{collection}}"
           type: string
       segments: []
       measures:
@@ -1597,7 +1388,7 @@ reports:
 
       sum(cost_per_inline_post_engagement) as cost_per_inline_post_engagement
 
-      from facebook_ads2
+      from "{{collection}}"
 
       where _time between {date[0]} and {date[1]} and 
 
@@ -1643,7 +1434,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -1652,7 +1443,7 @@ reports:
             parentParameter: campaign
             type: custom-query
             typeSettings:
-              query: select distinct adset_name from facebook_ads
+              query: select distinct adset_name from "{{collection}}"
           type: string
         - multiple: false
           name: ad_name
@@ -1660,7 +1451,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: ad_name
           type: string
         - multiple: false
@@ -1669,7 +1460,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct objective from facebook_ads
+              query: select distinct objective from "{{collection}}"
           type: string
       segments: []
       measures:
@@ -1749,7 +1540,7 @@ reports:
       sum(cast(jsonb_extract_path_text(video_p100_watched_actions, 'video_view')
       as bigint)) as "p100 watched"
 
-      from facebook_ads2
+      from "{{collection}}"
 
       where _time between {date[0]} and {date[1]} and 
 
@@ -1796,7 +1587,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -1805,7 +1596,7 @@ reports:
             parentParameter: campaign
             type: custom-query
             typeSettings:
-              query: select distinct adset_name from facebook_ads
+              query: select distinct adset_name from "{{collection}}"
           type: string
         - multiple: false
           name: ad_name
@@ -1813,7 +1604,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: ad_name
           type: string
         - multiple: false
@@ -1822,7 +1613,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct objective from facebook_ads
+              query: select distinct objective from "{{collection}}"
           type: string
       segments: []
       measures:
@@ -1892,7 +1683,7 @@ reports:
 
       avg(unique_link_clicks_ctr) as cost_per_unique_inline_link_click
 
-      from facebook_ads2
+      from "{{collection}}"
 
       where _time between {date[0]} and {date[1]} and 
 
@@ -1940,7 +1731,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -1949,7 +1740,7 @@ reports:
             parentParameter: campaign
             type: custom-query
             typeSettings:
-              query: select distinct adset_name from facebook_ads
+              query: select distinct adset_name from "{{collection}}"
           type: string
         - multiple: false
           name: ad_name
@@ -1957,7 +1748,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: ad_name
           type: string
         - multiple: false
@@ -1966,7 +1757,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct objective from facebook_ads
+              query: select distinct objective from "{{collection}}"
           type: string
       segments: []
       measures:
@@ -2059,7 +1850,7 @@ reports:
 
       avg(frequency) as frequency
 
-      from facebook_ads2
+      from "{{collection}}"
 
       where _time between {date[0]} and {date[1]} and 
 
@@ -2106,7 +1897,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -2115,7 +1906,7 @@ reports:
             parentParameter: campaign
             type: custom-query
             typeSettings:
-              query: select distinct adset_name from facebook_ads
+              query: select distinct adset_name from "{{collection}}"
           type: string
         - multiple: false
           name: ad_name
@@ -2123,7 +1914,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: ad_name
           type: string
         - multiple: false
@@ -2132,7 +1923,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct objective from facebook_ads
+              query: select distinct objective from "{{collection}}"
           type: string
       segments: []
       measures:
@@ -2182,7 +1973,7 @@ reports:
   - slug: action_costs
     category: Facebook Ads
     name: Action costs
-    query: "SELECT cast(date_trunc({segment}, _time) as date), cast(value(action) as float) FROM (\n\tSELECT _time, jsonb_each_text(cost_per_action_type) action FROM \"facebook_ads\"\n    where _time between {date[0]} and {date[1]} and \n    [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true) and \n    [objective = {objective}](true)\n) d"
+    query: "SELECT cast(date_trunc({segment}, _time) as date), cast(value(action) as float) FROM (\n\tSELECT _time, jsonb_each_text(cost_per_action_type) action FROM \""{{collection}}"\"\n    where _time between {date[0]} and {date[1]} and \n    [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true) and \n    [objective = {objective}](true)\n) d"
     shared: false
     options:
       chartType: line
@@ -2219,7 +2010,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -2227,7 +2018,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct adset_name from facebook_ads
+              query: select distinct adset_name from "{{collection}}"
             parentParameter: campaign
           type: string
         - multiple: false
@@ -2236,7 +2027,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: adset_name
           type: string
         - multiple: false
@@ -2245,7 +2036,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct objective from facebook_ads
+              query: select distinct objective from "{{collection}}"
           type: string
       segments: []
       measures:
@@ -2260,7 +2051,7 @@ reports:
   - slug: user_feedback
     category: Facebook Ads
     name: User feedback
-    query: "select \nad_name as \"Ad name\",\navg(score) as score, \navg(CASE WHEN positive_feedback = 'HIGH' THEN 3\n\tWHEN positive_feedback = 'MEDIUM' THEN 2 \n\tWHEN positive_feedback = 'LOW' THEN 1 \n\tELSE 0 END) as \"positive feedback\", \navg(CASE WHEN negative_feedback = 'HIGH' THEN 3 \n\tWHEN negative_feedback = 'MEDIUM' THEN 2 \n\tWHEN negative_feedback = 'LOW' THEN 1 \n\tELSE 0 \nEND) as \"negative feedback\" from (\nselect \n_time, campaign_name, adset_name, ad_name, coalesce(cast(jsonb_extract_path_text(relevance_score, 'score') as int), 0) as score,\njsonb_extract_path_text(relevance_score, 'positive_feedback') as positive_feedback,\njsonb_extract_path_text(relevance_score, 'negative_feedback') as negative_feedback\nfrom facebook_ads\n) d\nwhere _time between {date[0]} and {date[1]} and [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true)\ngroup by 1"
+    query: "select \nad_name as \"Ad name\",\navg(score) as score, \navg(CASE WHEN positive_feedback = 'HIGH' THEN 3\n\tWHEN positive_feedback = 'MEDIUM' THEN 2 \n\tWHEN positive_feedback = 'LOW' THEN 1 \n\tELSE 0 END) as \"positive feedback\", \navg(CASE WHEN negative_feedback = 'HIGH' THEN 3 \n\tWHEN negative_feedback = 'MEDIUM' THEN 2 \n\tWHEN negative_feedback = 'LOW' THEN 1 \n\tELSE 0 \nEND) as \"negative feedback\" from (\nselect \n_time, campaign_name, adset_name, ad_name, coalesce(cast(jsonb_extract_path_text(relevance_score, 'score') as int), 0) as score,\njsonb_extract_path_text(relevance_score, 'positive_feedback') as positive_feedback,\njsonb_extract_path_text(relevance_score, 'negative_feedback') as negative_feedback\nfrom "{{collection}}"\n) d\nwhere _time between {date[0]} and {date[1]} and [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true)\ngroup by 1"
     shared: false
     options:
       chartType: null
@@ -2281,7 +2072,7 @@ reports:
             displayType: advanced
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -2291,7 +2082,7 @@ reports:
             type: custom-query
             typeSettings:
               query: >-
-                select distinct adset_name from facebook_ads where
+                select distinct adset_name from "{{collection}}" where
                 [campaign_name = {campaign}](true)
           type: string
         - multiple: false
@@ -2300,7 +2091,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: ad_name
           type: string
       segments: []
@@ -2340,7 +2131,7 @@ reports:
   - slug: custom_action
     category: Facebook Ads
     name: Custom Action
-    query: "SELECT cast(date_trunc({segment}, _time) as date) as {{ segment[0] }}, key(action), cast(value(action) as float) FROM (\n\tSELECT _time, jsonb_each_text(action_values) action FROM facebook_ads2\n    where _time between {date[0]} and {date[1]} and \n    [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true) and \n    [objective = {objective}](true)\n) d"
+    query: "SELECT cast(date_trunc({segment}, _time) as date) as {{ segment[0] }}, key(action), cast(value(action) as float) FROM (\n\tSELECT _time, jsonb_each_text(action_values) action FROM "{{collection}}"\n    where _time between {date[0]} and {date[1]} and \n    [campaign_name = {campaign}](true) and [adset_name = {adset_name}](true) and [ad_name = {ad_name}](true) and \n    [objective = {objective}](true)\n) d"
     shared: false
     options:
       chartType: line
@@ -2377,7 +2168,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct campaign_name from facebook_ads
+              query: select distinct campaign_name from "{{collection}}"
           type: string
         - multiple: false
           name: adset_name
@@ -2385,7 +2176,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct adset_name from facebook_ads
+              query: select distinct adset_name from "{{collection}}"
             parentParameter: campaign
           type: string
         - multiple: false
@@ -2394,7 +2185,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct ad_name from facebook_ads
+              query: select distinct ad_name from "{{collection}}"
             parentParameter: adset_name
           type: string
         - multiple: false
@@ -2403,7 +2194,7 @@ reports:
             displayType: dropdown
             type: custom-query
             typeSettings:
-              query: select distinct objective from facebook_ads
+              query: select distinct objective from "{{collection}}"
           type: string
       segments:
         - 1
