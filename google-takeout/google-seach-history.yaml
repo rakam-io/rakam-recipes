@@ -1,19 +1,4 @@
 strategy: SPECIFIC
-collections:
-  google_search:
-    columns:
-      - _time:
-          category: null
-          type: TIMESTAMP
-      - _user:
-          category: null
-          type: LONG
-      - search_term:
-          category: null
-          type: STRING
-      - category:
-          category: null
-          type: STRING
 reports:
   - slug: category
     category: null
