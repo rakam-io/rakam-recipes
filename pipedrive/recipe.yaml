@@ -1,0 +1,2262 @@
+strategy: SPECIFIC
+collections:
+  pipedrive_person:
+    columns:
+      - undone_activities_count:
+          category: null
+          type: DOUBLE
+      - open_deals_count:
+          category: null
+          type: DOUBLE
+      - followers_count:
+          category: null
+          type: DOUBLE
+      - lost_deals_count:
+          category: null
+          type: DOUBLE
+      - first_name:
+          category: null
+          type: STRING
+      - id:
+          category: null
+          type: DOUBLE
+      - related_closed_deals_count:
+          category: null
+          type: DOUBLE
+      - org_id:
+          category: null
+          type: DOUBLE
+      - last_name:
+          category: null
+          type: STRING
+      - files_count:
+          category: null
+          type: DOUBLE
+      - email_messages_count:
+          category: null
+          type: DOUBLE
+      - done_activities_count:
+          category: null
+          type: DOUBLE
+      - owner_id:
+          category: null
+          type: DOUBLE
+      - won_deals_count:
+          category: null
+          type: DOUBLE
+      - participant_closed_deals_count:
+          category: null
+          type: DOUBLE
+      - activities_count:
+          category: null
+          type: DOUBLE
+      - related_lost_deals_count:
+          category: null
+          type: DOUBLE
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - participant_open_deals_count:
+          category: null
+          type: DOUBLE
+      - cc_email:
+          category: null
+          type: STRING
+      - closed_deals_count:
+          category: null
+          type: DOUBLE
+      - related_open_deals_count:
+          category: null
+          type: DOUBLE
+      - name:
+          category: null
+          type: STRING
+      - first_char:
+          category: null
+          type: STRING
+      - related_won_deals_count:
+          category: null
+          type: DOUBLE
+      - add_time:
+          category: null
+          type: TIMESTAMP
+      - company_id:
+          category: null
+          type: DOUBLE
+      - org_name:
+          category: null
+          type: STRING
+      - visible_to:
+          category: null
+          type: STRING
+      - notes_count:
+          category: null
+          type: DOUBLE
+      - reference_activities_count:
+          category: null
+          type: DOUBLE
+      - phone:
+          category: null
+          type: STRING
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - update_time:
+          category: null
+          type: TIMESTAMP
+      - _user:
+          category: null
+          type: STRING
+      - next_activity_time:
+          category: null
+          type: STRING
+      - next_activity_date:
+          category: null
+          type: DATE
+      - next_activity_id:
+          category: null
+          type: DOUBLE
+      - email:
+          category: null
+          type: STRING
+      - last_activity_date:
+          category: null
+          type: DATE
+      - last_activity_id:
+          category: null
+          type: DOUBLE
+      - picture_id:
+          category: null
+          type: DOUBLE
+      - last_incoming_mail_time:
+          category: null
+          type: TIMESTAMP
+      - owner_name:
+          category: null
+          type: STRING
+  pipedrive_filter:
+    columns:
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - visible_to:
+          category: null
+          type: STRING
+      - name:
+          category: null
+          type: STRING
+      - type:
+          category: null
+          type: STRING
+      - id:
+          category: null
+          type: DOUBLE
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - user_id:
+          category: null
+          type: DOUBLE
+      - add_time:
+          category: null
+          type: TIMESTAMP
+      - update_time:
+          category: null
+          type: TIMESTAMP
+      - _user:
+          category: null
+          type: STRING
+  pipe_filter:
+    columns:
+      - type:
+          category: null
+          type: STRING
+      - name:
+          category: null
+          type: STRING
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - add_time:
+          category: null
+          type: TIMESTAMP
+      - update_time:
+          category: null
+          type: TIMESTAMP
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - user_id:
+          category: null
+          type: DOUBLE
+      - _user:
+          category: null
+          type: STRING
+      - id:
+          category: null
+          type: DOUBLE
+      - visible_to:
+          category: null
+          type: STRING
+  pipedrive_user:
+    columns:
+      - is_you:
+          category: null
+          type: BOOLEAN
+      - email:
+          category: null
+          type: STRING
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - role_id:
+          category: null
+          type: STRING
+      - locale:
+          category: null
+          type: STRING
+      - last_login:
+          category: null
+          type: TIMESTAMP
+      - name:
+          category: null
+          type: STRING
+      - id:
+          category: null
+          type: DOUBLE
+      - created:
+          category: null
+          type: TIMESTAMP
+      - is_admin:
+          category: null
+          type: DOUBLE
+      - timezone_name:
+          category: null
+          type: STRING
+      - has_created_company:
+          category: null
+          type: BOOLEAN
+      - default_currency:
+          category: null
+          type: STRING
+      - activated:
+          category: null
+          type: BOOLEAN
+      - modified:
+          category: null
+          type: TIMESTAMP
+      - lang:
+          category: null
+          type: DOUBLE
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - _user:
+          category: null
+          type: STRING
+      - phone:
+          category: null
+          type: STRING
+      - icon_url:
+          category: null
+          type: STRING
+      - signup_flow_variation:
+          category: null
+          type: STRING
+  pipe_file:
+    columns:
+      - add_time:
+          category: null
+          type: TIMESTAMP
+      - update_time:
+          category: null
+          type: TIMESTAMP
+      - deal_name:
+          category: null
+          type: STRING
+      - _user:
+          category: null
+          type: STRING
+      - file_name:
+          category: null
+          type: STRING
+      - file_size:
+          category: null
+          type: DOUBLE
+      - id:
+          category: null
+          type: DOUBLE
+      - remote_location:
+          category: null
+          type: STRING
+      - person_name:
+          category: null
+          type: STRING
+      - people_name:
+          category: null
+          type: STRING
+      - deal_id:
+          category: null
+          type: DOUBLE
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - name:
+          category: null
+          type: STRING
+      - inline_flag:
+          category: null
+          type: BOOLEAN
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - remote_id:
+          category: null
+          type: STRING
+      - user_id:
+          category: null
+          type: DOUBLE
+      - person_id:
+          category: null
+          type: DOUBLE
+      - file_type:
+          category: null
+          type: STRING
+      - url:
+          category: null
+          type: STRING
+      - org_id:
+          category: null
+          type: DOUBLE
+      - org_name:
+          category: null
+          type: STRING
+      - description:
+          category: null
+          type: STRING
+  pipe_activity:
+    columns:
+      - done:
+          category: null
+          type: BOOLEAN
+      - type:
+          category: null
+          type: STRING
+      - update_time:
+          category: null
+          type: TIMESTAMP
+      - duration:
+          category: null
+          type: STRING
+      - organization:
+          category: null
+          type: DOUBLE
+      - due time:
+          category: null
+          type: STRING
+      - person_name:
+          category: null
+          type: STRING
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - due date:
+          category: null
+          type: DATE
+      - created_by_user_id:
+          category: null
+          type: DOUBLE
+      - org_name:
+          category: null
+          type: STRING
+      - assigned to user:
+          category: null
+          type: DOUBLE
+      - note:
+          category: null
+          type: STRING
+      - contact person:
+          category: null
+          type: DOUBLE
+      - marked as done time:
+          category: null
+          type: TIMESTAMP
+      - add time:
+          category: null
+          type: TIMESTAMP
+      - assigned_to_user_id:
+          category: null
+          type: DOUBLE
+      - _user:
+          category: null
+          type: STRING
+      - id:
+          category: null
+          type: DOUBLE
+      - person_dropbox_bcc:
+          category: null
+          type: STRING
+      - owner_name:
+          category: null
+          type: STRING
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - reference_type:
+          category: null
+          type: STRING
+      - company_id:
+          category: null
+          type: DOUBLE
+      - deal_title:
+          category: null
+          type: STRING
+      - deal_dropbox_bcc:
+          category: null
+          type: STRING
+      - subject:
+          category: null
+          type: STRING
+      - deal:
+          category: null
+          type: DOUBLE
+      - google_calendar_etag:
+          category: null
+          type: STRING
+      - gcal_event_id:
+          category: null
+          type: STRING
+      - google_calendar_id:
+          category: null
+          type: STRING
+      - participants:
+          category: null
+          type: ARRAY_STRING
+      - update time:
+          category: null
+          type: TIMESTAMP
+      - creator:
+          category: null
+          type: DOUBLE
+  pipe_organization:
+    columns:
+      - related_open_deals_count:
+          category: null
+          type: DOUBLE
+      - first_char:
+          category: null
+          type: STRING
+      - organization created:
+          category: null
+          type: TIMESTAMP
+      - email messages count:
+          category: null
+          type: DOUBLE
+      - related_lost_deals_count:
+          category: null
+          type: DOUBLE
+      - name:
+          category: null
+          type: STRING
+      - won deals:
+          category: null
+          type: DOUBLE
+      - total activities:
+          category: null
+          type: DOUBLE
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - owner:
+          category: null
+          type: DOUBLE
+      - lost deals:
+          category: null
+          type: DOUBLE
+      - done activities:
+          category: null
+          type: DOUBLE
+      - reference_activities_count:
+          category: null
+          type: DOUBLE
+      - notes_count:
+          category: null
+          type: DOUBLE
+      - related_closed_deals_count:
+          category: null
+          type: DOUBLE
+      - update time:
+          category: null
+          type: TIMESTAMP
+      - files_count:
+          category: null
+          type: DOUBLE
+      - _user:
+          category: null
+          type: STRING
+      - open deals:
+          category: null
+          type: DOUBLE
+      - id:
+          category: null
+          type: DOUBLE
+      - related_won_deals_count:
+          category: null
+          type: DOUBLE
+      - owner_name:
+          category: null
+          type: STRING
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - closed deals:
+          category: null
+          type: DOUBLE
+      - activities to do:
+          category: null
+          type: DOUBLE
+      - people:
+          category: null
+          type: DOUBLE
+      - visible to:
+          category: null
+          type: STRING
+      - company_id:
+          category: null
+          type: DOUBLE
+      - followers_count:
+          category: null
+          type: DOUBLE
+      - cc_email:
+          category: null
+          type: STRING
+      - address:
+          category: null
+          type: STRING
+      - last_activity_id:
+          category: null
+          type: DOUBLE
+      - last activity date:
+          category: null
+          type: DATE
+      - street/road name:
+          category: null
+          type: STRING
+      - zip/postal code:
+          category: null
+          type: STRING
+      - state/county:
+          category: null
+          type: STRING
+      - region:
+          category: null
+          type: STRING
+      - full/combined address:
+          category: null
+          type: STRING
+      - country:
+          category: null
+          type: STRING
+      - district/sublocality:
+          category: null
+          type: STRING
+      - apartment/suite no:
+          category: null
+          type: STRING
+      - house number:
+          category: null
+          type: STRING
+      - city/town/village/locality:
+          category: null
+          type: STRING
+      - url:
+          category: null
+          type: STRING
+      - next_activity_time:
+          category: null
+          type: STRING
+      - next_activity_id:
+          category: null
+          type: DOUBLE
+      - next activity date:
+          category: null
+          type: DATE
+  pipe_user:
+    columns:
+      - created:
+          category: null
+          type: TIMESTAMP
+      - has_created_company:
+          category: null
+          type: BOOLEAN
+      - lang:
+          category: null
+          type: DOUBLE
+      - _user:
+          category: null
+          type: STRING
+      - id:
+          category: null
+          type: DOUBLE
+      - default_currency:
+          category: null
+          type: STRING
+      - modified:
+          category: null
+          type: TIMESTAMP
+      - email:
+          category: null
+          type: STRING
+      - is_admin:
+          category: null
+          type: DOUBLE
+      - locale:
+          category: null
+          type: STRING
+      - name:
+          category: null
+          type: STRING
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - role_id:
+          category: null
+          type: STRING
+      - activated:
+          category: null
+          type: BOOLEAN
+      - last_login:
+          category: null
+          type: TIMESTAMP
+      - timezone_name:
+          category: null
+          type: STRING
+      - is_you:
+          category: null
+          type: BOOLEAN
+      - icon_url:
+          category: null
+          type: STRING
+      - signup_flow_variation:
+          category: null
+          type: STRING
+      - phone:
+          category: null
+          type: STRING
+      - timezone_offset:
+          category: null
+          type: STRING
+  pipe_note:
+    columns:
+      - contact person:
+          category: null
+          type: DOUBLE
+      - add time:
+          category: null
+          type: TIMESTAMP
+      - update time:
+          category: null
+          type: TIMESTAMP
+      - _user:
+          category: null
+          type: STRING
+      - note is pinned to deal:
+          category: null
+          type: BOOLEAN
+      - id:
+          category: null
+          type: DOUBLE
+      - content:
+          category: null
+          type: STRING
+      - note is pinned to person:
+          category: null
+          type: BOOLEAN
+      - _user_name:
+          category: null
+          type: STRING
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - user:
+          category: null
+          type: DOUBLE
+      - note is pinned to organization:
+          category: null
+          type: BOOLEAN
+      - person:
+          category: null
+          type: MAP_STRING
+      - organization:
+          category: null
+          type: STRING
+      - deal title:
+          category: null
+          type: DOUBLE
+      - deal:
+          category: null
+          type: MAP_STRING
+      - last_update_user_id:
+          category: null
+          type: DOUBLE
+  pipe_person:
+    columns:
+      - related_open_deals_count:
+          category: null
+          type: DOUBLE
+      - first_char:
+          category: null
+          type: STRING
+      - participant_open_deals_count:
+          category: null
+          type: DOUBLE
+      - participant_closed_deals_count:
+          category: null
+          type: DOUBLE
+      - email messages count:
+          category: null
+          type: DOUBLE
+      - organization:
+          category: null
+          type: DOUBLE
+      - related_lost_deals_count:
+          category: null
+          type: DOUBLE
+      - first_name:
+          category: null
+          type: STRING
+      - name:
+          category: null
+          type: STRING
+      - won deals:
+          category: null
+          type: DOUBLE
+      - total activities:
+          category: null
+          type: DOUBLE
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - owner:
+          category: null
+          type: DOUBLE
+      - lost deals:
+          category: null
+          type: DOUBLE
+      - person created:
+          category: null
+          type: TIMESTAMP
+      - org_name:
+          category: null
+          type: STRING
+      - done activities:
+          category: null
+          type: DOUBLE
+      - reference_activities_count:
+          category: null
+          type: DOUBLE
+      - notes_count:
+          category: null
+          type: DOUBLE
+      - related_closed_deals_count:
+          category: null
+          type: DOUBLE
+      - update time:
+          category: null
+          type: TIMESTAMP
+      - files_count:
+          category: null
+          type: DOUBLE
+      - _user:
+          category: null
+          type: STRING
+      - open deals:
+          category: null
+          type: DOUBLE
+      - id:
+          category: null
+          type: DOUBLE
+      - related_won_deals_count:
+          category: null
+          type: DOUBLE
+      - owner_name:
+          category: null
+          type: STRING
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - closed deals:
+          category: null
+          type: DOUBLE
+      - activities to do:
+          category: null
+          type: DOUBLE
+      - phone:
+          category: null
+          type: STRING
+      - visible to:
+          category: null
+          type: STRING
+      - company_id:
+          category: null
+          type: DOUBLE
+      - last_name:
+          category: null
+          type: STRING
+      - followers_count:
+          category: null
+          type: DOUBLE
+      - cc_email:
+          category: null
+          type: STRING
+      - next_activity_time:
+          category: null
+          type: STRING
+      - next_activity_id:
+          category: null
+          type: DOUBLE
+      - next activity date:
+          category: null
+          type: DATE
+      - last_activity_id:
+          category: null
+          type: DOUBLE
+      - last activity date:
+          category: null
+          type: DATE
+      - profile picture:
+          category: null
+          type: DOUBLE
+      - last email received:
+          category: null
+          type: TIMESTAMP
+  pipedrive_deal:
+    columns:
+      - undone_activities_count:
+          category: null
+          type: DOUBLE
+      - formatted_value:
+          category: null
+          type: STRING
+      - followers_count:
+          category: null
+          type: DOUBLE
+      - participants_count:
+          category: null
+          type: DOUBLE
+      - id:
+          category: null
+          type: DOUBLE
+      - org_hidden:
+          category: null
+          type: BOOLEAN
+      - stage_id:
+          category: null
+          type: DOUBLE
+      - files_count:
+          category: null
+          type: DOUBLE
+      - stage_order_nr:
+          category: null
+          type: DOUBLE
+      - email_messages_count:
+          category: null
+          type: DOUBLE
+      - done_activities_count:
+          category: null
+          type: DOUBLE
+      - products_count:
+          category: null
+          type: DOUBLE
+      - status:
+          category: null
+          type: STRING
+      - value:
+          category: null
+          type: DOUBLE
+      - person_id:
+          category: null
+          type: DOUBLE
+      - person_name:
+          category: null
+          type: STRING
+      - creator_user_id:
+          category: null
+          type: DOUBLE
+      - activities_count:
+          category: null
+          type: DOUBLE
+      - owner_name:
+          category: null
+          type: STRING
+      - cc_email:
+          category: null
+          type: STRING
+      - active:
+          category: null
+          type: BOOLEAN
+      - currency:
+          category: null
+          type: STRING
+      - close_time:
+          category: null
+          type: TIMESTAMP
+      - add_time:
+          category: null
+          type: TIMESTAMP
+      - expected_close_date:
+          category: null
+          type: DATE
+      - person_hidden:
+          category: null
+          type: BOOLEAN
+      - visible_to:
+          category: null
+          type: STRING
+      - notes_count:
+          category: null
+          type: DOUBLE
+      - reference_activities_count:
+          category: null
+          type: DOUBLE
+      - pipeline_id:
+          category: null
+          type: DOUBLE
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - deleted:
+          category: null
+          type: BOOLEAN
+      - user_id:
+          category: null
+          type: DOUBLE
+      - title:
+          category: null
+          type: STRING
+      - stage_change_time:
+          category: null
+          type: TIMESTAMP
+      - update_time:
+          category: null
+          type: TIMESTAMP
+      - _user:
+          category: null
+          type: STRING
+      - org_name:
+          category: null
+          type: STRING
+      - org_id:
+          category: null
+          type: DOUBLE
+      - last_activity_date:
+          category: null
+          type: DATE
+      - last_activity_id:
+          category: null
+          type: DOUBLE
+      - ee032c261e4dacbb73502a2a9e2d14a53e841348:
+          category: null
+          type: STRING
+      - 4b76dedb1eb0a35aaee2101d984e804fa319b58f:
+          category: null
+          type: DATE
+      - 19e47784374a331c4fa78385e915bb0dc3fe7849:
+          category: null
+          type: DOUBLE
+      - 7c12d494e6c5273a72ca3094aeb25f969283255b:
+          category: null
+          type: DOUBLE
+      - be628f0e2ec0bdf188b4f52410ff55a1316a918a:
+          category: null
+          type: STRING
+      - first_won_time:
+          category: null
+          type: TIMESTAMP
+      - 5af5f0188d51337587f209f0caf6c0b5f6add82a:
+          category: null
+          type: STRING
+      - next_activity_time:
+          category: null
+          type: STRING
+      - next_activity_subject:
+          category: null
+          type: STRING
+      - next_activity_date:
+          category: null
+          type: DATE
+      - next_activity_id:
+          category: null
+          type: DOUBLE
+      - next_activity_type:
+          category: null
+          type: STRING
+      - next_activity_note:
+          category: null
+          type: STRING
+      - formatted_weighted_value:
+          category: null
+          type: STRING
+      - weighted_value:
+          category: null
+          type: DOUBLE
+      - won_time:
+          category: null
+          type: TIMESTAMP
+      - lost_time:
+          category: null
+          type: TIMESTAMP
+      - lost_reason:
+          category: null
+          type: STRING
+      - 291a9162858d07ff425aa6afcfc263b2d7cf3ea7:
+          category: null
+          type: STRING
+      - 3cceb97a370dde19beeac4251f7d5fe5d626b05f:
+          category: null
+          type: STRING
+      - 08dbe4f807ee3f1db989060f7fd46d8857bd1603:
+          category: null
+          type: STRING
+      - next_activity_duration:
+          category: null
+          type: STRING
+      - last_incoming_mail_time:
+          category: null
+          type: TIMESTAMP
+      - 361231764ed8d5506f8202cb6bf4cd619bdf8c6c:
+          category: null
+          type: STRING
+      - 0357853419f4c9fa11b10cd34d7ae86d68a600f6:
+          category: null
+          type: STRING
+      - 74cf99ea04f1c95d6b6fc146358c908866cd08af:
+          category: null
+          type: STRING
+  pipedrive_pipeline:
+    columns:
+      - order_nr:
+          category: null
+          type: DOUBLE
+      - active:
+          category: null
+          type: BOOLEAN
+      - name:
+          category: null
+          type: STRING
+      - url_title:
+          category: null
+          type: STRING
+      - id:
+          category: null
+          type: DOUBLE
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - add_time:
+          category: null
+          type: TIMESTAMP
+      - update_time:
+          category: null
+          type: TIMESTAMP
+      - _user:
+          category: null
+          type: STRING
+  pipedrive_note:
+    columns:
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - id:
+          category: null
+          type: DOUBLE
+      - user:
+          category: null
+          type: MAP_STRING
+      - pinned_to_organization_flag:
+          category: null
+          type: BOOLEAN
+      - add_time:
+          category: null
+          type: TIMESTAMP
+      - pinned_to_person_flag:
+          category: null
+          type: BOOLEAN
+      - person:
+          category: null
+          type: MAP_STRING
+      - pinned_to_deal_flag:
+          category: null
+          type: BOOLEAN
+      - content:
+          category: null
+          type: STRING
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - user_id:
+          category: null
+          type: DOUBLE
+      - person_id:
+          category: null
+          type: DOUBLE
+      - update_time:
+          category: null
+          type: TIMESTAMP
+      - _user:
+          category: null
+          type: STRING
+      - organization:
+          category: null
+          type: MAP_STRING
+      - org_id:
+          category: null
+          type: DOUBLE
+      - deal_id:
+          category: null
+          type: DOUBLE
+      - deal:
+          category: null
+          type: MAP_STRING
+      - last_update_user_id:
+          category: null
+          type: DOUBLE
+  pipe_deal:
+    columns:
+      - products_count:
+          category: null
+          type: DOUBLE
+      - title:
+          category: null
+          type: STRING
+      - email messages count:
+          category: null
+          type: DOUBLE
+      - person_name:
+          category: null
+          type: STRING
+      - currency:
+          category: null
+          type: STRING
+      - status:
+          category: null
+          type: STRING
+      - total activities:
+          category: null
+          type: DOUBLE
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - last stage change:
+          category: null
+          type: TIMESTAMP
+      - value:
+          category: null
+          type: DOUBLE
+      - owner:
+          category: null
+          type: DOUBLE
+      - org_hidden:
+          category: null
+          type: BOOLEAN
+      - creator:
+          category: null
+          type: DOUBLE
+      - participants_count:
+          category: null
+          type: DOUBLE
+      - stage:
+          category: null
+          type: DOUBLE
+      - deal created:
+          category: null
+          type: TIMESTAMP
+      - deleted:
+          category: null
+          type: BOOLEAN
+      - contact person:
+          category: null
+          type: DOUBLE
+      - done activities:
+          category: null
+          type: DOUBLE
+      - expected close date:
+          category: null
+          type: DATE
+      - reference_activities_count:
+          category: null
+          type: DOUBLE
+      - notes_count:
+          category: null
+          type: DOUBLE
+      - update time:
+          category: null
+          type: TIMESTAMP
+      - files_count:
+          category: null
+          type: DOUBLE
+      - _user:
+          category: null
+          type: STRING
+      - stage_order_nr:
+          category: null
+          type: DOUBLE
+      - id:
+          category: null
+          type: DOUBLE
+      - active:
+          category: null
+          type: BOOLEAN
+      - owner_name:
+          category: null
+          type: STRING
+      - activities to do:
+          category: null
+          type: DOUBLE
+      - pipeline_id:
+          category: null
+          type: DOUBLE
+      - visible to:
+          category: null
+          type: STRING
+      - deal closed on:
+          category: null
+          type: TIMESTAMP
+      - person_hidden:
+          category: null
+          type: BOOLEAN
+      - formatted_value:
+          category: null
+          type: STRING
+      - followers_count:
+          category: null
+          type: DOUBLE
+      - cc_email:
+          category: null
+          type: STRING
+      - org_name:
+          category: null
+          type: STRING
+      - organization:
+          category: null
+          type: DOUBLE
+      - last_activity_id:
+          category: null
+          type: DOUBLE
+      - last activity date:
+          category: null
+          type: DATE
+      - product:
+          category: null
+          type: STRING
+      - move in date:
+          category: null
+          type: DATE
+      - '# of people':
+          category: null
+          type: DOUBLE
+      - contract period:
+          category: null
+          type: DOUBLE
+      - comments:
+          category: null
+          type: STRING
+      - first_won_time:
+          category: null
+          type: TIMESTAMP
+      - location:
+          category: null
+          type: STRING
+      - next_activity_time:
+          category: null
+          type: STRING
+      - next_activity_subject:
+          category: null
+          type: STRING
+      - next_activity_note:
+          category: null
+          type: STRING
+      - next_activity_type:
+          category: null
+          type: STRING
+      - next_activity_id:
+          category: null
+          type: DOUBLE
+      - next activity date:
+          category: null
+          type: DATE
+      - weighted_value:
+          category: null
+          type: DOUBLE
+      - formatted_weighted_value:
+          category: null
+          type: STRING
+      - won time:
+          category: null
+          type: TIMESTAMP
+      - lost time:
+          category: null
+          type: TIMESTAMP
+      - lost reason:
+          category: null
+          type: STRING
+      - utm_medium:
+          category: null
+          type: STRING
+      - utm_campaign:
+          category: null
+          type: STRING
+      - utm_source:
+          category: null
+          type: STRING
+      - next_activity_duration:
+          category: null
+          type: STRING
+      - last email received:
+          category: null
+          type: TIMESTAMP
+      - membership type:
+          category: null
+          type: STRING
+      - referrer:
+          category: null
+          type: STRING
+      - utm_content:
+          category: null
+          type: STRING
+      - first_add_time:
+          category: null
+          type: TIMESTAMP
+      - enquiry source:
+          category: null
+          type: STRING
+      - list price:
+          category: null
+          type: DOUBLE
+      - membership:
+          category: null
+          type: STRING
+  pipedrive_organization:
+    columns:
+      - undone_activities_count:
+          category: null
+          type: DOUBLE
+      - open_deals_count:
+          category: null
+          type: DOUBLE
+      - followers_count:
+          category: null
+          type: DOUBLE
+      - lost_deals_count:
+          category: null
+          type: DOUBLE
+      - id:
+          category: null
+          type: DOUBLE
+      - related_closed_deals_count:
+          category: null
+          type: DOUBLE
+      - files_count:
+          category: null
+          type: DOUBLE
+      - email_messages_count:
+          category: null
+          type: DOUBLE
+      - done_activities_count:
+          category: null
+          type: DOUBLE
+      - owner_id:
+          category: null
+          type: DOUBLE
+      - won_deals_count:
+          category: null
+          type: DOUBLE
+      - activities_count:
+          category: null
+          type: DOUBLE
+      - related_lost_deals_count:
+          category: null
+          type: DOUBLE
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - cc_email:
+          category: null
+          type: STRING
+      - closed_deals_count:
+          category: null
+          type: DOUBLE
+      - related_open_deals_count:
+          category: null
+          type: DOUBLE
+      - name:
+          category: null
+          type: STRING
+      - people_count:
+          category: null
+          type: DOUBLE
+      - first_char:
+          category: null
+          type: STRING
+      - related_won_deals_count:
+          category: null
+          type: DOUBLE
+      - add_time:
+          category: null
+          type: TIMESTAMP
+      - company_id:
+          category: null
+          type: DOUBLE
+      - visible_to:
+          category: null
+          type: STRING
+      - notes_count:
+          category: null
+          type: DOUBLE
+      - reference_activities_count:
+          category: null
+          type: DOUBLE
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - update_time:
+          category: null
+          type: TIMESTAMP
+      - _user:
+          category: null
+          type: STRING
+      - address:
+          category: null
+          type: STRING
+      - last_activity_date:
+          category: null
+          type: DATE
+      - last_activity_id:
+          category: null
+          type: DOUBLE
+      - address_street_number:
+          category: null
+          type: STRING
+      - address_admin_area_level_2:
+          category: null
+          type: STRING
+      - address_admin_area_level_1:
+          category: null
+          type: STRING
+      - address_formatted_address:
+          category: null
+          type: STRING
+      - address_subpremise:
+          category: null
+          type: STRING
+      - address_postal_code:
+          category: null
+          type: STRING
+      - address_locality:
+          category: null
+          type: STRING
+      - address_route:
+          category: null
+          type: STRING
+      - address_country:
+          category: null
+          type: STRING
+      - address_sublocality:
+          category: null
+          type: STRING
+      - 0a5ed0d0ebfe79769358c7f618f13ee95859bbcf:
+          category: null
+          type: STRING
+      - next_activity_time:
+          category: null
+          type: STRING
+      - next_activity_date:
+          category: null
+          type: DATE
+      - next_activity_id:
+          category: null
+          type: DOUBLE
+      - owner_name:
+          category: null
+          type: STRING
+  pipedrive_stage:
+    columns:
+      - order_nr:
+          category: null
+          type: DOUBLE
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - rotten_flag:
+          category: null
+          type: BOOLEAN
+      - name:
+          category: null
+          type: STRING
+      - id:
+          category: null
+          type: DOUBLE
+      - pipeline_name:
+          category: null
+          type: STRING
+      - add_time:
+          category: null
+          type: TIMESTAMP
+      - deal_probability:
+          category: null
+          type: DOUBLE
+      - pipeline_id:
+          category: null
+          type: DOUBLE
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - update_time:
+          category: null
+          type: TIMESTAMP
+      - _user:
+          category: null
+          type: STRING
+  pipe_product:
+    columns:
+      - our contact:
+          category: null
+          type: DOUBLE
+      - add_time:
+          category: null
+          type: TIMESTAMP
+      - update_time:
+          category: null
+          type: TIMESTAMP
+      - first_char:
+          category: null
+          type: STRING
+      - tax:
+          category: null
+          type: DOUBLE
+      - _user:
+          category: null
+          type: STRING
+      - id:
+          category: null
+          type: DOUBLE
+      - active:
+          category: null
+          type: BOOLEAN
+      - owner_name:
+          category: null
+          type: STRING
+      - name:
+          category: null
+          type: STRING
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - prices:
+          category: null
+          type: MAP_STRING
+      - visible to:
+          category: null
+          type: STRING
+      - followers_count:
+          category: null
+          type: DOUBLE
+      - product code:
+          category: null
+          type: STRING
+  pipedrive_activity:
+    columns:
+      - assigned_to_user_id:
+          category: null
+          type: DOUBLE
+      - id:
+          category: null
+          type: DOUBLE
+      - org_id:
+          category: null
+          type: DOUBLE
+      - reference_type:
+          category: null
+          type: STRING
+      - done:
+          category: null
+          type: BOOLEAN
+      - created_by_user_id:
+          category: null
+          type: DOUBLE
+      - due_date:
+          category: null
+          type: DATE
+      - duration:
+          category: null
+          type: STRING
+      - person_id:
+          category: null
+          type: DOUBLE
+      - person_name:
+          category: null
+          type: STRING
+      - due_time:
+          category: null
+          type: STRING
+      - marked_as_done_time:
+          category: null
+          type: TIMESTAMP
+      - owner_name:
+          category: null
+          type: STRING
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - add_time:
+          category: null
+          type: TIMESTAMP
+      - company_id:
+          category: null
+          type: DOUBLE
+      - org_name:
+          category: null
+          type: STRING
+      - note:
+          category: null
+          type: STRING
+      - type:
+          category: null
+          type: STRING
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - user_id:
+          category: null
+          type: DOUBLE
+      - update_time:
+          category: null
+          type: TIMESTAMP
+      - person_dropbox_bcc:
+          category: null
+          type: STRING
+      - _user:
+          category: null
+          type: STRING
+      - deal_title:
+          category: null
+          type: STRING
+      - deal_id:
+          category: null
+          type: DOUBLE
+      - subject:
+          category: null
+          type: STRING
+      - deal_dropbox_bcc:
+          category: null
+          type: STRING
+      - google_calendar_etag:
+          category: null
+          type: STRING
+      - gcal_event_id:
+          category: null
+          type: STRING
+      - google_calendar_id:
+          category: null
+          type: STRING
+  pipe_pipeline:
+    columns:
+      - active:
+          category: null
+          type: BOOLEAN
+      - url_title:
+          category: null
+          type: STRING
+      - name:
+          category: null
+          type: STRING
+      - add_time:
+          category: null
+          type: TIMESTAMP
+      - update_time:
+          category: null
+          type: TIMESTAMP
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - order_nr:
+          category: null
+          type: DOUBLE
+      - _user:
+          category: null
+          type: STRING
+      - id:
+          category: null
+          type: DOUBLE
+  pipedrive_file:
+    columns:
+      - person_name:
+          category: null
+          type: STRING
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - people_name:
+          category: null
+          type: STRING
+      - file_type:
+          category: null
+          type: STRING
+      - name:
+          category: null
+          type: STRING
+      - id:
+          category: null
+          type: DOUBLE
+      - remote_id:
+          category: null
+          type: STRING
+      - deal_id:
+          category: null
+          type: DOUBLE
+      - file_size:
+          category: null
+          type: DOUBLE
+      - url:
+          category: null
+          type: STRING
+      - add_time:
+          category: null
+          type: TIMESTAMP
+      - remote_location:
+          category: null
+          type: STRING
+      - file_name:
+          category: null
+          type: STRING
+      - inline_flag:
+          category: null
+          type: BOOLEAN
+      - deal_name:
+          category: null
+          type: STRING
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - user_id:
+          category: null
+          type: DOUBLE
+      - person_id:
+          category: null
+          type: DOUBLE
+      - update_time:
+          category: null
+          type: TIMESTAMP
+      - _user:
+          category: null
+          type: STRING
+      - org_name:
+          category: null
+          type: STRING
+      - org_id:
+          category: null
+          type: DOUBLE
+      - description:
+          category: null
+          type: STRING
+  pipe_stage:
+    columns:
+      - add_time:
+          category: null
+          type: TIMESTAMP
+      - update_time:
+          category: null
+          type: TIMESTAMP
+      - _user:
+          category: null
+          type: STRING
+      - id:
+          category: null
+          type: DOUBLE
+      - deal_probability:
+          category: null
+          type: DOUBLE
+      - rotten_flag:
+          category: null
+          type: BOOLEAN
+      - name:
+          category: null
+          type: STRING
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - pipeline_id:
+          category: null
+          type: DOUBLE
+      - pipeline_name:
+          category: null
+          type: STRING
+      - order_nr:
+          category: null
+          type: DOUBLE
+  pipedrive_product:
+    columns:
+      - active_flag:
+          category: null
+          type: BOOLEAN
+      - followers_count:
+          category: null
+          type: DOUBLE
+      - name:
+          category: null
+          type: STRING
+      - tax:
+          category: null
+          type: DOUBLE
+      - id:
+          category: null
+          type: DOUBLE
+      - selectable:
+          category: null
+          type: BOOLEAN
+      - first_char:
+          category: null
+          type: STRING
+      - add_time:
+          category: null
+          type: TIMESTAMP
+      - visible_to:
+          category: null
+          type: STRING
+      - owner_id:
+          category: null
+          type: DOUBLE
+      - prices:
+          category: null
+          type: MAP_STRING
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - update_time:
+          category: null
+          type: TIMESTAMP
+      - _user:
+          category: null
+          type: STRING
+      - code:
+          category: null
+          type: STRING
+reports:
+  - slug: deals
+    category: Pipedrive
+    name: Deals
+    query: >-
+      SELECT cast(date_trunc('month', "_time") as date) as month, count(*) as
+      "count of rows" FROM collection."pipedrive_deal" GROUP BY 1
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables: []
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+    shared: false
+  - slug: activities_by_type
+    category: Pipedrive
+    name: Activities by type
+    query: >
+      SELECT cast(date_trunc({date_segment}, _time) as date) day, type,
+      count(*) 
+
+      FROM collection."pipedrive_activity" 
+
+      where _time between {date[0]} and {date[1]}
+
+      group by 1,2
+    options:
+      chartType: bar
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions:
+        barmode: stack
+      variables:
+        - multiple: false
+          name: date_segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+                - - quarter
+                  - quarter
+                - - year
+                  - year
+          defaultValue: week
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+      segments:
+        - 1
+      measures:
+        - 2
+      dimensions:
+        - 0
+      columnOptions:
+        - null
+        - null
+        - tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+    queryOptions: {}
+    shared: false
+  - slug: deals_status
+    category: Pipedrive
+    name: Deals Status
+    query: >-
+      SELECT cast(date_trunc({date_segment}, _time) as date) day, status,
+      count(*) 
+
+      FROM collection."pipedrive_deal" 
+
+      WHERE _time BETWEEN {date[0]} AND {date[1]} AND ["status" =
+      {status}](true)
+
+      GROUP BY 1,2
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: date_segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - week
+                  - week
+                - - day
+                  - day
+                - - month
+                  - month
+                - - year
+                  - year
+                - - quarter
+                  - quarter
+          defaultValue: week
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: status
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct status from pipedrive_deal
+          type: string
+      segments:
+        - 1
+      measures:
+        - 2
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: yyyy-MM-dd
+          tableOptions:
+            cellOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+    queryOptions: {}
+    shared: false
+  - slug: activity_owners_by_type
+    category: Pipedrive
+    name: Activitiy owners by type
+    query: |-
+      SELECT "owner_name", type, count(*)
+      FROM collection."pipedrive_activity" 
+      WHERE _time BETWEEN {date[0]} AND {date[1]} AND [type = {Activity}](true)
+      GROUP BY 1,2
+    options:
+      chartType: bar
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions:
+        barmode: stack
+        orientation: v
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+        - multiple: false
+          name: Activity
+          options:
+            displayType: dropdown
+            type: custom-query
+            typeSettings:
+              query: select distinct type from pipedrive_activity
+          type: string
+      segments:
+        - 1
+      measures:
+        - 2
+      dimensions:
+        - 0
+      columnOptions:
+        - null
+        - null
+        - tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+    queryOptions: {}
+    shared: false
+  - slug: activity_count_by_owners
+    category: Pipedrive
+    name: Activities count by owners
+    query: |-
+      SELECT "owner_name",count(*)
+      FROM collection."pipedrive_activity"
+      where _time between {date[0]} and {date[1]}
+      GROUP BY 1
+    options:
+      chartType: bar
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions:
+        barmode: stack
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_two_weeks
+          type: date-range
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - null
+        - null
+        - null
+    queryOptions: {}
+    shared: false
+  - slug: activity_owners_by_time
+    category: Pipedrive
+    name: Activity owners over time
+    query: >-
+      SELECT cast(date_trunc({date_segment}, _time) as date) day, "owner_name",
+      count(*)
+
+      FROM collection."pipedrive_activity" 
+
+      WHERE _time BETWEEN {date[0]} AND {date[1]}
+
+      GROUP BY 1,2
+    options:
+      chartType: bar
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions:
+        barmode: stack
+        orientation: v
+      variables:
+        - multiple: false
+          name: date_segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+                - - quarter
+                  - quarter
+                - - year
+                  - year
+          defaultValue: week
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+      segments:
+        - 1
+      measures:
+        - 2
+      dimensions:
+        - 0
+      columnOptions:
+        - null
+        - null
+        - {}
+    queryOptions: {}
+    shared: false
+  - slug: deals_value_time
+    category: Pipedrive
+    name: Deals Value by time
+    query: >-
+      SELECT cast(date_trunc({date_segment}, _time) as date)
+      day,SUM("value")/1000
+
+      FROM collection."pipedrive_deal"
+
+      where _time between {date[0]} AND {date[1]}
+
+      GROUP BY 1
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: date_segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - day
+                  - day
+                - - week
+                  - week
+                - - month
+                  - month
+                - - quarter
+                  - quarter
+                - - year
+                  - year
+          defaultValue: week
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - null
+        - null
+        - null
+    queryOptions: {}
+    shared: false
+  - slug: deal_owners_time
+    category: Pipedrive
+    name: Deals owners by time
+    query: |-
+      SELECT "person_name", count(*)
+      FROM collection."pipedrive_deal"
+      WHERE _time BETWEEN {date[0]} AND {date[1]}
+      GROUP BY 1
+    options:
+      chartType: bar
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_month
+          type: date-range
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - null
+        - null
+        - null
+    queryOptions: {}
+    shared: false
+dashboards:
+  - name: My dashboard
+    items: []
+  - name: Test
+    items: []
+  - name: Sale
+    items:
+      - id: 1125
+        name: Deals
+        directive: report
+        options:
+          reportSlug: deals
+          sizeX: 6
+          sizeY: 1
+          aggregation: null
+          values: {}
+          row: 0
+          col: 0
+        refreshInterval: null
+        data: null
+        lastUpdated: null
