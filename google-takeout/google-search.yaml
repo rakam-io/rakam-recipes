@@ -1,0 +1,322 @@
+strategy: SPECIFIC
+collections:
+  google_search:
+    columns:
+      - _time:
+          category: null
+          type: TIMESTAMP
+      - _user:
+          category: null
+          type: STRING
+      - query_text:
+          category: null
+          type: STRING
+reports:
+  - slug: google_search_by_year
+    category: null
+    name: Google search by year
+    query: >-
+      SELECT cast(date_trunc({segment}, _time) as date) as {{ segment[0] }},
+      count(*) FROM collection."google_search" where [_time between {date[0]}
+      and {date[1]}](true) group by 1
+    options:
+      chartType: line
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: false
+          name: segment
+          options:
+            displayType: dropdown
+            type: static
+            typeSettings:
+              choices:
+                - - year
+                  - year
+                - - month
+                  - month
+                - - week
+                  - week
+                - - day
+                  - day
+          defaultValue: year
+          type: string
+        - multiple: true
+          name: date
+          options: {}
+          type: date-range
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: YYYY-MM-DD
+          tableOptions:
+            cellOptions: {}
+            urlMapping: >-
+              /reports/google_search_by_year?segment={sequence(parameters.segment,
+              'month', 'week', 'day')}&date={label},{next(value,
+              parameters.segment)}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+    shared: false
+  - slug: top_keywords
+    category: null
+    name: Top keywords
+    query: "SELECT \"keyword\", count(*) as count FROM (\n\tSELECT keyword, _time FROM (SELECT regexp_split_to_array(\"query_text\", '\\W+') keywords, _time FROM collection.\"google_search\") data CROSS JOIN UNNEST (keywords) as keyword WHERE keyword != ''\n) data\nwhere _time between {date[0]} and {date[1]}\nGROUP BY 1 ORDER BY 2 desc"
+    options:
+      chartType: null
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: true
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_year
+          type: date-range
+      columnOptions:
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: sum
+              colorize: false
+              bar: true
+            formatNumbers: true
+          chartOptions: {}
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+    queryOptions: {}
+    shared: false
+  - slug: top_searches
+    category: null
+    name: Top searches
+    query: |-
+      SELECT "query_text", count(*) as count FROM collection."google_search" 
+      where _time between {date[0]} and {date[1]}
+      GROUP BY 1 ORDER BY 2 desc
+    options:
+      chartType: null
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: true
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: last_year
+          type: date-range
+      columnOptions:
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: sum
+              colorize: false
+              bar: true
+            formatNumbers: true
+          chartOptions: {}
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+    queryOptions: {}
+    shared: false
+  - slug: searches_by_weekday
+    category: null
+    name: Searches by week day
+    query: >-
+      SELECT to_char(_time, 'day') as "week day", count(*) as count FROM
+      collection."google_search" 
+
+      WHERE [_time between {date[0]} and {date[1]}](true)
+
+      GROUP BY 1 ORDER BY 2 desc
+    options:
+      chartType: bar
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          type: date-range
+      columnOptions:
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+              colorize: false
+              bar: true
+            formatNumbers: true
+          chartOptions: {}
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+    queryOptions: {}
+    shared: false
+  - slug: searches_by_hour
+    category: null
+    name: Searches by hour
+    query: >-
+      SELECT lpad(cast(extract(hour FROM _time) as text), 2, '0')||':00' as
+      "hour", count(*) as count FROM collection."google_search" 
+
+      WHERE [_time between {date[0]} and {date[1]}](true)
+
+      GROUP BY 1 ORDER BY 2 desc
+    options:
+      chartType: scatter
+      limit: 1000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          type: date-range
+      columnOptions:
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: relative
+              colorize: false
+              bar: true
+            formatNumbers: true
+          chartOptions: {}
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+    queryOptions: {}
+    shared: false
+dashboards:
+  - name: Google Takeout
+    items:
+      - id: 1468
+        name: Google search by year
+        directive: grouped-data
+        options:
+          reportSlug: google_search_by_year
+          sizeX: 3
+          sizeY: 1
+          aggregation: null
+          values:
+            segment: year
+          row: 0
+          col: 0
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+      - id: 1470
+        name: Top keywords
+        directive: report
+        options:
+          reportSlug: top_keywords
+          sizeX: 3
+          sizeY: 1
+          aggregation: null
+          values: {}
+          row: 2
+          col: 3
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+      - id: 1471
+        name: Top searches
+        directive: report
+        options:
+          reportSlug: top_searches
+          sizeX: 3
+          sizeY: 1
+          aggregation: null
+          values: {}
+          row: 2
+          col: 0
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+      - id: 1472
+        name: Searches by week day
+        directive: report
+        options:
+          reportSlug: searches_by_weekday
+          sizeX: 3
+          sizeY: 1
+          aggregation: null
+          values: {}
+          row: 1
+          col: 0
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+      - id: 1469
+        name: Google search by month
+        directive: grouped-data
+        options:
+          reportSlug: google_search_by_year
+          sizeX: 3
+          sizeY: 1
+          aggregation: null
+          values:
+            segment: month
+          row: 0
+          col: 3
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
+      - id: 1473
+        name: Searches by hour
+        directive: report
+        options:
+          reportSlug: searches_by_hour
+          sizeX: 3
+          sizeY: 1
+          aggregation: null
+          values: {}
+          row: 1
+          col: 3
+        refreshInterval: 86400
+        data: null
+        lastUpdated: null
