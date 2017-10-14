@@ -1,15 +1,15 @@
-collections:
-  google_search:
-    columns:
-      - _time:
-          category: null
-          type: TIMESTAMP
-      - _user:
-          category: null
-          type: STRING
-      - query_text:
-          category: null
-          type: STRING
+#collections:
+#  google_search:
+#    columns:
+#      - _time:
+#          category: null
+#          type: TIMESTAMP
+#      - _user:
+#          category: null
+#          type: STRING
+#      - query_text:
+#          category: null
+#          type: STRING
 reports:
   - slug: google_search_by_year
     category: null
