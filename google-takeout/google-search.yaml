@@ -233,7 +233,31 @@ reports:
 dashboards:
   - name: Google Takeout
     items:
-      - id: 1468
+      - id: 1498
+        name: Top searches
+        directive: report
+        options:
+          reportSlug: top_searches
+          sizeX: 3
+          sizeY: 1
+          aggregation: null
+          values: {}
+          row: 2
+          col: 0
+        refreshInterval: 86400
+      - id: 1501
+        name: Searches by hour
+        directive: report
+        options:
+          reportSlug: searches_by_hour
+          sizeX: 3
+          sizeY: 1
+          aggregation: null
+          values: {}
+          row: 1
+          col: 3
+        refreshInterval: 86400
+      - id: 1496
         name: Google search by year
         directive: grouped-data
         options:
@@ -246,51 +270,7 @@ dashboards:
           row: 0
           col: 0
         refreshInterval: 86400
-        data: null
-        lastUpdated: null
-      - id: 1470
-        name: Top keywords
-        directive: report
-        options:
-          reportSlug: top_keywords
-          sizeX: 3
-          sizeY: 1
-          aggregation: null
-          values: {}
-          row: 2
-          col: 3
-        refreshInterval: 86400
-        data: null
-        lastUpdated: null
-      - id: 1471
-        name: Top searches
-        directive: report
-        options:
-          reportSlug: top_searches
-          sizeX: 3
-          sizeY: 1
-          aggregation: null
-          values: {}
-          row: 2
-          col: 0
-        refreshInterval: 86400
-        data: null
-        lastUpdated: null
-      - id: 1472
-        name: Searches by week day
-        directive: report
-        options:
-          reportSlug: searches_by_weekday
-          sizeX: 3
-          sizeY: 1
-          aggregation: null
-          values: {}
-          row: 1
-          col: 0
-        refreshInterval: 86400
-        data: null
-        lastUpdated: null
-      - id: 1469
+      - id: 1500
         name: Google search by month
         directive: grouped-data
         options:
@@ -303,19 +283,35 @@ dashboards:
           row: 0
           col: 3
         refreshInterval: 86400
-        data: null
-        lastUpdated: null
-      - id: 1473
-        name: Searches by hour
+      - id: 1499
+        name: Searches by week day
         directive: report
         options:
-          reportSlug: searches_by_hour
+          reportSlug: searches_by_weekday
           sizeX: 3
           sizeY: 1
           aggregation: null
           values: {}
           row: 1
+          col: 0
+        refreshInterval: 86400
+      - id: 1497
+        name: Top keywords
+        directive: report
+        options:
+          reportSlug: top_keywords
+          sizeX: 3
+          sizeY: 1
+          aggregation: null
+          values: {}
+          row: 2
           col: 3
         refreshInterval: 86400
-        data: null
-        lastUpdated: null
+    options:
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          defaultValue: beginning_of_year
+          type: date-range
+    refresh_interval: null
