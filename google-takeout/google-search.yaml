@@ -231,7 +231,7 @@ reports:
     queryOptions: {}
     shared: false
 dashboards:
-  - name: Google Takeout
+  - name: Google Search
     items:
       - id: 1498
         name: Top searches
