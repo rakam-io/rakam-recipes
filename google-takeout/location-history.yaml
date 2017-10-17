@@ -1,1 +1,130 @@
-
+#collections:
+#  phone_location:
+#    columns:
+#      - _user:
+#          category: null
+#          type: STRING
+#      - activity_types:
+#          category: null
+#          type: ARRAY_STRING
+#      - _time:
+#          category: null
+#          type: TIMESTAMP
+#      - latitude:
+#          category: null
+#          type: DOUBLE
+#      - longitude:
+#          category: null
+#          type: DOUBLE
+#      - activity_confidence:
+#          category: null
+#          type: ARRAY_DOUBLE
+#      - accuracy:
+#          category: null
+#          type: DOUBLE
+reports:
+  - slug: location
+    category: Location History
+    name: Map
+    query: >-
+      SELECT "activity_types", "latitude", "longitude" FROM
+      collection."phone_location" where [_time between {date[0]} and
+      {date[1]}](true)
+    options:
+      chartType: geo-cluster
+      limit: 50000
+      enableStatistics: true
+      tableOptions:
+        enabled: false
+      chartOptions:
+        latitude: 1
+        longitude: 2
+        color: 0
+        title: 0
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          type: date-range
+      segments: []
+      measures:
+        - 0
+        - 1
+        - 2
+      dimensions: []
+      columnOptions:
+        - tableOptions:
+            cellOptions: {}
+        - tableOptions:
+            cellOptions: {}
+        - tableOptions:
+            cellOptions: {}
+    queryOptions: {}
+    shared: false
+  - slug: activity_type
+    category: Location History
+    name: Activity type
+    query: >-
+      SELECT activity_type, count(*) FROM collection."phone_location" CROSS JOIN
+      UNNEST (activity_types) as activity_type where activity_types is not null
+      and [_time between {date[0]} and {date[1]}](true) group by 1 order by 2
+      desc
+    options:
+      chartType: pie
+      limit: 50000
+      enableStatistics: true
+      tableOptions:
+        enabled: true
+      chartOptions: {}
+      variables:
+        - multiple: true
+          name: date
+          options: {}
+          type: date-range
+      segments: []
+      measures:
+        - 1
+      dimensions:
+        - 0
+      columnOptions:
+        - displayFormat: null
+          tableOptions:
+            cellOptions: {}
+          chartOptions: {}
+        - displayFormat: null
+          tableOptions:
+            cellOptions:
+              statistics: sum
+            formatNumbers: true
+          chartOptions: {}
+    queryOptions: {}
+    shared: false
+dashboards:
+  - name: Location History
+    items:
+      - id: 1531
+        name: Map
+        directive: report
+        options:
+          reportSlug: location
+          sizeX: 6
+          sizeY: 2
+          aggregation: null
+          values: {}
+          row: 1
+          col: 0
+        refreshInterval: 86400
+      - id: 1532
+        name: Activity type
+        directive: grouped-data
+        options:
+          reportSlug: activity_type
+          sizeX: 6
+          sizeY: 1
+          aggregation: null
+          values: {}
+          row: 0
+          col: 0
+        refreshInterval: 86400
+    options: null
+    refreshDuration: null
