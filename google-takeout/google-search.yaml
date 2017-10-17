@@ -72,7 +72,7 @@ reports:
   - slug: top_keywords
     category: null
     name: Top keywords
-    query: "SELECT \"keyword\", count(*) as count FROM (\n\tSELECT keyword, _time FROM (SELECT regexp_split_to_array(\"query_text\", '\\W+') keywords, _time FROM collection.\"google_search\") data CROSS JOIN UNNEST (keywords) as keyword WHERE keyword != ''\n) data\nwhere _time between {date[0]} and {date[1]}\nGROUP BY 1 ORDER BY 2 desc"
+    query: "SELECT \"keyword\", count(*) as count FROM (\n\tSELECT keyword, _time FROM (SELECT regexp_split_to_array(\"query_text\", '\\W+') keywords, _time FROM collection.\"google_search\") data CROSS JOIN UNNEST (keywords) as keyword WHERE keyword != ''\n) data\nwhere [_time between {date[0]} and {date[1]}](true) \nGROUP BY 1 ORDER BY 2 desc"
     options:
       chartType: null
       limit: 1000
@@ -111,7 +111,7 @@ reports:
     name: Top searches
     query: |-
       SELECT "query_text", count(*) as count FROM collection."google_search" 
-      where _time between {date[0]} and {date[1]}
+      where [_time between {date[0]} and {date[1]}](true)
       GROUP BY 1 ORDER BY 2 desc
     options:
       chartType: null
@@ -307,11 +307,4 @@ dashboards:
           row: 2
           col: 3
         refreshInterval: 86400
-    options:
-      variables:
-        - multiple: true
-          name: date
-          options: {}
-          defaultValue: beginning_of_year
-          type: date-range
     refreshDuration: null
