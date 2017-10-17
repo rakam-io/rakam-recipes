@@ -314,4 +314,4 @@ dashboards:
           options: {}
           defaultValue: beginning_of_year
           type: date-range
-    refresh_interval: null
+    refreshDuration: null
