@@ -1,229 +1,5 @@
 strategy: SPECIFIC
 collections:
-  facebook_ads:
-    columns:
-      - social_clicks:
-          category: null
-          type: DOUBLE
-      - unique_clicks:
-          category: null
-          type: DOUBLE
-      - unique_ctr:
-          category: null
-          type: DOUBLE
-      - _user:
-          category: null
-          type: LONG
-      - unique_social_impressions:
-          category: null
-          type: STRING
-      - reach:
-          category: null
-          type: DOUBLE
-      - cpm:
-          category: null
-          type: DOUBLE
-      - inline_post_engagement:
-          category: null
-          type: STRING
-      - cost_per_action_type:
-          category: null
-          type: MAP_STRING
-      - cost_per_unique_inline_link_click:
-          category: null
-          type: DOUBLE
-      - canvas_avg_view_time:
-          category: null
-          type: DOUBLE
-      - total_unique_actions:
-          category: null
-          type: DOUBLE
-      - unique_impressions:
-          category: null
-          type: DOUBLE
-      - objective:
-          category: null
-          type: STRING
-      - age:
-          category: null
-          type: STRING
-      - frequency:
-          category: null
-          type: DOUBLE
-      - total_action_value:
-          category: null
-          type: STRING
-      - clicks:
-          category: null
-          type: DOUBLE
-      - inline_link_clicks:
-          category: null
-          type: STRING
-      - estimated_ad_recall_rate:
-          category: null
-          type: DOUBLE
-      - ad_name:
-          category: null
-          type: STRING
-      - unique_inline_link_click_ctr:
-          category: null
-          type: DOUBLE
-      - ctr:
-          category: null
-          type: DOUBLE
-      - campaign_id:
-          category: null
-          type: STRING
-      - cost_per_unique_click:
-          category: null
-          type: DOUBLE
-      - unique_social_clicks:
-          category: null
-          type: DOUBLE
-      - date_stop:
-          category: null
-          type: DATE
-      - actions:
-          category: null
-          type: MAP_STRING
-      - impressions:
-          category: null
-          type: DOUBLE
-      - inline_link_click_ctr:
-          category: null
-          type: DOUBLE
-      - ad_id:
-          category: null
-          type: STRING
-      - cost_per_estimated_ad_recallers:
-          category: null
-          type: DOUBLE
-      - social_reach:
-          category: null
-          type: DOUBLE
-      - website_clicks:
-          category: null
-          type: DOUBLE
-      - account_name:
-          category: null
-          type: STRING
-      - unique_actions:
-          category: null
-          type: MAP_STRING
-      - spend:
-          category: null
-          type: DOUBLE
-      - app_store_clicks:
-          category: null
-          type: DOUBLE
-      - deeplink_clicks:
-          category: null
-          type: DOUBLE
-      - unique_inline_link_clicks:
-          category: null
-          type: DOUBLE
-      - cost_per_inline_post_engagement:
-          category: null
-          type: DOUBLE
-      - cost_per_inline_link_click:
-          category: null
-          type: DOUBLE
-      - social_impressions:
-          category: null
-          type: DOUBLE
-      - _time:
-          category: null
-          type: TIMESTAMP
-      - cost_per_unique_action_type:
-          category: null
-          type: MAP_STRING
-      - unique_link_clicks_ctr:
-          category: null
-          type: DOUBLE
-      - cost_per_total_action:
-          category: null
-          type: DOUBLE
-      - canvas_avg_view_percent:
-          category: null
-          type: DOUBLE
-      - gender:
-          category: null
-          type: STRING
-      - cpp:
-          category: null
-          type: DOUBLE
-      - adset_id:
-          category: null
-          type: STRING
-      - cpc:
-          category: null
-          type: DOUBLE
-      - total_actions:
-          category: null
-          type: DOUBLE
-      - date_start:
-          category: null
-          type: DATE
-      - website_ctr:
-          category: null
-          type: MAP_STRING
-      - adset_name:
-          category: null
-          type: STRING
-      - action_values:
-          category: null
-          type: MAP_STRING
-      - campaign_name:
-          category: null
-          type: STRING
-      - call_to_action_clicks:
-          category: null
-          type: DOUBLE
-      - video_avg_time_watched_actions:
-          category: null
-          type: MAP_STRING
-      - video_avg_sec_watched_actions:
-          category: null
-          type: MAP_STRING
-      - video_avg_pct_watched_actions:
-          category: null
-          type: MAP_STRING
-      - video_avg_percent_watched_actions:
-          category: null
-          type: MAP_STRING
-      - video_p25_watched_actions:
-          category: null
-          type: MAP_STRING
-      - video_15_sec_watched_actions:
-          category: null
-          type: MAP_STRING
-      - video_30_sec_watched_actions:
-          category: null
-          type: MAP_STRING
-      - video_p50_watched_actions:
-          category: null
-          type: MAP_STRING
-      - video_10_sec_watched_actions:
-          category: null
-          type: MAP_STRING
-      - video_p75_watched_actions:
-          category: null
-          type: MAP_STRING
-      - video_p95_watched_actions:
-          category: null
-          type: MAP_STRING
-      - video_p100_watched_actions:
-          category: null
-          type: MAP_STRING
-      - cost_per_10_sec_video_view:
-          category: null
-          type: MAP_STRING
-      - video_complete_watched_actions:
-          category: null
-          type: MAP_STRING
-      - estimated_ad_recallers:
-          category: null
-          type: STRING
   add_to_basket:
     columns:
       - _time:
@@ -329,112 +105,6 @@ collections:
           category: null
           type: STRING
       - _device_id:
-          category: null
-          type: STRING
-  intercom_demo_conversation:
-    columns:
-      - topic:
-          category: null
-          type: STRING
-      - assignee_type:
-          category: null
-          type: STRING
-      - assignee_id:
-          category: null
-          type: STRING
-      - user_id:
-          category: null
-          type: STRING
-      - _user:
-          category: null
-          type: LONG
-      - user_intercom_id:
-          category: null
-          type: STRING
-      - _time:
-          category: null
-          type: TIMESTAMP
-      - author_id:
-          category: null
-          type: STRING
-      - user_email:
-          category: null
-          type: STRING
-      - author_type:
-          category: null
-          type: STRING
-      - subject:
-          category: null
-          type: STRING
-      - user_name:
-          category: null
-          type: STRING
-  intercom_demo_contact:
-    columns:
-      - _os:
-          category: null
-          type: STRING
-      - topic:
-          category: null
-          type: STRING
-      - user_id:
-          category: null
-          type: STRING
-      - _user:
-          category: null
-          type: LONG
-      - _isp:
-          category: null
-          type: STRING
-      - user_intercom_id:
-          category: null
-          type: STRING
-      - _city:
-          category: null
-          type: STRING
-      - _connection_type:
-          category: null
-          type: STRING
-      - _time:
-          category: null
-          type: TIMESTAMP
-      - user_anonymous:
-          category: null
-          type: BOOLEAN
-      - user_email:
-          category: null
-          type: STRING
-      - _country_code:
-          category: null
-          type: STRING
-      - _user_agent_family:
-          category: null
-          type: STRING
-      - __ip:
-          category: null
-          type: STRING
-      - _region:
-          category: null
-          type: STRING
-      - _latitude:
-          category: null
-          type: DOUBLE
-      - _user_agent_version:
-          category: null
-          type: LONG
-      - _os_version:
-          category: null
-          type: LONG
-      - _device_family:
-          category: null
-          type: STRING
-      - user_session_count:
-          category: null
-          type: DOUBLE
-      - _longitude:
-          category: null
-          type: DOUBLE
-      - _timezone:
           category: null
           type: STRING
   view_page:
@@ -687,207 +357,6 @@ collections:
       - _device_id:
           category: null
           type: STRING
-  intercom_demo_user:
-    columns:
-      - topic:
-          category: null
-          type: STRING
-      - user_id:
-          category: null
-          type: STRING
-      - _user:
-          category: null
-          type: LONG
-      - user_intercom_id:
-          category: null
-          type: STRING
-      - _time:
-          category: null
-          type: TIMESTAMP
-      - _os:
-          category: null
-          type: STRING
-      - _isp:
-          category: null
-          type: STRING
-      - _city:
-          category: null
-          type: STRING
-      - _connection_type:
-          category: null
-          type: STRING
-      - user_anonymous:
-          category: null
-          type: BOOLEAN
-      - user_email:
-          category: null
-          type: STRING
-      - _country_code:
-          category: null
-          type: STRING
-      - _user_agent_family:
-          category: null
-          type: STRING
-      - __ip:
-          category: null
-          type: STRING
-      - _region:
-          category: null
-          type: STRING
-      - user_name:
-          category: null
-          type: STRING
-      - _latitude:
-          category: null
-          type: DOUBLE
-      - _user_agent_version:
-          category: null
-          type: LONG
-      - _os_version:
-          category: null
-          type: LONG
-      - _device_family:
-          category: null
-          type: STRING
-      - user_signed_up_at:
-          category: null
-          type: TIMESTAMP
-      - user_session_count:
-          category: null
-          type: DOUBLE
-      - _longitude:
-          category: null
-          type: DOUBLE
-      - _timezone:
-          category: null
-          type: STRING
-  intercom_demo_visitor:
-    columns:
-      - _os:
-          category: null
-          type: STRING
-      - topic:
-          category: null
-          type: STRING
-      - user_id:
-          category: null
-          type: STRING
-      - _user:
-          category: null
-          type: LONG
-      - _isp:
-          category: null
-          type: STRING
-      - user_intercom_id:
-          category: null
-          type: STRING
-      - _city:
-          category: null
-          type: STRING
-      - _connection_type:
-          category: null
-          type: STRING
-      - user_anonymous:
-          category: null
-          type: BOOLEAN
-      - __ip:
-          category: null
-          type: STRING
-      - user_name:
-          category: null
-          type: STRING
-      - _user_agent_version:
-          category: null
-          type: LONG
-      - _device_family:
-          category: null
-          type: STRING
-      - user_session_count:
-          category: null
-          type: DOUBLE
-      - _longitude:
-          category: null
-          type: DOUBLE
-      - _time:
-          category: null
-          type: TIMESTAMP
-      - user_email:
-          category: null
-          type: STRING
-      - _country_code:
-          category: null
-          type: STRING
-      - _user_agent_family:
-          category: null
-          type: STRING
-      - _region:
-          category: null
-          type: STRING
-      - _latitude:
-          category: null
-          type: DOUBLE
-      - _os_version:
-          category: null
-          type: LONG
-      - user_signed_up_at:
-          category: null
-          type: TIMESTAMP
-      - user_segments:
-          category: null
-          type: ARRAY_STRING
-      - _timezone:
-          category: null
-          type: STRING
-  google_analytics:
-    columns:
-      - _time:
-          category: null
-          type: TIMESTAMP
-      - 'ga:hostname':
-          category: null
-          type: STRING
-      - 'ga:goal_value_all':
-          category: null
-          type: DOUBLE
-      - 'ga:bounces':
-          category: null
-          type: DOUBLE
-      - 'ga:city':
-          category: null
-          type: STRING
-      - 'ga:transactions':
-          category: null
-          type: DOUBLE
-      - 'ga:avg_time_on_page':
-          category: null
-          type: STRING
-      - _user:
-          category: null
-          type: LONG
-      - 'ga:goal_completions_all':
-          category: null
-          type: DOUBLE
-      - 'ga:page_path':
-          category: null
-          type: STRING
-      - 'ga:sessions':
-          category: null
-          type: DOUBLE
-      - 'ga:pageviews':
-          category: null
-          type: DOUBLE
-      - 'ga:country':
-          category: null
-          type: STRING
-      - 'ga:new_users':
-          category: null
-          type: DOUBLE
-      - 'ga:transaction_revenue':
-          category: null
-          type: DOUBLE
-      - 'ga:users':
-          category: null
-          type: DOUBLE
   product_list:
     columns:
       - _time:
@@ -3573,65 +3042,8 @@ reports:
               statistics: relative
             formatNumbers: true
     queryOptions: {}
-materialized_views:
-  - table_name: _event_explorer_metrics
-    name: Event explorer metrics
-    query: >-
-      select date_trunc('hour', "_time") as _time, _collection, count(*) as
-      total from _all group by 1, 2
-    update_interval: 3600
-    incremental: true
-    real_time: true
-    options: {}
-    last_update: null
-continuous_queries:
-  - table_name: real_time_revenue
-    name: Real Time Revenue
-    query: >-
-      select (cast(to_unixtime("_time") as bigint) / 5) as time,
-      sum("total_price") as "total_price_sum"  FROM (SELECT "_time",
-      "total_price" FROM "order" ) data  group by 1 
-    partition_keys: []
-    options:
-      realtime: true
-      aggregation:
-        - column: total_price
-          aggregation: SUM
-    windowDuration: null
-custom_pages: []
 custom_reports:
-  - userEmail: null
-    report_type: real-time
-    name: real time price
-    data:
-      table_name: real_time_revenue
-      chart: bar
-      measure:
-        column: total_price
-        aggregation: SUM
-      dimensions: []
-  - userEmail: null
-    report_type: real-time
-    name: Real Time Revenue
-    data:
-      table_name: real_time_revenue
-      chart: line
-      measure:
-        column: total_price
-        aggregation: SUM
-      dimensions: []
-  - userEmail: null
-    report_type: real-time
-    name: Real Time Users
-    data:
-      table_name: real_time_revenue
-      chart: number-value
-      measure:
-        column: total_price
-        aggregation: SUM
-      dimensions: []
-  - userEmail: null
-    report_type: funnel
+  - report_type: funnel
     name: Order - Page View
     data:
       dimension: null
@@ -3645,8 +3057,7 @@ custom_reports:
         - collection: pageview
           filter:
             rules: []
-  - userEmail: null
-    report_type: funnel
+  - report_type: funnel
     name: Register - Page View
     data:
       dimension: null
@@ -3660,8 +3071,7 @@ custom_reports:
         - collection: pageview
           filter:
             rules: []
-  - userEmail: null
-    report_type: funnel
+  - report_type: funnel
     name: Add Basket - Order
     data:
       dimension: null
@@ -3678,8 +3088,7 @@ custom_reports:
         - collection: order
           filter:
             rules: []
-  - userEmail: null
-    report_type: funnel
+  - report_type: funnel
     name: Search and Order
     data:
       dimension: null
@@ -3699,8 +3108,7 @@ custom_reports:
         - collection: order
           filter:
             rules: []
-  - userEmail: null
-    report_type: funnel
+  - report_type: funnel
     name: View Product to Order
     data:
       dimension: null
@@ -3717,8 +3125,7 @@ custom_reports:
         - collection: order
           filter:
             rules: []
-  - userEmail: null
-    report_type: funnel
+  - report_type: funnel
     name: test
     data:
       dimension: null
@@ -3730,9 +3137,8 @@ custom_reports:
         - collection: add_basket
           filter:
             rules: []
-  - userEmail: null
-    report_type: funnel
-    name: Session to Registiration
+  - report_type: funnel
+    name: Session to Registration
     data:
       dimension: null
       window:
@@ -3749,15 +3155,7 @@ custom_reports:
         - collection: add_basket
           filter:
             rules: []
-  - userEmail: null
-    report_type: stream
-    name: Live Searches
-    data:
-      - collection: search
-        filter:
-          rules: []
-  - userEmail: null
-    report_type: retention
+  - report_type: retention
     name: Page View - Order
     data:
       dateUnit: day
@@ -3770,8 +3168,7 @@ custom_reports:
         filter: null
       dimension: null
       period: 30
-  - userEmail: null
-    report_type: retention
+  - report_type: retention
     name: View Product - Order
     data:
       dateUnit: day
@@ -3784,8 +3181,7 @@ custom_reports:
         filter: null
       dimension: null
       period: 30
-  - userEmail: null
-    report_type: retention
+  - report_type: retention
     name: Search - Order
     data:
       dateUnit: day
@@ -3798,8 +3194,7 @@ custom_reports:
         filter: null
       dimension: null
       period: 30
-  - userEmail: null
-    report_type: retention
+  - report_type: retention
     name: Add Basket - Order
     data:
       dateUnit: day
@@ -3812,8 +3207,7 @@ custom_reports:
         filter: null
       dimension: null
       period: 30
-  - userEmail: null
-    report_type: retention
+  - report_type: retention
     name: Register - Order
     data:
       dateUnit: day
@@ -3826,8 +3220,7 @@ custom_reports:
         filter: null
       dimension: null
       period: 30
-  - userEmail: null
-    report_type: retention
+  - report_type: retention
     name: Page View - Register
     data:
       dateUnit: day
@@ -3840,8 +3233,7 @@ custom_reports:
         filter: null
       dimension: null
       period: 30
-  - userEmail: null
-    report_type: retention
+  - report_type: retention
     name: Page View - View Product
     data:
       dateUnit: day
@@ -3855,7 +3247,7 @@ custom_reports:
       dimension: null
       period: 30
 dashboards:
-  - name: My dashboard
+  - name: Website
     items:
       - id: 1374
         name: Popular pages
