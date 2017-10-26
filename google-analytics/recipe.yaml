@@ -148,7 +148,7 @@ reports:
       dimensions:
         - 0
       columnOptions:
-        - displayFormat: yyyy-MM-dd
+        - displayFormat: YYYY-MM-DD
           tableOptions:
             cellOptions: {}
           chartOptions: {}
@@ -257,7 +257,7 @@ reports:
       dimensions:
         - 0
       columnOptions:
-        - displayFormat: yyyy-MM-dd
+        - displayFormat: YYYY-MM-DD
           tableOptions:
             cellOptions: {}
           chartOptions: {}
