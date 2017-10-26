@@ -34,7 +34,7 @@ collections:
           type: STRING
       - _session_id:
           category: null
-          type: LONG
+          type: DOUBLE
       - count:
           category: null
           type: DOUBLE
@@ -67,7 +67,7 @@ collections:
           type: STRING
       - resolution:
           category: null
-          type: ARRAY_STRING
+          type: STRING
       - _device_family:
           category: null
           type: STRING
@@ -100,7 +100,7 @@ collections:
           type: STRING
       - _os_version:
           category: null
-          type: LONG
+          type: DOUBLE
       - _referrer_term:
           category: null
           type: STRING
@@ -140,9 +140,6 @@ collections:
           category: null
           type: STRING
       - _session_id:
-          category: null
-          type: LONG
-      - category_names:
           category: null
           type: DOUBLE
       - _connection_type:
@@ -219,13 +216,13 @@ collections:
           type: STRING
       - _os_version:
           category: null
-          type: LONG
+          type: DOUBLE
       - _referrer_term:
           category: null
           type: STRING
       - time_on_page:
           category: null
-          type: INTEGER
+          type: DOUBLE
       - _device_id:
           category: null
           type: STRING
@@ -260,7 +257,7 @@ collections:
           type: STRING
       - _session_id:
           category: null
-          type: LONG
+          type: DOUBLE
       - product_code:
           category: null
           type: STRING
@@ -350,7 +347,7 @@ collections:
           type: STRING
       - _os_version:
           category: null
-          type: LONG
+          type: DOUBLE
       - _referrer_term:
           category: null
           type: STRING
@@ -388,7 +385,7 @@ collections:
           type: STRING
       - _session_id:
           category: null
-          type: LONG
+          type: DOUBLE
       - brand:
           category: null
           type: STRING
@@ -460,7 +457,7 @@ collections:
           type: STRING
       - category_names:
           category: null
-          type: STRING
+          type: ARRAY_STRING
       - language:
           category: null
           type: STRING
@@ -469,7 +466,7 @@ collections:
           type: STRING
       - _os_version:
           category: null
-          type: LONG
+          type: DOUBLE
       - _referrer_term:
           category: null
           type: STRING
@@ -525,7 +522,7 @@ collections:
           type: STRING
       - resolution:
           category: null
-          type: ARRAY_STRING
+          type: STRING
       - _device_family:
           category: null
           type: STRING
@@ -549,7 +546,7 @@ collections:
           type: STRING
       - _os_version:
           category: null
-          type: LONG
+          type: DOUBLE
       - _referrer_term:
           category: null
           type: STRING
@@ -599,7 +596,7 @@ collections:
           type: STRING
       - _session_id:
           category: null
-          type: LONG
+          type: DOUBLE
       - count:
           category: null
           type: DOUBLE
@@ -626,7 +623,7 @@ collections:
           type: STRING
       - product_quantities:
           category: null
-          type: ARRAY_LONG
+          type: ARRAY_DOUBLE
       - _user_gender:
           category: null
           type: STRING
@@ -638,7 +635,7 @@ collections:
           type: ARRAY_STRING
       - resolution:
           category: null
-          type: ARRAY_STRING
+          type: STRING
       - product_codes:
           category: null
           type: ARRAY_STRING
@@ -674,7 +671,7 @@ collections:
           type: STRING
       - _os_version:
           category: null
-          type: LONG
+          type: DOUBLE
       - _referrer_term:
           category: null
           type: STRING
@@ -1138,7 +1135,7 @@ reports:
               source: single
               table:
                 tableType: collection
-                tableName: basket
+                tableName: add_to_basket
               type: single
               tables: null
             disable_quotes: true
