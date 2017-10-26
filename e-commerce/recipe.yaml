@@ -2200,13 +2200,13 @@ reports:
 
       first_value (_url) OVER (PARTITION BY _user ORDER BY _time ASC) as path0, 
 
-      nth_value(url, 2) OVER (PARTITION BY _user ORDER BY _time ASC) as path1,
+      nth_value(_url, 2) OVER (PARTITION BY _user ORDER BY _time ASC) as path1,
 
-      nth_value(url, 3) OVER (PARTITION BY _user ORDER BY _time ASC) as path2,
+      nth_value(_url, 3) OVER (PARTITION BY _user ORDER BY _time ASC) as path2,
 
-      nth_value(url, 4) OVER (PARTITION BY _user ORDER BY _time ASC) as path3,
+      nth_value(_url, 4) OVER (PARTITION BY _user ORDER BY _time ASC) as path3,
 
-      nth_value(url, 5) OVER (PARTITION BY _user ORDER BY _time ASC) as path4
+      nth_value(_url, 5) OVER (PARTITION BY _user ORDER BY _time ASC) as path4
 
       from view_page where _url is not null and _time between {date[0]} and
       {date[1]}) as data
@@ -2620,7 +2620,7 @@ reports:
     category: Visitor
     name: Popular pages
     query: >-
-      select url, count(*) count from view_page where _time between {date[0]}
+      select _url, count(*) count from view_page where _time between {date[0]}
       and {date[1]} group by 1 order by 2 desc
     shared: false
     options:
@@ -2866,13 +2866,13 @@ reports:
 
       first_value (_url) OVER (PARTITION BY _user ORDER BY _time DESC) as path0, 
 
-      nth_value(url, 2) OVER (PARTITION BY _user ORDER BY _time DESC) as path1,
+      nth_value(_url, 2) OVER (PARTITION BY _user ORDER BY _time DESC) as path1,
 
-      nth_value(url, 3) OVER (PARTITION BY _user ORDER BY _time DESC) as path2,
+      nth_value(_url, 3) OVER (PARTITION BY _user ORDER BY _time DESC) as path2,
 
-      nth_value(url, 4) OVER (PARTITION BY _user ORDER BY _time DESC) as path3,
+      nth_value(_url, 4) OVER (PARTITION BY _user ORDER BY _time DESC) as path3,
 
-      nth_value(url, 5) OVER (PARTITION BY _user ORDER BY _time DESC) as path4
+      nth_value(_url, 5) OVER (PARTITION BY _user ORDER BY _time DESC) as path4
 
       from view_page where _url is not null and _time between {time[0]} and
       {time[1]}) as data
